@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1515566913078_0" label="qhhhq-project" name="qhhhq-project">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/qhhhq-project" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/qhhhq-api" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/common-api" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/qhhhq-provider" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/common-provider" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/qhhhq-dao" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/qhhhq-consumer" type="4"/>
+</workingSet>
+</workingSetManager>

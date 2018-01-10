@@ -1,0 +1,68 @@
+2018-01-10 14:48:39,564 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-project:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\pom.xml.
+2018-01-10 14:48:39,707 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-api:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-api\pom.xml.
+2018-01-10 14:48:55,469 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:common-api:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-api\common-api\pom.xml.
+2018-01-10 14:48:55,564 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-provider:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-provider\pom.xml.
+2018-01-10 14:49:00,071 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:common-provider:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-provider\common-provider\pom.xml.
+2018-01-10 14:49:00,145 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:qhhhq-dao:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-dao\pom.xml.
+2018-01-10 14:49:00,221 [Worker-17] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:qhhhq-consumer:0.0.1-SNAPSHOT @ E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-consumer\pom.xml.
+2018-01-10 14:49:05,803 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-dao/src/main/java
+2018-01-10 14:49:05,805 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-dao/src/test/java
+2018-01-10 14:49:05,924 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-api/src/main/java
+2018-01-10 14:49:05,926 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-api/src/test/java
+2018-01-10 14:49:05,974 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-provider/src/main/java
+2018-01-10 14:49:05,975 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-provider/src/test/java
+2018-01-10 14:49:06,080 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-consumer/src/main/java
+2018-01-10 14:49:06,082 [Worker-17] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-consumer/src/test/java
+2018-01-10 14:49:06,133 [Worker-17] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 7 project(s) in 32 sec
+2018-01-10 14:49:12,055 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:12,056 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-dao\src\main\resources
+2018-01-10 14:49:12,058 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:12,059 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-dao\src\test\resources
+2018-01-10 14:49:13,392 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:13,392 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-api\common-api\src\main\resources
+2018-01-10 14:49:13,394 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:13,394 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-api\common-api\src\test\resources
+2018-01-10 14:49:14,059 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:14,059 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-consumer\src\main\resources
+2018-01-10 14:49:14,061 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:14,061 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-consumer\src\test\resources
+2018-01-10 14:49:14,821 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:14,822 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
+2018-01-10 14:49:14,823 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:49:14,824 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\eclipse_workspace\project\dubbo\qhhhq-project\qhhhq-provider\common-provider\src\test\resources
+2018-01-10 14:51:29,839 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-project:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\pom.xml.
+2018-01-10 14:51:29,848 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-api:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-api\pom.xml.
+2018-01-10 14:51:30,414 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:common-api:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-api\common-api\pom.xml.
+2018-01-10 14:51:30,422 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using NULL lifecycle mapping for MavenProject: net.qhhhq:qhhhq-provider:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-provider\pom.xml.
+2018-01-10 14:51:30,668 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:common-provider:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\pom.xml.
+2018-01-10 14:51:30,758 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:qhhhq-dao:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-dao\pom.xml.
+2018-01-10 14:51:30,801 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: net.qhhhq:qhhhq-consumer:0.0.1-SNAPSHOT @ E:\git\resources\qhhhq-project\qhhhq-consumer\pom.xml.
+2018-01-10 14:51:33,367 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-dao/src/main/java
+2018-01-10 14:51:33,367 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-dao/src/test/java
+2018-01-10 14:51:33,396 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-api/src/main/java
+2018-01-10 14:51:33,397 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-api/src/test/java
+2018-01-10 14:51:33,430 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-provider/src/main/java
+2018-01-10 14:51:33,430 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /common-provider/src/test/java
+2018-01-10 14:51:33,487 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-consumer/src/main/java
+2018-01-10 14:51:33,488 [Worker-7] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /qhhhq-consumer/src/test/java
+2018-01-10 14:51:33,518 [Worker-7] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 7 project(s) in 4 sec
+2018-01-10 14:51:34,562 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:34,562 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\src\main\resources
+2018-01-10 14:51:34,565 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:34,565 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\src\test\resources
+2018-01-10 14:51:35,056 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,056 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-api\common-api\src\main\resources
+2018-01-10 14:51:35,058 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,058 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-api\common-api\src\test\resources
+2018-01-10 14:51:35,283 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,283 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-consumer\src\main\resources
+2018-01-10 14:51:35,285 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,285 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-consumer\src\test\resources
+2018-01-10 14:51:35,873 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,873 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
+2018-01-10 14:51:35,875 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:51:35,875 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\test\resources
+2018-01-10 14:55:24,842 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:55:24,842 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
+2018-01-10 14:55:24,844 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 14:55:24,844 [Worker-14] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\test\resources
