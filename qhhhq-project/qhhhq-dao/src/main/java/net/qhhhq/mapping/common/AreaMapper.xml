@@ -13,7 +13,7 @@
     id, code, province, city, district, parent
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from comm_area
     where id = #{id,jdbcType=INTEGER}
@@ -23,10 +23,10 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="net.qhhhq.model.common.Area">
-    insert into comm_area (id, code, province, 
+    insert into comm_area (id, code, province,
       city, district, parent
       )
-    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR},
       #{city,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, #{parent,jdbcType=INTEGER}
       )
   </insert>
@@ -103,4 +103,11 @@
       parent = #{parent,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="queryAllProvince" resultMap="BaseResultMap">
+  	select id, province from comm_area where parent is null
+  </select>
+  <select id="queryAreaByParent" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select id, city, district from comm_area
+	where parent = #{parent,jdbcType=INTEGER}
+  </select>
 </mapper>

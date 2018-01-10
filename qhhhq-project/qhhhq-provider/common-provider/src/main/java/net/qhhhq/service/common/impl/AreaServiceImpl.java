@@ -1,5 +1,7 @@
 package net.qhhhq.service.common.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +24,14 @@ public class AreaServiceImpl implements AreaService {
 
 	public void delete(Integer id) {
 		areaMapper.deleteByPrimaryKey(id);
+	}
+
+	public List<Area> listProvince() {
+		return areaMapper.queryAllProvince();
+	}
+
+	public List<Area> listAreaByParent(Integer parent) {
+		return areaMapper.queryAreaByParent(parent);
 	}
 
 }

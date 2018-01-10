@@ -1,3 +1,5 @@
+import java.util.List;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import net.qhhhq.api.common.AreaService;
@@ -11,15 +13,17 @@ public class AreaConsumer {
         System.out.println("consumer start");
         AreaService areaService = context.getBean(AreaService.class);
         System.out.println("consumer");
-        Area area = new Area();
-        area.setCode("630000");
-        area.setDistrict("");
-        area.setId(3304);
-        area.setParent(null);
-        area.setProvince("青海省");
-        areaService.save(area);
+       /* Area area = new Area();
+        area.setCode("630123");
+        area.setId(3313);
+        area.setParent(3305);
+        area.setDistrict("湟源县");
+        areaService.save(area);*/
         //areaService.delete(3304);
-
+        List<Area> areas = areaService.listAreaByParent(3304);
+        for(Area a : areas) {
+        	System.out.println(a.getCity());
+        }
 	}
 
 }
