@@ -407,3 +407,11 @@
 2018-01-10 16:52:50,005 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
 2018-01-10 16:52:50,006 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-01-10 16:52:50,006 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\test\resources
+2018-01-10 17:04:03,870 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 17:04:03,870 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
+2018-01-10 17:04:03,871 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-10 17:04:03,871 [Worker-75] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\test\resources
+2018-01-11 11:26:42,910 [Worker-144] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-11 11:26:42,929 [Worker-144] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\main\resources
+2018-01-11 11:26:42,930 [Worker-144] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-11 11:26:42,930 [Worker-144] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\common-provider\src\test\resources

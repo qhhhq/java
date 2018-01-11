@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,user-scalable=0">
+<title>分类商品</title>
+<link rel="stylesheet" href="/resources/market/weui/style/weui.css" />
+<link rel="stylesheet" href="/resources/market/weui/style/weui.min.css" />
+<link rel="stylesheet" href="/resources/market/weui/style/index.css" />
+<script src="/resources/market/weui/js/zepto.min.js"></script>
+
+
+<link rel="stylesheet"
+	href="/resources/market/category/css/swiper-3.2.5.min.css" />
+<link rel="stylesheet" href="/resources/market/category/css/ectouch.css" />
+<link rel="stylesheet" href="/resources/market/category/css/search.css" />
+
+<script src="/resources/market/category/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"
+	src="/resources/market/category/js/swiper-3.2.5.min.js"></script>
+<script type="text/javascript"
+	src="/resources/market/category/js/ectouch.js"></script>
+<script type="text/javascript"
+	src="/resources/market/category/js/jquery.json.js"></script>
+<script type="text/javascript"
+	src="/resources/market/category/js/common.js"></script>
+	
+
+<link rel="stylesheet"
+	href="/resources/market/layer_mobile/need/layer.css" />
+
+<script type="text/javascript" src="/resources/manage/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/resources/manage/lib/layer/2.4/layer.js"></script>
+
+<script type="text/javascript">
+	
+	var currTypeId = '';
+	var pageNo = 1;
+	
+	var map = {};
+$(function($) {
+		$('#sidebar ul li').click(function() {
+			$(this).addClass('active').siblings('li').removeClass('active');
+			var index = $(this).index();
+			$('.j-content').eq(index).show().siblings('.j-content').hide();
+			var typeId = $(this).find("typeId").val();
+			currTypeId = typeId;
+		});
+
+
+		//获取购物车的数量
+		$.ajax({
+			type : 'get',
+			url : "/market/getBuyCartAmount?merchantId=${merchantId}",
+			success : function(data) {
+				if(data > 0) {
+					$("#buycartAmount").css('display','block');
+					$("#buycartAmount").text(data);
+				} else {
+					$("#buycartAmount").css('display','none');
+				}
+			},
+			error : function(XmlHttpRequest,
+					textStatus, errorThrown) {
+				$("#buycartAmount").css('display','none');
+			}
+		});
+		
+	
+	$('.loadmore').click(function() {
+		var loadbtn = $(this);
+		var type=$(this).attr("name");
+		var $loadingToast = $('#loadingToast');
+		if ($loadingToast.css('display') != 'none') return;
+		$loadingToast.fadeIn(100);
+		var moreProduct = $(this).closest("section").find(".typeProduct");
+		if(currTypeId != '') {
+			type = currTypeId;
+			moreProduct = $(this).closest("section").find(".subTypeProduct");
+		}
+		if(map[type] == null || map[type] == '') {
+			map[type] = 2;
+		}
+		$.ajax({
+			type : 'get',
+			url : "/market/typeProduct?merchantId=${merchantId}&typeId="+type+"&pageNo="+map[type],
+			success : function(data) {
+				if(data.products.length == 0 || data.products == "") {
+					loadbtn.html("无更多数据");
+					loadbtn.attr("disabled","disabled");
+				}
+				$.each(data.products, function(i, item) {
+					moreProduct.append(
+						"<div style='position:relative'>"+
+						"<a href='javascript:openProduct("+ item.merchantId +","+ item.productId +","+ item.mProductId +")'"+
+						" class='weui-media-box weui-media-box_appmsg'>"+
+						"<div class='weui-media-box__hd'>"+
+						"<img class='weui-media-box__thumb' src="+item.img+">"+
+						"</div>"+
+						"<div class='weui-media-box__bd'>"+
+						"<p class='list-pname'  style='font-size: 1.5rem;'>"+item.productName+"</p>"+
+						"<p class='weui-media-box__desc'>"+ item.model +"</p>"+
+						"<p class='weui-media-box__desc list-pprice'>¥"+item.sellPrice+"</p>"+
+						"</div>"+
+						"</a>"+
+						"<a class='type-buycart' href='javascript:buycart("+ item.mProductId +","+ item.styleId +")'>"+
+						"<img class='type-buycart-img' src='/resources/market/weui/images/buycart1.png'/>"+
+						"</a>"+
+						"</div>");
+				});
+				map[type] = map[type] + 1;
+				$loadingToast.fadeOut(100);
+			},
+			error : function(XmlHttpRequest,
+				textStatus, errorThrown) {
+				$loadingToast.fadeOut(100);
+			}
+		});
+	});
+
+	var counter = 0;
+    // 每页展示20个
+    var num = 20;
+    var pageStart = 0,pageEnd = 0;
+	var pageNum = 2;
+
+    // dropload
+    var dropload = $('.content').dropload({
+        scrollArea : window,
+        loadDownFn : function(me){
+			$.ajax({
+				type: 'GET',
+				url: "/market/typeProduct?merchantId=${merchantId}&typeId="+currTypeId+"&pageNo="+pageNum,
+				dataType: 'json',
+				success: function(data){
+					var result = '';
+					counter++;
+					pageNum++;
+					pageEnd = num * counter;
+					pageStart = pageEnd - num;
+					if(data.products.length == 0 || data.products == "") {
+						// 数据加载完
+						tab1LoadEnd = true;
+						// 锁定
+						me.lock();
+						// 无数据
+						me.noData();
+						break;
+					}
+					if(pageStart <= data.lists.length){
+						$.each(data.products, function(i, item) {
+							result += "<div style='position:relative'>"+
+								"<a href='javascript:openProduct("+ item.merchantId +","+ item.productId +","+ item.mProductId +")'"+
+								" class='weui-media-box weui-media-box_appmsg'>"+
+								"<div class='weui-media-box__hd'>"+
+								"<img class='weui-media-box__thumb' src="+item.img+">"+
+								"</div>"+
+								"<div class='weui-media-box__bd'>"+
+								"<p class='list-pname'  style='font-size: 1.5rem;'>"+item.productName+"</p>"+
+								"<p class='weui-media-box__desc'>"+ item.model +"</p>"+
+								"<p class='weui-media-box__desc list-pprice'>¥"+item.sellPrice+"</p>"+
+								"</div>"+
+								"</a>"+
+								"<a class='type-buycart' href='javascript:buycart("+ item.mProductId +","+ item.styleId +")'>"+
+								"<img class='type-buycart-img' src='/resources/market/weui/images/buycart1.png'/>"+
+								"</a>"+
+								"</div>";
+						});
+						$('.subTypeProduct').eq(itemIndex).append(result);
+					}
+				},
+				error: function(xhr, type){
+					alert('Ajax error!');
+					// 即使加载出错，也得重置
+					me.resetload();
+				}
+			});
+        }
+    });
+});
+	
+	function loadPorduct(typeId) {
+		var $type = $('#type'+typeId);
+		map[typeId] = '';
+		if(currTypeId == '' || currTypeId != typeId) {
+			$type.closest("section").find(".loadmore").css("display","none");
+			$type.closest("section").find(".loadmore").html("加载更多");
+			$type.closest("section").find(".loadmore").removeAttr("disabled");
+			currTypeId = typeId;
+			var $loadingToast = $('#loadingToast');
+			$type.addClass('weui-btn_primary').siblings('a').removeClass('weui-btn_primary');
+			$type.css('color','#FFFFFF').siblings('a').css('color','#000000');
+			$type.closest("section").find(".typeProduct").css('display','none');
+			if ($loadingToast.css('display') != 'none') return;
+			$loadingToast.fadeIn(100);
+			$.ajax({
+				type : 'get',
+				url : "/market/typeProduct?merchantId=${merchantId}&typeId="+typeId+"&pageNo="+pageNo,
+				success : function(data) {
+					$type.closest("section").find(".subTypeProduct").html("");
+					$type.closest("section").find(".noProduct").css("display","none");
+					if(data.products.length == 0 || data.products == "") {
+						$type.closest("section").find(".noProduct").css("display","block");
+					} else {
+						$type.closest("section").find(".subTypeProduct").css('display','block');
+					}
+					var subTypeProduct = $type.closest("section").find(".subTypeProduct");
+					$.each(data.products, function(i, item) {
+						subTypeProduct.append(
+						"<div style='position:relative'>"+
+						"<a href='javascript:openProduct("+ item.merchantId +","+ item.productId +","+ item.mProductId +")'"+
+							" class='weui-media-box weui-media-box_appmsg'>"+
+							"<div class='weui-media-box__hd'>"+
+							"<img class='weui-media-box__thumb' src="+item.img+">"+
+							"</div>"+
+							"<div class='weui-media-box__bd'>"+
+							"<p class='list-pname'  style='font-size: 1.5rem;'>"+item.productName+"</p>"+
+							"<p class='weui-media-box__desc'>"+ item.model +"</p>"+
+							"<p class='weui-media-box__desc list-pprice'>¥"+item.sellPrice+"</p>"+
+							"</div>"+
+							"</a>"+
+							"<a class='type-buycart' href='javascript:buycart("+ item.mProductId +","+ item.styleId +")'>"+
+							"<img class='type-buycart-img' src='/resources/market/weui/images/buycart1.png'/>"+
+							"</a>"+
+						"</div>");
+					});
+					if(data.products.length >= 20) {
+						$type.closest("section").find(".loadmore").css("display","block");
+					}
+					$loadingToast.fadeOut(100);
+				},
+				error : function(XmlHttpRequest,
+					textStatus, errorThrown) {
+					$loadingToast.fadeOut(100);
+				}
+			});
+		} else {
+			$type.closest("section").find(".loadmore").css("display","block");
+			$type.removeClass('weui-btn_primary');
+			$type.css('color','#000000');
+			$type.closest("section").find(".typeProduct").css('display','block');
+			$type.closest("section").find(".subTypeProduct").css('display','none');
+			currTypeId = '';
+		}
+		//$loadingToast.fadeIn(100);
+        /*setTimeout(function () {
+            $loadingToast.fadeOut(100);
+        }, 2000);*/
+	}
+	
+	function buycart(mProductId,sid){
+		var $toast = $('#toast');
+		if ($toast.css('display') != 'none')
+			return;
+		$.ajax({
+			type : 'POST',
+			url : "/market/addBuyCart?mProductId="+ mProductId +"&merchantId=${merchantId}&amount=1&styleId="+ sid,
+			success : function(data) {
+			if(data == "000000") {
+				$("#buycartAmount").css('display','block');
+				if($("#buycartAmount").text() == "") {
+					$("#buycartAmount").text(0);
+				}
+				$("#buycartAmount").text(parseInt($("#buycartAmount").text()) + 1);
+			} else {
+				$("#tranDesc").html(data);
+			}
+			$toast.fadeIn(100);
+			setTimeout(function() {
+				$toast.fadeOut(100);
+			}, 2000);
+			},
+			error : function(XmlHttpRequest,textStatus, errorThrown) {
+				$("#tranDesc").html("系统异常，添加失败");
+				$toast.fadeIn(100);
+				setTimeout(function() {
+				$toast.fadeOut(100);
+			}, 2000);
+			}
+		});
+	}
+	
+	function openProduct(merchantId, productId, mProductId) {
+		var index = layer.open({
+            type: 2,
+            title: false,
+            closeBtn: 0,
+            content: '/resources/html/'+merchantId+'/'+productId+'_'+mProductId+'.html'
+        });
+        layer.full(index);
+	}
+	
+</script>
+
+</head>
+<body ontouchstart>
+
+	<div class="container" id="container">
+		<div class="page">
+			<div class="page__bd" style="height: 100%;">
+				<div class="weui-tab">
+					<div class="weui-tab__panel">
+						<div class="weui-tab__content" style="display: block">
+							<!--分类开始-->
+							<div class="con">
+								<div class="category-top">
+									<header> <section class="search">
+									<div class="text-all dis-box j-text-all">
+										<div class="box-flex input-text">
+											<form action="/market/searchProduct" name="searchForm"
+												id="searchForm"  method="post">
+												<input type="text" name="keyWord" placeholder="商品搜索">
+												<input type="hidden" name="merchantId" value="${merchantId}" />
+											</form>
+											<i class="iconfont icon-guanbi is-null j-is-null"></i>
+										</div>
+									</div>
+									</section> </header>
+								</div>
+								<aside>
+								<div class="menu-left scrollbar-none" id="sidebar">
+									<ul>
+										#foreach($category in ${categorys})
+											<li #if($velocityCount == 1)class="active" #end>
+												${category.productType.name}
+												<input type="hidden" name="typeId" value="${category.productType.typeId}" />
+											</li>
+										#end
+										<br/>
+										<br/>
+									</ul>
+								</div>
+								</aside>
+								#foreach($category in ${categorys})
+								<section class="menu-right padding-all j-content "
+										#if($velocityCount != 1) style="display:none" #end>
+									<div class="weui-media-box ">
+										<h5>${category.productType.name}</h5>
+										#foreach($subType in ${category.childType})
+											<a href="javascript:loadPorduct(${subType.typeId});" id="type${subType.typeId}"
+												class="weui-btn weui-btn_mini weui-btn_default">${subType.name}</a>
+										#end
+									</div>
+									<div class="subTypeProduct">
+									</div>
+									<div class="typeProduct">
+									#foreach($product in ${category.merchantProducts})
+										<div style="position:relative">
+										<a href="javascript:openProduct(${product.merchantInfo.merchantId},${product.productInfo.productId},${product.mProductId});"
+											class="weui-media-box weui-media-box_appmsg" target="_blank">
+											<div class="weui-media-box__hd">
+												#foreach($style in ${product.productInfo.styles})
+													<img class="weui-media-box__thumb" src="${style.image}"
+														alt="">
+												#end
+											</div>
+											<div class="weui-media-box__bd">
+												<p class="list-pname " style="font-size: 1.5rem;">${product.productInfo.productName}</p>
+												<p class="weui-media-box__desc">${product.productInfo.model}</p>
+												<p class="weui-media-box__desc list-pprice">¥${product.sellPrice}</p>
+											</div>
+										</a>
+										#foreach($style in ${product.productInfo.styles})
+											<a class="type-buycart" href="javascript:buycart(${product.mProductId},${style.styleId})"><img class="type-buycart-img" src="/resources/market/weui/images/buycart1.png"/></a>
+										#end
+										</div>
+									#end
+									</div>
+									#if($category.merchantProducts.size() >= 20)
+										<button name="${category.productType.typeId}" style="margin-left:15px" class="weui-btn weui-btn_mini weui-btn_default loadmore">加载更多</button>
+									#end
+									#if($category.merchantProducts.size() ==  0)
+									<div style="width: 100%;overflow: hidden;margin-top: 0.4rem;">
+							
+										<div style="width: 90%;margin: 0rem auto 5rem;text-align: center;border-top: solid 1px #e5e5e5;">
+											<div style="margin: 0 auto;">
+												<img style="height: 12.5rem;" src="/resources/market/home/images/bg_empty_list.png">
+											</div>
+											<dl>
+												<dt style="font-size: 1.25rem;color: #777;height: .5rem;line-height: .5rem;">该分类的商品正在添加中，敬请期待...</dt>
+											</dl>
+										</div>
+									</div>
+									#end 
+									<div class="noProduct" style="width: 100%;overflow: hidden;margin-top: 0.4rem;display:none">
+							
+										<div style="width: 90%;margin: 0rem auto 5rem;text-align: center;border-top: solid 1px #e5e5e5;">
+											<div style="margin: 0 auto;">
+												<img style="height: 12.5rem;" src="/resources/market/home/images/bg_empty_list.png">
+											</div>
+											<dl>
+												<dt style="font-size: 1.25rem;color: #777;height: .5rem;line-height: .5rem;">该分类的商品正在添加中，敬请期待...</dt>
+											</dl>
+										</div>
+									</div>
+									</section>
+								#end 
+							</div>
+							<!--分类结束-->
+						</div>
+						<div class="weui-tabbar">
+							<a href="/resources/html/${merchantId}/index.html" class="weui-tabbar__item">
+								<img src="/resources/market/weui/images/home.png" alt=""
+								class="weui-tabbar__icon">
+								<p class="weui-tabbar__label">首页</p>
+							</a> <a href="" class="weui-tabbar__item weui-bar__item_on"> <img
+								src="/resources/market/weui/images/category_on.png" alt=""
+								class="weui-tabbar__icon">
+								<p class="weui-tabbar__label">分类</p>
+							</a> <a
+								href="/resources/html/evaluate/evaluate_${merchantId}.html"
+								class="weui-tabbar__item"> <img
+								src="/resources/market/weui/images/icon_nav_zindex.png" alt=""
+								class="weui-tabbar__icon">
+								<p class="weui-tabbar__label">评论</p>
+							</a> <a href="/market/viewBuyCart?merchantId=${merchantId}"
+								class="weui-tabbar__item"> <span
+								style="display: inline-block; position: relative;"> <img
+									src="/resources/market/weui/images/buycart.png" alt=""
+									class="weui-tabbar__icon"> 
+									<span id="buycartAmount" class="weui-badge"
+									style="position: absolute; top: -2px; right: -13px;display:none;">0</span>
+									<p class="weui-tabbar__label">购物车</p>
+							</span>
+							</a> <a href="/userInfo/userInfo?merchantId=${merchantId}" class="weui-tabbar__item"> <img
+								src="/resources/market/weui/images/user.png" alt=""
+								class="weui-tabbar__icon">
+								<p class="weui-tabbar__label">我的</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <!-- loading toast -->
+    <div id="loadingToast" style="display:none;">
+        <div class="weui-mask_transparent"></div>
+        <div class="weui-toast">
+            <i class="weui-loading weui-icon_toast"></i>
+            <p class="weui-toast__content">数据加载中</p>
+        </div>
+    </div>
+		<!--BEGIN toast-->
+		<div id="toast" style="display: none;">
+			<div class="weui-mask_transparent"></div>
+			<div class="weui-toast">
+				<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+				<p id="tranDesc" class="weui-toast__content">加入成功</p>
+			</div>
+		</div>
+		<!--end toast-->
+	</div>
+</body>
+</html>
