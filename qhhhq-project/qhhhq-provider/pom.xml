@@ -71,5 +71,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>common-provider</module>
+		<module>main-provider</module>
+		<module>merachant-provider</module>
 	</modules>
 </project>

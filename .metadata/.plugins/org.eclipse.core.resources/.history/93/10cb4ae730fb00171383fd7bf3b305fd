@@ -1,0 +1,8 @@
+package net.qhhhq.merachant.api;
+
+import net.qhhhq.model.merachant.MerachantType;
+
+public interface MerachantTypeService {
+
+	public void save(MerachantType type);
+}

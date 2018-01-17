@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.qhhhq.dao.merachant.MerachantMapper">
+	<resultMap id="BaseResultMap" type="net.qhhhq.model.merachant.Merachant">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="type" jdbcType="INTEGER" property="type" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="province" jdbcType="VARCHAR" property="province" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="rating" jdbcType="INTEGER" property="rating" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="status_desc" jdbcType="VARCHAR" property="statusDesc" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+		<result column="create_user" jdbcType="VARCHAR" property="createUser" />
+		<result column="legal_rep" jdbcType="VARCHAR" property="legalRep" />
+		<result column="rep_doc_id" jdbcType="VARCHAR" property="repDocId" />
+		<result column="rep_phone" jdbcType="VARCHAR" property="repPhone" />
+		<result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
+		<result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+		<result column="contact_email" jdbcType="VARCHAR" property="contactEmail" />
+		<result column="longitude" jdbcType="DOUBLE" property="longitude" />
+		<result column="dimension" jdbcType="DOUBLE" property="dimension" />
+		<result column="class1" jdbcType="INTEGER" property="class1" />
+		<result column="class2" jdbcType="INTEGER" property="class2" />
+		<result column="class3" jdbcType="INTEGER" property="class3" />
+		<result column="class4" jdbcType="INTEGER" property="class4" />
+		<result column="class5" jdbcType="INTEGER" property="class5" />
+		<result column="class6" jdbcType="INTEGER" property="class6" />
+		<result column="business_time" jdbcType="VARCHAR" property="businessTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, type, name, province, city, rating, status, status_desc, create_date,
+		create_user,
+		legal_rep, rep_doc_id, rep_phone, contact_phone, contact_name, contact_email,
+		longitude,
+		dimension, class1, class2, class3, class4, class5, class6, business_time
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from merchant_info
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from merchant_info
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="net.qhhhq.model.merachant.Merachant">
+		insert into merchant_info (id, type, name,
+		province, city, rating,
+		status, status_desc, create_date,
+		create_user, legal_rep, rep_doc_id,
+		rep_phone, contact_phone, contact_name,
+		contact_email, longitude, dimension,
+		class1, class2, class3,
+		class4, class5, class6,
+		business_time)
+		values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
+		#{name,jdbcType=VARCHAR},
+		#{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{rating,jdbcType=INTEGER},
+		#{status,jdbcType=VARCHAR}, #{statusDesc,jdbcType=VARCHAR},
+		#{createDate,jdbcType=TIMESTAMP},
+		#{createUser,jdbcType=VARCHAR}, #{legalRep,jdbcType=VARCHAR}, #{repDocId,jdbcType=VARCHAR},
+		#{repPhone,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR},
+		#{contactName,jdbcType=VARCHAR},
+		#{contactEmail,jdbcType=VARCHAR}, #{longitude,jdbcType=DOUBLE}, #{dimension,jdbcType=DOUBLE},
+		#{class1,jdbcType=INTEGER}, #{class2,jdbcType=INTEGER},
+		#{class3,jdbcType=INTEGER},
+		#{class4,jdbcType=INTEGER}, #{class5,jdbcType=INTEGER}, #{class6,jdbcType=INTEGER},
+		#{businessTime,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="net.qhhhq.model.merachant.Merachant">
+		insert into merchant_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="rating != null">
+				rating,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="statusDesc != null">
+				status_desc,
+			</if>
+			<if test="createDate != null">
+				create_date,
+			</if>
+			<if test="createUser != null">
+				create_user,
+			</if>
+			<if test="legalRep != null">
+				legal_rep,
+			</if>
+			<if test="repDocId != null">
+				rep_doc_id,
+			</if>
+			<if test="repPhone != null">
+				rep_phone,
+			</if>
+			<if test="contactPhone != null">
+				contact_phone,
+			</if>
+			<if test="contactName != null">
+				contact_name,
+			</if>
+			<if test="contactEmail != null">
+				contact_email,
+			</if>
+			<if test="longitude != null">
+				longitude,
+			</if>
+			<if test="dimension != null">
+				dimension,
+			</if>
+			<if test="class1 != null">
+				class1,
+			</if>
+			<if test="class2 != null">
+				class2,
+			</if>
+			<if test="class3 != null">
+				class3,
+			</if>
+			<if test="class4 != null">
+				class4,
+			</if>
+			<if test="class5 != null">
+				class5,
+			</if>
+			<if test="class6 != null">
+				class6,
+			</if>
+			<if test="businessTime != null">
+				business_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="rating != null">
+				#{rating,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="statusDesc != null">
+				#{statusDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				#{createUser,jdbcType=VARCHAR},
+			</if>
+			<if test="legalRep != null">
+				#{legalRep,jdbcType=VARCHAR},
+			</if>
+			<if test="repDocId != null">
+				#{repDocId,jdbcType=VARCHAR},
+			</if>
+			<if test="repPhone != null">
+				#{repPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactPhone != null">
+				#{contactPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactName != null">
+				#{contactName,jdbcType=VARCHAR},
+			</if>
+			<if test="contactEmail != null">
+				#{contactEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="longitude != null">
+				#{longitude,jdbcType=DOUBLE},
+			</if>
+			<if test="dimension != null">
+				#{dimension,jdbcType=DOUBLE},
+			</if>
+			<if test="class1 != null">
+				#{class1,jdbcType=INTEGER},
+			</if>
+			<if test="class2 != null">
+				#{class2,jdbcType=INTEGER},
+			</if>
+			<if test="class3 != null">
+				#{class3,jdbcType=INTEGER},
+			</if>
+			<if test="class4 != null">
+				#{class4,jdbcType=INTEGER},
+			</if>
+			<if test="class5 != null">
+				#{class5,jdbcType=INTEGER},
+			</if>
+			<if test="class6 != null">
+				#{class6,jdbcType=INTEGER},
+			</if>
+			<if test="businessTime != null">
+				#{businessTime,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="net.qhhhq.model.merachant.Merachant">
+		update merchant_info
+		<set>
+			<if test="type != null">
+				type = #{type,jdbcType=INTEGER},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="rating != null">
+				rating = #{rating,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="statusDesc != null">
+				status_desc = #{statusDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				create_date = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createUser != null">
+				create_user = #{createUser,jdbcType=VARCHAR},
+			</if>
+			<if test="legalRep != null">
+				legal_rep = #{legalRep,jdbcType=VARCHAR},
+			</if>
+			<if test="repDocId != null">
+				rep_doc_id = #{repDocId,jdbcType=VARCHAR},
+			</if>
+			<if test="repPhone != null">
+				rep_phone = #{repPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactPhone != null">
+				contact_phone = #{contactPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="contactName != null">
+				contact_name = #{contactName,jdbcType=VARCHAR},
+			</if>
+			<if test="contactEmail != null">
+				contact_email = #{contactEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="longitude != null">
+				longitude = #{longitude,jdbcType=DOUBLE},
+			</if>
+			<if test="dimension != null">
+				dimension = #{dimension,jdbcType=DOUBLE},
+			</if>
+			<if test="class1 != null">
+				class1 = #{class1,jdbcType=INTEGER},
+			</if>
+			<if test="class2 != null">
+				class2 = #{class2,jdbcType=INTEGER},
+			</if>
+			<if test="class3 != null">
+				class3 = #{class3,jdbcType=INTEGER},
+			</if>
+			<if test="class4 != null">
+				class4 = #{class4,jdbcType=INTEGER},
+			</if>
+			<if test="class5 != null">
+				class5 = #{class5,jdbcType=INTEGER},
+			</if>
+			<if test="class6 != null">
+				class6 = #{class6,jdbcType=INTEGER},
+			</if>
+			<if test="businessTime != null">
+				business_time = #{businessTime,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="net.qhhhq.model.merachant.Merachant">
+		update merchant_info
+		set type = #{type,jdbcType=INTEGER},
+		name = #{name,jdbcType=VARCHAR},
+		province = #{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		rating = #{rating,jdbcType=INTEGER},
+		status = #{status,jdbcType=VARCHAR},
+		status_desc = #{statusDesc,jdbcType=VARCHAR},
+		create_date = #{createDate,jdbcType=TIMESTAMP},
+		create_user = #{createUser,jdbcType=VARCHAR},
+		legal_rep = #{legalRep,jdbcType=VARCHAR},
+		rep_doc_id = #{repDocId,jdbcType=VARCHAR},
+		rep_phone = #{repPhone,jdbcType=VARCHAR},
+		contact_phone = #{contactPhone,jdbcType=VARCHAR},
+		contact_name = #{contactName,jdbcType=VARCHAR},
+		contact_email = #{contactEmail,jdbcType=VARCHAR},
+		longitude = #{longitude,jdbcType=DOUBLE},
+		dimension = #{dimension,jdbcType=DOUBLE},
+		class1 = #{class1,jdbcType=INTEGER},
+		class2 = #{class2,jdbcType=INTEGER},
+		class3 = #{class3,jdbcType=INTEGER},
+		class4 = #{class4,jdbcType=INTEGER},
+		class5 = #{class5,jdbcType=INTEGER},
+		class6 = #{class6,jdbcType=INTEGER},
+		business_time = #{businessTime,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<select id="queryAllMerachant" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from merachant_type
+	</select>
+</mapper>

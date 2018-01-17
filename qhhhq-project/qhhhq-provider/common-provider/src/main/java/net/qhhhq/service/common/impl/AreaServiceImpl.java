@@ -34,4 +34,8 @@ public class AreaServiceImpl implements AreaService {
 		return areaMapper.queryAreaByParent(parent);
 	}
 
+	public void update(Area area) {
+		areaMapper.updateByPrimaryKey(area);
+	}
+
 }

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;merachant-dao&apos;&#x0D;&#x0A;- Original project: &apos;merachant-dao&apos;&#x0D;&#x0A;- Original element: &apos;merachant-dao/src/main/java/net.qhhhq.merachant_dao&apos;" description="Delete element" element1="/src\/main\/java&lt;net.qhhhq.merachant_dao" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1516157168376" subPackages="false" version="1.0"/>
+</session>

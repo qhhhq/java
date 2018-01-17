@@ -23,4 +23,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>common-dao</module>
+  	<module>merachant-dao</module>
+  </modules>
 </project>

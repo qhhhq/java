@@ -10,6 +10,8 @@ public interface AreaService {
 
 	public void delete(Integer id);
 
+	public void update(Area area);
+
 	public List<Area> listProvince();
 
 	public List<Area> listAreaByParent(Integer parent);

@@ -1,0 +1,20 @@
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import net.qhhhq.merachant.api.MerachantTypeService;
+import net.qhhhq.model.merachant.MerachantType;
+
+public class MerachantTypeConsumer {
+
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		context.start();
+        System.out.println("consumer start");
+        MerachantTypeService service = context.getBean(MerachantTypeService.class);
+        System.out.println("consumer");
+        MerachantType type = new MerachantType();
+        type.setId(1);
+        type.setName("超市");
+        service.save(type);
+	}
+
+}
