@@ -1,0 +1,58 @@
+package net.qhhhq.base.dao;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.qhhhq.api.base.DAO;
+import net.qhhhq.base.QueryResult;
+import net.qhhhq.base.util.GenericsUtils;
+
+public abstract class DaoSupport<T> implements DAO<T> {
+
+	protected Class<T> entityClass = GenericsUtils.getSuperClassGenricType(this.getClass());
+
+	public abstract BaseMapper getMapper();
+
+	public void save(T entity) {
+		getMapper().insert(T);
+	}
+
+	public void update(T eitity) {
+
+	}
+
+	public void delete(Serializable... entityIds) {
+
+	}
+
+	public T find(Serializable... entityId) {
+		return null;
+	}
+
+	public long getCount() {
+		return 0;
+	}
+
+	public QueryResult<T> getScrollData() {
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult) {
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, LinkedHashMap<String, String> orderBy) {
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, Map<String, Object> where) {
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, Map<String, Object> where,
+			LinkedHashMap<String, String> orderBy) {
+		return null;
+	}
+
+}

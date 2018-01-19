@@ -103,7 +103,10 @@
       parent = #{parent,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="queryAllProvince" resultMap="BaseResultMap">
+  <select id="queryTotalRecords" resultType="java.lang.Long">
+  	select count(*) from comm_area where parent is null
+  </select>
+  <select id="queryAllRecords" resultMap="BaseResultMap">
   	select id, province from comm_area where parent is null
   </select>
   <select id="queryAreaByParent" parameterType="java.lang.Integer" resultMap="BaseResultMap">

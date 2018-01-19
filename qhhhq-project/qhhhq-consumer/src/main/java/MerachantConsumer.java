@@ -1,9 +1,11 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import net.qhhhq.base.QueryResult;
 import net.qhhhq.merachant.api.MerachantService;
 import net.qhhhq.model.merachant.Merachant;
 
@@ -17,9 +19,9 @@ public class MerachantConsumer {
         System.out.println("consumer");
         Merachant m = new Merachant();
         m.setCity("111");
-        m.setContactName("ldr");
+        m.setContactName("dubbo");
         m.setContactPhone("1111111111");
-        m.setId(1);
+        m.setId(2);
         m.setType(1);
         m.setName("123");
         m.setProvince("666");
@@ -27,9 +29,12 @@ public class MerachantConsumer {
         //service.save(m);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("start", 0);
-        map.put("pagesize", 5);
+        map.put("pagesize", 1);
         map.put("status", "S");
-        List<Merachant> list = service.listMerachant(map);
+        LinkedHashMap<String, String> orderBy = new LinkedHashMap<String, String>();
+        orderBy.put("contact_name", "asc");
+        QueryResult<Merachant> result = service.getScrollData(0,10, orderBy);
+        List<Merachant> list = result.getResultList();
         for(Merachant mc : list) {
         	System.out.println(mc.getContactName());
         }

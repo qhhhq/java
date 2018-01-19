@@ -1,0 +1,5 @@
+package net.qhhhq.api.base;
+
+public interface BaseMapper<T> {
+
+}

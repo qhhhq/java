@@ -1,0 +1,20 @@
+package net.qhhhq.dao.merachant;
+
+import java.util.List;
+
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.model.merachant.MerachantType;
+
+public interface MerachantTypeMapper extends BaseMapper<MerachantType> {
+
+    int deleteByPrimaryKey(Integer id);
+
+    int deleteByPrimaryKeys(Integer[] ids);
+
+
+    MerachantType selectByPrimaryKey(Integer id);
+
+    List<MerachantType> queryAllMerachantType();
+
+    List<MerachantType> queryMerachantTypeByParent(Integer parent);
+}

@@ -1,0 +1,7 @@
+package net.qhhhq.base;
+
+public class QueryResult<T> {
+
+	private List<T> resultList;
+	private long recordTotal;
+}

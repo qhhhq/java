@@ -89,7 +89,7 @@
 		parent = #{parent,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<select id="queryAllMerachantType" resultMap="BaseResultMap">
+	<select id="queryAllRecords" resultMap="BaseResultMap">
 		select id, name,valid from merachant_type where parent is null
 	</select>
 	<select id="queryMerachantTypeByParent" parameterType="java.lang.Integer"

@@ -1,18 +1,8 @@
 package net.qhhhq.api.common;
 
-import java.util.List;
-
+import net.qhhhq.api.base.DAO;
 import net.qhhhq.model.common.Area;
 
-public interface AreaService {
+public interface AreaService extends DAO<Area> {
 
-	public void save(Area area);
-
-	public void delete(Integer id);
-
-	public void update(Area area);
-
-	public List<Area> listProvince();
-
-	public List<Area> listAreaByParent(Integer parent);
 }

@@ -27,5 +27,6 @@
   <modules>
   	<module>common-dao</module>
   	<module>merachant-dao</module>
+  	<module>base-dao</module>
   </modules>
 </project>

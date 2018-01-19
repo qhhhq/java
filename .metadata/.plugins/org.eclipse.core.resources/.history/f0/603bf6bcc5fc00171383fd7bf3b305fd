@@ -1,0 +1,62 @@
+package net.qhhhq.api.base;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.qhhhq.base.QueryResult;
+
+public abstract class DaoSupport<T> implements DAO<T> {
+
+	public void save(T entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void update(T eitity) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(Serializable... entityIds) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public T find(Serializable... entityId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public long getCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public QueryResult<T> getScrollData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, LinkedHashMap<String, String> orderBy) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, Map<String, Object> where) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public QueryResult<T> getScrollData(int firstResult, int maxResult, Map<String, Object> where,
+			LinkedHashMap<String, String> orderBy) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

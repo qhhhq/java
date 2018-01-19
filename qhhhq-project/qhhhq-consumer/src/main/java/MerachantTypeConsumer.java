@@ -2,6 +2,7 @@ import java.util.List;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import net.qhhhq.base.QueryResult;
 import net.qhhhq.merachant.api.MerachantTypeService;
 import net.qhhhq.model.merachant.MerachantType;
 
@@ -19,7 +20,8 @@ public class MerachantTypeConsumer {
         //service.save(type);
         Integer[] ids = new Integer[] {1};
         //service.delete(ids);
-        List<MerachantType> list = service.listMerachantType();
+        QueryResult<MerachantType> result = service.getScrollData();
+        List<MerachantType> list = result.getResultList();
         for(MerachantType mt : list) {
         	System.out.println(mt.getId()+"==="+mt.getName());
         }

@@ -29,11 +29,14 @@
 		<result column="business_time" jdbcType="VARCHAR" property="businessTime" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, type, name, province, city, rating, status, status_desc, create_date,
+		id, type, name, province, city, rating, status,
+		status_desc, create_date,
 		create_user,
-		legal_rep, rep_doc_id, rep_phone, contact_phone, contact_name, contact_email,
+		legal_rep, rep_doc_id, rep_phone,
+		contact_phone, contact_name, contact_email,
 		longitude,
-		dimension, class1, class2, class3, class4, class5, class6, business_time
+		dimension,
+		class1, class2, class3, class4, class5, class6, business_time
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
 		resultMap="BaseResultMap">
@@ -43,31 +46,40 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from merchant_info
+		delete from
+		merchant_info
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="net.qhhhq.model.merachant.Merachant">
-		insert into merchant_info (id, type, name,
+		insert into merchant_info (id,
+		type, name,
 		province, city, rating,
 		status, status_desc, create_date,
 		create_user, legal_rep, rep_doc_id,
-		rep_phone, contact_phone, contact_name,
+		rep_phone, contact_phone,
+		contact_name,
 		contact_email, longitude, dimension,
-		class1, class2, class3,
+		class1, class2,
+		class3,
 		class4, class5, class6,
 		business_time)
-		values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
+		values
+		(#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
 		#{name,jdbcType=VARCHAR},
-		#{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{rating,jdbcType=INTEGER},
+		#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR}, #{rating,jdbcType=INTEGER},
 		#{status,jdbcType=VARCHAR}, #{statusDesc,jdbcType=VARCHAR},
 		#{createDate,jdbcType=TIMESTAMP},
-		#{createUser,jdbcType=VARCHAR}, #{legalRep,jdbcType=VARCHAR}, #{repDocId,jdbcType=VARCHAR},
+		#{createUser,jdbcType=VARCHAR},
+		#{legalRep,jdbcType=VARCHAR}, #{repDocId,jdbcType=VARCHAR},
 		#{repPhone,jdbcType=VARCHAR}, #{contactPhone,jdbcType=VARCHAR},
 		#{contactName,jdbcType=VARCHAR},
-		#{contactEmail,jdbcType=VARCHAR}, #{longitude,jdbcType=DOUBLE}, #{dimension,jdbcType=DOUBLE},
+		#{contactEmail,jdbcType=VARCHAR},
+		#{longitude,jdbcType=DOUBLE}, #{dimension,jdbcType=DOUBLE},
 		#{class1,jdbcType=INTEGER}, #{class2,jdbcType=INTEGER},
 		#{class3,jdbcType=INTEGER},
-		#{class4,jdbcType=INTEGER}, #{class5,jdbcType=INTEGER}, #{class6,jdbcType=INTEGER},
+		#{class4,jdbcType=INTEGER},
+		#{class5,jdbcType=INTEGER}, #{class6,jdbcType=INTEGER},
 		#{businessTime,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="net.qhhhq.model.merachant.Merachant">
@@ -306,39 +318,55 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="net.qhhhq.model.merachant.Merachant">
-		update merchant_info
+		update
+		merchant_info
 		set type = #{type,jdbcType=INTEGER},
-		name = #{name,jdbcType=VARCHAR},
+		name =
+		#{name,jdbcType=VARCHAR},
 		province = #{province,jdbcType=VARCHAR},
-		city = #{city,jdbcType=VARCHAR},
+		city
+		= #{city,jdbcType=VARCHAR},
 		rating = #{rating,jdbcType=INTEGER},
-		status = #{status,jdbcType=VARCHAR},
-		status_desc = #{statusDesc,jdbcType=VARCHAR},
-		create_date = #{createDate,jdbcType=TIMESTAMP},
-		create_user = #{createUser,jdbcType=VARCHAR},
-		legal_rep = #{legalRep,jdbcType=VARCHAR},
-		rep_doc_id = #{repDocId,jdbcType=VARCHAR},
+		status
+		= #{status,jdbcType=VARCHAR},
+		status_desc =
+		#{statusDesc,jdbcType=VARCHAR},
+		create_date =
+		#{createDate,jdbcType=TIMESTAMP},
+		create_user =
+		#{createUser,jdbcType=VARCHAR},
+		legal_rep =
+		#{legalRep,jdbcType=VARCHAR},
+		rep_doc_id =
+		#{repDocId,jdbcType=VARCHAR},
 		rep_phone = #{repPhone,jdbcType=VARCHAR},
 		contact_phone = #{contactPhone,jdbcType=VARCHAR},
-		contact_name = #{contactName,jdbcType=VARCHAR},
-		contact_email = #{contactEmail,jdbcType=VARCHAR},
-		longitude = #{longitude,jdbcType=DOUBLE},
+		contact_name =
+		#{contactName,jdbcType=VARCHAR},
+		contact_email =
+		#{contactEmail,jdbcType=VARCHAR},
+		longitude =
+		#{longitude,jdbcType=DOUBLE},
 		dimension = #{dimension,jdbcType=DOUBLE},
 		class1 = #{class1,jdbcType=INTEGER},
-		class2 = #{class2,jdbcType=INTEGER},
+		class2 =
+		#{class2,jdbcType=INTEGER},
 		class3 = #{class3,jdbcType=INTEGER},
-		class4 = #{class4,jdbcType=INTEGER},
+		class4
+		= #{class4,jdbcType=INTEGER},
 		class5 = #{class5,jdbcType=INTEGER},
 		class6 = #{class6,jdbcType=INTEGER},
-		business_time = #{businessTime,jdbcType=VARCHAR}
+		business_time =
+		#{businessTime,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<select id="queryAllMerachant" parameterType="Map" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from merchant_info
+	<select id="getCount" resultType="java.lang.Long">
+		select count(*) from merchant_info
+	</select>
+	<select id="queryTotalRecords" resultType="java.lang.Long">
+		select count(*) from merchant_info
 		<where>
-		<if test="type != null">
+			<if test="type != null">
 				and type = #{type,jdbcType=INTEGER}
 			</if>
 			<if test="name != null">
@@ -357,10 +385,12 @@
 				and status = #{status,jdbcType=VARCHAR}
 			</if>
 			<if test="startDate != null">
-				and createDate <![CDATA[>=]]> #{startDate}
+				and createDate <![CDATA[>=]]>
+				#{startDate}
 			</if>
 			<if test="endDate != null">
-				and createDate <![CDATA[<=]]> #{endDate}
+				and createDate <![CDATA[<=]]>
+				#{endDate}
 			</if>
 			<if test="createUser != null">
 				and createUser = #{createUser}
@@ -399,6 +429,80 @@
 				and class6 = #{class6,jdbcType=INTEGER}
 			</if>
 		</where>
-		limit #{start},#{pagesize}
+	</select>
+	<select id="queryAllRecords" parameterType="Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from merchant_info
+		<where>
+			<if test="type != null">
+				and type = #{type,jdbcType=INTEGER}
+			</if>
+			<if test="name != null">
+				and name like '%' || #{name,jdbcType=VARCHAR} || '%'
+			</if>
+			<if test="province != null">
+				and province = #{province,jdbcType=VARCHAR}
+			</if>
+			<if test="city != null">
+				and city = #{city,jdbcType=VARCHAR}
+			</if>
+			<if test="rating != null">
+				and rating = #{rating,jdbcType=INTEGER}
+			</if>
+			<if test="status != null">
+				and status = #{status,jdbcType=VARCHAR}
+			</if>
+			<if test="startDate != null">
+				and createDate <![CDATA[>=]]>
+				#{startDate}
+			</if>
+			<if test="endDate != null">
+				and createDate <![CDATA[<=]]>
+				#{endDate}
+			</if>
+			<if test="createUser != null">
+				and createUser = #{createUser}
+			</if>
+			<if test="legalRep != null">
+				and legalRep = #{legalRep,jdbcType=VARCHAR}
+			</if>
+			<if test="repDocId != null">
+				and repDocId = #{repDocId,jdbcType=VARCHAR}
+			</if>
+			<if test="repPhone != null">
+				and repPhone = #{repPhone,jdbcType=VARCHAR}
+			</if>
+			<if test="contactPhone != null">
+				and contactPhone = #{contactPhone,jdbcType=VARCHAR}
+			</if>
+			<if test="contactName != null">
+				and contactName = #{contactName,jdbcType=VARCHAR}
+			</if>
+			<if test="class1 != null">
+				and class1 = #{class1,jdbcType=INTEGER}
+			</if>
+			<if test="class2 != null">
+				and class2 = #{class2,jdbcType=INTEGER}
+			</if>
+			<if test="class3 != null">
+				and class3 = #{class3,jdbcType=INTEGER}
+			</if>
+			<if test="class4 != null">
+				and class4 = #{class4,jdbcType=INTEGER}
+			</if>
+			<if test="class5 != null">
+				and class5 = #{class5,jdbcType=INTEGER}
+			</if>
+			<if test="class6 != null">
+				and class6 = #{class6,jdbcType=INTEGER}
+			</if>
+		</where>
+		<if test="orderBy != null">
+			order by ${orderBy}
+		</if>
+		<if test="firstResult != null and maxResult != null">
+			limit #{firstResult},#{maxResult}
+		</if>
 	</select>
 </mapper>
