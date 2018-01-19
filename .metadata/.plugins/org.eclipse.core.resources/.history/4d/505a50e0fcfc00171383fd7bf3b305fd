@@ -89,7 +89,7 @@
 		parent = #{parent,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<select id="queryTotalRecords" resultType="java.lang.Long">
+	<select id="queryTotalRecords" resultMap="BaseResultMap">
 		select count(*) from merachant_type where parent is null
 	</select>
 	<select id="queryAllRecords" resultMap="BaseResultMap">

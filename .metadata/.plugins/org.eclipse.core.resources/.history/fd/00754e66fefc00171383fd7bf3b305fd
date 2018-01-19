@@ -15,10 +15,9 @@ public class MerachantTypeConsumer {
         MerachantTypeService service = context.getBean(MerachantTypeService.class);
         System.out.println("consumer");
         MerachantType type = new MerachantType();
-        type.setId(11);
-        type.setName("sub type");
-        type.setParent(1);
-        service.save(type);
+        type.setId(1);
+        type.setName("111");
+        //service.save(type);
         Integer[] ids = new Integer[] {1};
         //service.delete(ids);
         QueryResult<MerachantType> result = service.getScrollData();

@@ -25,7 +25,7 @@ public class MerachantTypeServiceIml extends DaoSupport<MerachantType> implement
 		return merachantTypeMapper;
 	}
 
-	public List<MerachantType> getMerachantTypeByParent(Integer parent) {
+	public List<MerachantTypeService> getMerachantTypeByParent(Integer parent) {
 		return merachantTypeMapper.queryMerachantTypeByParent(parent);
 	}
 

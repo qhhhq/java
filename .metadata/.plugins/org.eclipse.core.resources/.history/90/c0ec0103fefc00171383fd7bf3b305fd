@@ -7,5 +7,5 @@ import net.qhhhq.model.merachant.MerachantType;
 
 public interface MerachantTypeService extends DAO<MerachantType> {
 
-	public List<MerachantType> getMerachantTypeByParent(Integer parent);
+	public List<MerachantTypeService> getMerachantTypeByParent(Integer parent);
 }

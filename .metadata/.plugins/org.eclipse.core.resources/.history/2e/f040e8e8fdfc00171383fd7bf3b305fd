@@ -1,7 +1,5 @@
 package net.qhhhq.service.merachant.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,10 +21,6 @@ public class MerachantTypeServiceIml extends DaoSupport<MerachantType> implement
 	@Override
 	public BaseMapper<MerachantType> getMapper() {
 		return merachantTypeMapper;
-	}
-
-	public List<MerachantType> getMerachantTypeByParent(Integer parent) {
-		return merachantTypeMapper.queryMerachantTypeByParent(parent);
 	}
 
 
