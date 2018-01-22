@@ -15,14 +15,13 @@ public class MerachantTypeConsumer {
         MerachantTypeService service = context.getBean(MerachantTypeService.class);
         System.out.println("consumer");
         MerachantType type = new MerachantType();
-        type.setId(11);
         type.setName("sub type");
-        type.setParent(1);
-        service.save(type);
-        Integer[] ids = new Integer[] {1};
+        type.setParent(null);
+        //service.save(type);
+        Long[] ids = new Long[] {405054072354508800l, 405054076045496320l};
         //service.delete(ids);
         QueryResult<MerachantType> result = service.getScrollData();
-        List<MerachantType> childType = service.getMerachantTypeByParent(1);
+        List<MerachantType> childType = service.getMerachantTypeByParent(405054596814475264l);
         List<MerachantType> list = result.getResultList();
         for(MerachantType mt : list) {
         	System.out.println(mt.getId()+"==="+mt.getName());

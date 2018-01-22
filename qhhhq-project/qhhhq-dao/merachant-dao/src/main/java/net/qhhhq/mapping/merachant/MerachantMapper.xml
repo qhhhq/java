@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.qhhhq.dao.merachant.MerachantMapper">
 	<resultMap id="BaseResultMap" type="net.qhhhq.model.merachant.Merachant">
-		<id column="id" jdbcType="INTEGER" property="id" />
-		<result column="type" jdbcType="INTEGER" property="type" />
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="type" jdbcType="BIGINT" property="type" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="province" jdbcType="VARCHAR" property="province" />
 		<result column="city" jdbcType="VARCHAR" property="city" />
@@ -38,17 +38,17 @@
 		dimension,
 		class1, class2, class3, class4, class5, class6, business_time
 	</sql>
-	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from merchant_info
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
 	</select>
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
 		delete from
 		merchant_info
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
 	</delete>
 	<insert id="insert" parameterType="net.qhhhq.model.merachant.Merachant">
 		insert into merchant_info (id,
@@ -64,7 +64,7 @@
 		class4, class5, class6,
 		business_time)
 		values
-		(#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER},
+		(#{id,jdbcType=BIGINT}, #{type,jdbcType=BIGINT},
 		#{name,jdbcType=VARCHAR},
 		#{province,jdbcType=VARCHAR},
 		#{city,jdbcType=VARCHAR}, #{rating,jdbcType=INTEGER},
@@ -163,10 +163,10 @@
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
-				#{id,jdbcType=INTEGER},
+				#{id,jdbcType=BIGINT},
 			</if>
 			<if test="type != null">
-				#{type,jdbcType=INTEGER},
+				#{type,jdbcType=BIGINT},
 			</if>
 			<if test="name != null">
 				#{name,jdbcType=VARCHAR},
@@ -243,7 +243,7 @@
 		update merchant_info
 		<set>
 			<if test="type != null">
-				type = #{type,jdbcType=INTEGER},
+				type = #{type,jdbcType=BIGINT},
 			</if>
 			<if test="name != null">
 				name = #{name,jdbcType=VARCHAR},
@@ -315,12 +315,12 @@
 				business_time = #{businessTime,jdbcType=VARCHAR},
 			</if>
 		</set>
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="net.qhhhq.model.merachant.Merachant">
 		update
 		merchant_info
-		set type = #{type,jdbcType=INTEGER},
+		set type = #{type,jdbcType=BIGINT},
 		name =
 		#{name,jdbcType=VARCHAR},
 		province = #{province,jdbcType=VARCHAR},
@@ -358,7 +358,7 @@
 		class6 = #{class6,jdbcType=INTEGER},
 		business_time =
 		#{businessTime,jdbcType=VARCHAR}
-		where id = #{id,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
 	</update>
 	<select id="getCount" resultType="java.lang.Long">
 		select count(*) from merchant_info
@@ -367,7 +367,7 @@
 		select count(*) from merchant_info
 		<where>
 			<if test="type != null">
-				and type = #{type,jdbcType=INTEGER}
+				and type = #{type,jdbcType=BIGINT}
 			</if>
 			<if test="name != null">
 				and name like '%' || #{name,jdbcType=VARCHAR} || '%'
@@ -436,7 +436,7 @@
 		from merchant_info
 		<where>
 			<if test="type != null">
-				and type = #{type,jdbcType=INTEGER}
+				and type = #{type,jdbcType=BIGINT}
 			</if>
 			<if test="name != null">
 				and name like '%' || #{name,jdbcType=VARCHAR} || '%'

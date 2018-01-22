@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.config.annotation.Service;
 
+import net.qhhhq.api.common.IdentityService;
 import net.qhhhq.base.dao.BaseMapper;
 import net.qhhhq.base.dao.DaoSupport;
 import net.qhhhq.dao.merachant.MerachantMapper;
@@ -17,11 +18,18 @@ public class MerachantServiceImpl extends DaoSupport<Merachant> implements Merac
 
 	@Autowired
 	private MerachantMapper merachantMapper;
+	@Autowired
+	private IdentityService identityService;
 
 	@Override
 	public BaseMapper<Merachant> getMapper() {
 		return merachantMapper;
 	}
 
+	@Override
+	public void save(Merachant entity) {
+		entity.setId(identityService.nextId());
+		super.save(entity);
+	}
 
 }

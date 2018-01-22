@@ -21,8 +21,7 @@ public class MerachantConsumer {
         m.setCity("111");
         m.setContactName("dubbo");
         m.setContactPhone("1111111111");
-        m.setId(2);
-        m.setType(1);
+        m.setType(405054596814475264l);
         m.setName("123");
         m.setProvince("666");
         m.setStatus("S");
@@ -36,7 +35,7 @@ public class MerachantConsumer {
         QueryResult<Merachant> result = service.getScrollData(0,10, orderBy);
         List<Merachant> list = result.getResultList();
         for(Merachant mc : list) {
-        	System.out.println(mc.getContactName());
+        	System.out.println(mc.getId() + "-----"+mc.getType()+ "-----" + mc.getContactName());
         }
 	}
 

@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.qhhhq.dao.merachant.MerachantTypeMapper"/>
+<fullyQualifiedTypeName name="net.qhhhq.merachant.api.MerachantTypeService"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Service"/>
+<fullyQualifiedTypeName name="net.qhhhq.dao.merachant.MerachantMapper"/>
+<fullyQualifiedTypeName name="net.qhhhq.api.base.DAO"/>
+<fullyQualifiedTypeName name="java.util.stream.BaseStream"/>
+<fullyQualifiedTypeName name="net.qhhhq.base.util.GenericsUtils"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="net.qhhhq.base.dao.BaseMapper"/>
+<fullyQualifiedTypeName name="net.qhhhq.base.dao.DaoSupport"/>
+<fullyQualifiedTypeName name="net.qhhhq.base.QueryResult"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

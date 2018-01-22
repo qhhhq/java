@@ -10,7 +10,7 @@
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
 	<!-- 引入dbconfig.properties属性文件 -->
-	<context:property-placeholder location="classpath:conf/dbconfig.properties" />
+	<context:property-placeholder location="classpath:conf/dbconfig.properties,classpath:conf/appcontaxt.properties" />
 
 	<!--定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 会显示这个名字，方便辨识 -->
 	<dubbo:application name="demotest-provider" owner="programmer"
@@ -20,6 +20,10 @@
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880" />
 
+	<bean class="net.qhhhq.service.common.impl.IdentityServiceimpl" id="identityService">
+		<constructor-arg name="workerId" value="${workerId}"></constructor-arg>
+        <constructor-arg name="datacenterId" value="${datacenterId}"></constructor-arg>
+	</bean>
 	<!-- 使用注解方式暴露接口 -->
 	<dubbo:annotation package="net.qhhhq.service" />
 	<!-- 加入spring注解扫描 -->

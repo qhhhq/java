@@ -9,9 +9,9 @@ public class Merachant implements Serializable {
 	 */
 	private static final long serialVersionUID = 7602442544747288735L;
 
-	private Integer id;
+	private Long id;
 
-    private Integer type;
+    private Long type;
 
     private String name;
 
@@ -59,19 +59,19 @@ public class Merachant implements Serializable {
 
     private String businessTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getType() {
+    public Long getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(Long type) {
         this.type = type;
     }
 

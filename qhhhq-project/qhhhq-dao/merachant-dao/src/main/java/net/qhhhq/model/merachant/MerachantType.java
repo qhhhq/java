@@ -8,19 +8,19 @@ public class MerachantType implements Serializable {
 	 */
 	private static final long serialVersionUID = -872393488767780772L;
 
-	private Integer id;
+	private Long id;
 
     private String name;
 
     private Boolean valid = true;
 
-    private Integer parent;
+    private Long parent;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -40,11 +40,11 @@ public class MerachantType implements Serializable {
         this.valid = valid;
     }
 
-    public Integer getParent() {
+    public Long getParent() {
         return parent;
     }
 
-    public void setParent(Integer parent) {
+    public void setParent(Long parent) {
         this.parent = parent;
     }
 }

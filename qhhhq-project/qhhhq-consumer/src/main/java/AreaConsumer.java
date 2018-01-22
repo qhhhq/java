@@ -19,7 +19,7 @@ public class AreaConsumer {
         area.setId(3313);
         area.setParent(3305);
         area.setDistrict("湟源县");
-        //areaService.save(area);
+        areaService.save(area);
         //areaService.delete(3304);
         QueryResult<Area> result = areaService.getScrollData();
         List<Area> areas = result.getResultList();

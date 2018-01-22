@@ -9,5 +9,5 @@ public interface MerachantTypeMapper extends BaseMapper<MerachantType> {
 
     int deleteByPrimaryKeys(Integer[] ids);
 
-    List<MerachantType> queryMerachantTypeByParent(Integer parent);
+    List<MerachantType> queryMerachantTypeByParent(Long parent);
 }
