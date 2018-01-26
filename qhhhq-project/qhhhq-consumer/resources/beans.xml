@@ -14,4 +14,8 @@
 		interface="net.qhhhq.merachant.api.MerachantTypeService" />
 	<dubbo:reference id="merachantService"
 		interface="net.qhhhq.merachant.api.MerachantService" />
+	<dubbo:reference id="merachantLoginService"
+		interface="net.qhhhq.merachant.api.MerachantLoginService" />
+	<dubbo:reference id="merachantContactService"
+		interface="net.qhhhq.merachant.api.MerachantContactService" />
 </beans>

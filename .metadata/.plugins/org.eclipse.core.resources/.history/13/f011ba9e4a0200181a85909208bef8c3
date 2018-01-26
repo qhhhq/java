@@ -1,0 +1,28 @@
+package net.qhhhq.service.merachant.impl;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.qhhhq.base.QueryResult;
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.base.dao.DaoSupport;
+import net.qhhhq.merachant.api.MerachantContactService;
+import net.qhhhq.model.merachant.MerachantContact;
+
+public class MerachantContactServiceImpl extends DaoSupport<MerachantContact> implements MerachantContactService {
+
+
+	@Override
+	public BaseMapper<MerachantContact> getMapper() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void save(MerachantContact entity) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+}

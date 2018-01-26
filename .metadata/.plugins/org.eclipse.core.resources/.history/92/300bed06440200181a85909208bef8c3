@@ -1,0 +1,17 @@
+package net.qhhhq.dao.merachant;
+
+import net.qhhhq.model.merachant.MerachantContact;
+
+public interface MerachantContactMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(MerachantContact record);
+
+    int insertSelective(MerachantContact record);
+
+    MerachantContact selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(MerachantContact record);
+
+    int updateByPrimaryKey(MerachantContact record);
+}

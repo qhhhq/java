@@ -1,0 +1,19 @@
+package net.qhhhq.dao.merachant;
+
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.model.merachant.Merachant;
+import net.qhhhq.model.merachant.MerachantLogin;
+
+public interface MerachantLoginMapper extends BaseMapper<MerachantLogin>{
+    int deleteByPrimaryKey(Long id);
+
+    int insert(MerachantLogin record);
+
+    int insertSelective(MerachantLogin record);
+
+    MerachantLogin selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(MerachantLogin record);
+
+    int updateByPrimaryKey(MerachantLogin record);
+}
