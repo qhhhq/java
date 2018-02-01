@@ -13,4 +13,7 @@
 <fullyQualifiedTypeName name="net.qhhhq.base.dao.DaoSupport"/>
 <fullyQualifiedTypeName name="net.qhhhq.base.QueryResult"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.qhhhq.api.common.IdentityService"/>
+<fullyQualifiedTypeName name="net.qhhhq.dao.merachant.MerachantLoginMapper"/>
+<fullyQualifiedTypeName name="net.qhhhq.dao.merachant.MerachantContactMapper"/>
 </qualifiedTypeNameHistroy>

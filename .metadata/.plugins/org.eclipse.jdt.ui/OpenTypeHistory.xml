@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantTypeService.java[MerachantTypeService" modifiers="513" timestamp="1516350076426"/>
+<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantTypeService.java[MerachantTypeService" modifiers="513" timestamp="1516613621943"/>
 <typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantService.java[MerachantService" modifiers="513" timestamp="1516349917243"/>
 <typeInfo handle="=base-api/src\/main\/java&lt;net.qhhhq.api.base{DAO.java[DAO" modifiers="513" timestamp="1516265665710"/>
+<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantLoginService.java[MerachantLoginService" modifiers="513" timestamp="1516937459126"/>
+<typeInfo handle="=base-dao/src\/main\/java&lt;net.qhhhq.base.dao{DaoSupport.java[DaoSupport" modifiers="1025" timestamp="1516592048355"/>
+<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantContactService.java[MerachantContactService" modifiers="513" timestamp="1516937541197"/>
 </typeInfoHistroy>

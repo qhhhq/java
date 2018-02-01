@@ -1,5 +1,0 @@
-package net.qhhhq.base;
-
-public class QueryResult<T> {
-
-}

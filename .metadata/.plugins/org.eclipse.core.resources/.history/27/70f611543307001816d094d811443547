@@ -1,0 +1,18 @@
+package net.qhhhq.dao.merachant;
+
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.model.merachant.MerachantActive;
+
+public interface MerachantActiveMapper extends BaseMapper<MerachantActive> {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(MerachantActive record);
+
+    int insertSelective(MerachantActive record);
+
+    MerachantActive selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(MerachantActive record);
+
+    int updateByPrimaryKey(MerachantActive record);
+}

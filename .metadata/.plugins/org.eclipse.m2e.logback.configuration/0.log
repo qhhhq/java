@@ -3950,3 +3950,47 @@
 2018-01-26 18:10:53,591 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\main\resources
 2018-01-26 18:10:53,591 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-01-26 18:10:53,591 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\test\resources
+2018-01-26 18:12:18,704 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-26 18:12:18,704 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\main\resources
+2018-01-26 18:12:18,704 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-01-26 18:12:18,704 [Worker-556] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\test\resources
+2018-02-01 17:33:09,074 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:09,321 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:33:09,326 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:09,327 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:33:51,860 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:51,861 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:33:51,863 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:51,863 [ModalContext] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:33:54,466 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:54,466 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:33:54,468 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:33:54,468 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:35:58,361 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:35:58,361 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:35:58,362 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:35:58,362 [Worker-32] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:36:01,039 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:36:01,039 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:36:01,041 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:36:01,041 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:36:07,188 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:36:07,188 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:36:07,190 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:36:07,190 [Worker-36] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:38:16,854 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:38:16,854 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:38:16,856 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:38:16,856 [Worker-37] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:44:08,808 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:44:08,809 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:44:08,810 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:44:08,811 [Worker-41] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 17:44:15,051 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:44:15,051 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\main\resources
+2018-02-01 17:44:15,053 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 17:44:15,053 [Worker-40] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-dao\merachant-dao\src\test\resources
+2018-02-01 18:01:27,140 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 18:01:27,141 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\main\resources
+2018-02-01 18:01:27,142 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-01 18:01:27,142 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\test\resources

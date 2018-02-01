@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="java.lang" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="java.lang"/>
+			<item value="java.lang.BIGINT"/>
+			<item value="INTEGER"/>
+			<item value="id"/>
+			<item value="deleteByPrimaryKey"/>
+			<item value="queryMerachantTypeByParent"/>
 			<item value="queryAllMerachantType"/>
 			<item value="queryAllMerachant"/>
-			<item value="queryAllRecords"/>
-			<item value="insert"/>
-			<item value="net.qhhhq.dao.merachant"/>
-			<item value="common"/>
-			<item value="deleteByPrimaryKey"/>
-			<item value="BaseResultMap"/>
 		</list>
 		<list key="replacehistory">
+			<item value="BIGINT"/>
 			<item value=""/>
 		</list>
 	</section>
@@ -25,7 +26,7 @@
 		<item value="275" key="DIALOG_WIDTH"/>
 		<item value="1|宋体|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|宋体" key="DIALOG_FONT_NAME"/>
 		<item value="350" key="DIALOG_HEIGHT"/>
-		<item value="499" key="DIALOG_X_ORIGIN"/>
-		<item value="378" key="DIALOG_Y_ORIGIN"/>
+		<item value="973" key="DIALOG_X_ORIGIN"/>
+		<item value="232" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
