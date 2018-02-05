@@ -3994,3 +3994,7 @@
 2018-02-01 18:01:27,141 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\main\resources
 2018-02-01 18:01:27,142 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-02-01 18:01:27,142 [Worker-46] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\test\resources
+2018-02-02 08:56:41,909 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-02 08:56:41,910 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\main\resources
+2018-02-02 08:56:41,911 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-02-02 08:56:41,911 [Worker-81] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\git\resources\qhhhq-project\qhhhq-provider\main-provider\src\test\resources

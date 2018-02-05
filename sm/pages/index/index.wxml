@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button bindtap="login"> 获取头像昵称 </button>
+    <button bindtap="modalinput"> 获取头像昵称 </button>
+  </view>
+</view>
+<modal hidden="{{hiddenmodalput}}" title="请输入验证码" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">  
+     <input value="{{price}}" class="weui-input" type="digit" placeholder="带小数点的数字键盘" bindinput="priceInput"/>
+     <input value="{{num}}" class="weui-input" type="number" bindinput="numInput" placeholder="这是一个数字输入框" />
+     <checkbox-group bindchange="checkboxChange">
+      <checkbox value="{{commend}}"  checked="{{commend}}" />
+     </checkbox-group>
+</modal> 

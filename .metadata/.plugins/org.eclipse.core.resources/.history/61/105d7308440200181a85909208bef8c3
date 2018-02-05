@@ -1,6 +1,0 @@
-package net.qhhhq.dao.merachant;
-
-import net.qhhhq.model.merachant.MerachantContact;
-
-public interface MerachantContactMapper extends BaseMapper<MerachantContact> {
-}

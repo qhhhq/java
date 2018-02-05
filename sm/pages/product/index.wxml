@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container log-list">
+  <button bindtap="scanCode"> 扫一扫 </button>
+</view>
