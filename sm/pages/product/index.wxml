@@ -1,4 +1,18 @@
 <!--index.wxml-->
+<view class="prd-info">
+  <view>
+    <image class="prd-img" src='2.jpg'></image>
+  </view>
+  <view>微信小程序</view>
+</view>
+<view class="prd-detail">
+  <view>微信小程序</view>
+  <view>微信</view>
+</view>
+<view class="prd-detail">
+  <view>微信小程序</view>
+  <view>微信</view>
+</view>
 <view class="container log-list">
   <button bindtap="scanCode"> 扫一扫 </button>
 </view>
