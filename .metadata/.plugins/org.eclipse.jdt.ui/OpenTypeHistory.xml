@@ -6,4 +6,10 @@
 <typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantLoginService.java[MerachantLoginService" modifiers="513" timestamp="1516937459126"/>
 <typeInfo handle="=base-dao/src\/main\/java&lt;net.qhhhq.base.dao{DaoSupport.java[DaoSupport" modifiers="1025" timestamp="1516592048355"/>
 <typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantContactService.java[MerachantContactService" modifiers="513" timestamp="1516937541197"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server{Server.java[Server" modifiers="513" timestamp="1519349332610"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty{NettyServer.java[NettyServer" modifiers="513" timestamp="1519292880606"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty{AbstractNettyServer.java[AbstractNettyServer" modifiers="1025" timestamp="1519349595720"/>
+<typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(ChannelInitializer.class[ChannelInitializer" modifiers="1057" timestamp="1517904274393"/>
+<typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(ChannelInboundHandlerAdapter.class[ChannelInboundHandlerAdapter" modifiers="33" timestamp="1517904274393"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.service.common{HandlerChain.java[HandlerChain" modifiers="513" timestamp="1519444553372"/>
 </typeInfoHistroy>

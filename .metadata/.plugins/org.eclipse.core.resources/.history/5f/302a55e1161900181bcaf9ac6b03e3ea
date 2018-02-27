@@ -1,0 +1,5 @@
+package net.qhhhq.service.common;
+
+public interface MessageHandler {
+
+}

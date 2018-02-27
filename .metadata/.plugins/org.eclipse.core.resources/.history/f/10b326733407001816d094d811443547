@@ -1,9 +1,0 @@
-package net.qhhhq.dao.merachant;
-
-import net.qhhhq.model.merachant.MerachantCurrentActive;
-
-public interface MerachantCurrentActiveMapper {
-    int insert(MerachantCurrentActive record);
-
-    int insertSelective(MerachantCurrentActive record);
-}

@@ -57,5 +57,10 @@
 			<artifactId>netty-all</artifactId>
 			<version>4.1.21.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
 	</dependencies>
 </project>

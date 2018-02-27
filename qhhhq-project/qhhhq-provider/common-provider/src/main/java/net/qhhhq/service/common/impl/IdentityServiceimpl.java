@@ -1,7 +1,14 @@
 package net.qhhhq.service.common.impl;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Service;
+
 import net.qhhhq.api.common.IdentityService;
 
+@Component
+@Service
 public class IdentityServiceimpl implements IdentityService {
 
 	 // ==============================Fields===========================================
@@ -64,6 +71,10 @@ public class IdentityServiceimpl implements IdentityService {
         this.datacenterId = datacenterId;
     }
 
+    public IdentityServiceimpl() {
+
+    }
+
     // ==============================Methods==========================================
     /**
      * 获得下一个ID (该方法是线程安全的)
@@ -122,4 +133,16 @@ public class IdentityServiceimpl implements IdentityService {
     protected long timeGen() {
         return System.currentTimeMillis();
     }
+
+    @Value("#{prop.workerId}")
+	public void setWorkerId(long workerId) {
+		this.workerId = workerId;
+	}
+
+    @Value("#{prop.datacenterId}")
+	public void setDatacenterId(long datacenterId) {
+		this.datacenterId = datacenterId;
+	}
+
+
 }

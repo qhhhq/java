@@ -1,0 +1,5 @@
+package net.qhhhq.service.common.impl;
+
+public class HandlerChainFactory {
+
+}

@@ -1,0 +1,29 @@
+package net.qhhhq.service.common.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.MessageHandler;
+
+public class HandlerChainFactory {
+
+	private static List<MessageHandler> handlers = new ArrayList();
+	private HandlerChain handlerChain;
+
+	public void setHandlers(List<MessageHandler> handlers) {
+		this.handlers = handlers;
+	}
+
+	public void createHandlerChain() {
+		List<MessageHandler> hds = new ArrayList();
+		for (MessageHandler handlerClass : handlers) {
+			hds.add(handlerClass);
+		}
+		handlerChain = new HandlerChainImpl(hds);
+	}
+
+	public HandlerChain getHandlerChain() {
+		return handlerChain;
+	}
+}

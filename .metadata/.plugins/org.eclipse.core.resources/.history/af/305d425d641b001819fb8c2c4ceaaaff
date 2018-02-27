@@ -1,0 +1,27 @@
+package net.qhhhq.service.base;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.MessageHandler;
+import net.qhhhq.service.common.SysHead;
+
+/**
+ *
+ * @author bankqh-ldr
+ *
+ */
+public class DataInitService implements MessageHandler {
+
+	private static Logger log = Logger.getLogger(DataInitService.class);
+
+	public JSONObject handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead,
+			AppHead appHead) {
+		return paramHandlerChain.doHandler(paramMap);;
+	}
+
+}

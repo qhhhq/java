@@ -1,0 +1,15 @@
+package net.qhhhq.service.common;
+
+import java.util.Iterator;
+import java.util.Map;
+
+public class HandlerChainImpl implements HandlerChain {
+
+	private Iterator<MessageHandler> iterator;
+
+	public void doHandler(Map<String, Object> paramMap) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

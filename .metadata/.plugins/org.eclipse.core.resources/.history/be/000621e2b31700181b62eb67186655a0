@@ -1,0 +1,5 @@
+package net.qhhhq.server;
+
+public interface Server {
+
+}

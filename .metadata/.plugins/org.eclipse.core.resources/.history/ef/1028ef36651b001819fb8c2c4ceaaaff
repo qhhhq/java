@@ -1,0 +1,38 @@
+package net.qhhhq.service.base;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Reference;
+
+import net.qhhhq.api.common.IdentityService;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.MessageHandler;
+import net.qhhhq.service.common.SysHead;
+
+/**
+ *
+ * @author bankqh-ldr
+ *
+ */
+@Component
+public class DataInitService implements MessageHandler {
+
+	private static Logger log = Logger.getLogger(DataInitService.class);
+
+	@Reference
+	private IdentityService identityService;
+
+	public JSONObject handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead,
+			AppHead appHead) {
+		if(sysHead.getSeqNo() == null) {
+			sysHead.setSeqNo(String.valueOf(identityService.nextId()));
+		}
+		return paramHandlerChain.doHandler(paramMap);
+	}
+
+}

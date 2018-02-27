@@ -22,5 +22,4 @@ public class AreaServiceImpl extends DaoSupport<Area> implements AreaService {
 	public BaseMapper<Area> getMapper() {
 		return areaMapper;
 	}
-
 }

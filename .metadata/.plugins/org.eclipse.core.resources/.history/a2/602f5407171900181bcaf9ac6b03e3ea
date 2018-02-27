@@ -1,0 +1,12 @@
+package net.qhhhq.service.common;
+
+import java.util.Map;
+
+public class HandlerChainImpl implements HandlerChain {
+
+	public void doHandler(Map<String, Object> paramMap) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

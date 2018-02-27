@@ -1,0 +1,7 @@
+package net.qhhhq.service.common;
+
+public class AppHeader {
+
+	private String pageNo;
+	private String pageSize;
+}

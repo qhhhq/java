@@ -1,0 +1,14 @@
+package net.qhhhq.service.common;
+
+public class SysHeader {
+
+	private String seqNo;
+	private String sourceType;
+	private String userId;
+	private String tranDate;
+	private String serviceCode;
+	private String messageType;
+	private String messageCode;
+
+
+}

@@ -1,0 +1,37 @@
+package net.qhhhq.service.common.impl;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.MessageHandler;
+import net.qhhhq.service.common.SysHeader;
+
+public class HandlerChainImpl implements HandlerChain {
+
+	private static final String SYS_HEAD = "SYS_HEAD";
+
+	private Iterator<MessageHandler> iterator;
+
+	public HandlerChainImpl(List<MessageHandler> handlers) {
+		this.iterator = handlers.iterator();
+	}
+
+	public void doHandler(Map<String, Object> paramMap) {
+		if (this.iterator.hasNext()) {
+			MessageHandler handler = (MessageHandler) this.iterator.next();
+			handler.handle(paramMap, this);
+		}
+	}
+
+	private SysHeader getSysHeader(Map<String, Object> paramMap) {
+		Object sysHead = paramMap.get(SYS_HEAD);
+		if(sysHead != null) {
+			JSONObject sysJson = new JSONObject(sysHead);
+		}
+	}
+
+}

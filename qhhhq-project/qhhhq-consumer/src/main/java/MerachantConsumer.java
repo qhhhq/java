@@ -25,7 +25,7 @@ public class MerachantConsumer {
         m.setName("123");
         m.setProvince("666");
         m.setStatus("S");
-        //service.save(m);
+        service.save(m);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("start", 0);
         map.put("pagesize", 1);

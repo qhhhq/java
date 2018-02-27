@@ -1,0 +1,12 @@
+package net.qhhhq.service.common;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+
+public interface HandlerChain {
+
+	public JSONObject doHandler(Map<String, Object> paramMap);
+
+	public void doHandler(Map<String, Object> paramMap);
+}

@@ -1,0 +1,8 @@
+package net.qhhhq.service.common;
+
+import java.util.Map;
+
+public interface MessageHandler {
+
+	public abstract void handle(Map<String, String> paramMap, HandlerChain paramHandlerChain);
+}

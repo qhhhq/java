@@ -1,0 +1,7 @@
+package net.qhhhq.server.netty;
+
+import net.qhhhq.server.Server;
+
+public interface NettyServer extends Server {
+
+}

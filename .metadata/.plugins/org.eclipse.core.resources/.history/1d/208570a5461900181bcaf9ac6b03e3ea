@@ -1,0 +1,138 @@
+package net.qhhhq.server.netty;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpContent;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.codec.http.HttpHeaders.Names;
+import io.netty.handler.codec.http.HttpHeaders.Values;
+import io.netty.handler.codec.http.HttpRequest;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
+import net.qhhhq.server.util.RequestParser;
+import net.qhhhq.service.area.AreaServiceBean;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+import net.qhhhq.service.common.impl.HandlerChainFactory;
+
+public class HttpServerHandler extends ChannelInboundHandlerAdapter {
+
+	private static final String SYS_HEAD = "SYS_HEAD";
+	private static final String APP_HEAD = "APP_HEAD";
+	private HttpRequest request;
+	private Map<String, Object> parmMap;
+
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg)
+            throws Exception {
+		HandlerChainFactory.createHandlerChain();
+    	HandlerChain handlerChain = HandlerChainFactory.getHandlerChain();
+    	AreaServiceBean asb = new AreaServiceBean();
+    	asb.save();
+    	if(msg instanceof FullHttpRequest) {
+    		FullHttpRequest fhr = (FullHttpRequest)msg;
+        	parmMap = new RequestParser(fhr).parse();
+        	System.out.print("1,");
+        	System.out.println(parmMap);
+        	handlerChain.doHandler(parmMap);
+    	}
+    	if (msg instanceof HttpRequest) {
+            request = (HttpRequest) msg;
+
+            String uri = request.getUri();
+            System.out.print("2,");
+            System.out.println("Uri:" + uri);
+        }
+        if (msg instanceof HttpContent) {
+            HttpContent content = (HttpContent) msg;
+            ByteBuf buf = content.content();
+            System.out.print("3,");
+            System.out.println(buf.toString(io.netty.util.CharsetUtil.UTF_8));
+            buf.release();
+			JSONObject json = new JSONObject();
+			for(String key : parmMap.keySet()) {
+				json.put(key, parmMap.get(key));
+			}
+            String res = json.toString();
+            FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
+            		HttpResponseStatus.OK, Unpooled.wrappedBuffer(res.getBytes("UTF-8")));
+            response.headers().set(Names.CONTENT_TYPE, "text/plain");
+            response.headers().set(Names.CONTENT_LENGTH,
+                    response.content().readableBytes());
+            if (HttpHeaders.isKeepAlive(request)) {
+                response.headers().set(Names.CONNECTION, Values.KEEP_ALIVE);
+            }
+            ctx.write(response);
+            ctx.flush();
+        }
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+        ctx.flush();
+    }
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
+            throws Exception {
+        ctx.close();
+    }
+
+
+	private SysHead getSysHeader(Map<String, Object> paramMap) {
+		Object obj = paramMap.get(SYS_HEAD);
+		SysHead sysHead = null;
+		if(obj != null) {
+			JSONObject sysJson = new JSONObject(obj);
+			sysHead = new SysHead();
+			if(sysJson.has("SEQ_NO")) {
+				sysHead.setSeqNo(sysJson.getString("SEQ_NO"));
+			}
+			if(sysJson.has("SOURCE_TYPE")) {
+				sysHead.setSourceType(sysJson.getString("SOURCE_TYPE"));
+			}
+			if(sysJson.has("USER_ID")) {
+				sysHead.setUserId(sysJson.getString("USER_ID"));
+			}
+			if(sysJson.has("TRAN_DATE")) {
+				sysHead.setTranDate(sysJson.getString("TRAN_DATE"));
+			}
+			if(sysJson.has("SERVICE_CODE")) {
+				sysHead.setServiceCode(sysJson.getString("SERVICE_CODE"));
+			}
+			if(sysJson.has("MESSAGE_TYPE")) {
+				sysHead.setMessageType(sysJson.getString("MESSAGE_TYPE"));
+			}
+			if(sysJson.has("MESSAGE_CODE")) {
+				sysHead.setMessageCode(sysJson.getString("MESSAGE_CODE"));
+			}
+		}
+		return sysHead;
+	}
+
+	private AppHead getAppHead(Map<String, Object> paramMap) {
+		Object obj = paramMap.get(APP_HEAD);
+		AppHead appHead = null;
+		if(obj != null) {
+			JSONObject appJson = new JSONObject(obj);
+			appHead = new AppHead();
+			if(appJson.has("PAGE_NO")) {
+				appHead.setPageNo(appJson.getInt("PAGE_NO"));
+			}
+			if(appJson.has("PAGE_SIZE")) {
+				appHead.setPageSize(appJson.getInt("PAGE_SIZE"));
+			}
+		}
+		return appHead;
+	}
+
+}
