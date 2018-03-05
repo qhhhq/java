@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="net.qhhhq.server.netty" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="LogEndService"/>
+			<item value="tranLogService"/>
+			<item value="updateByPrimaryKey"/>
+			<item value="out"/>
 			<item value="io.nadron.server.netty"/>
 			<item value="net.qhhhq.server.netty"/>
 			<item value="io.adam.server.netty"/>
 			<item value="java.lang"/>
-			<item value="java.lang.BIGINT"/>
-			<item value="INTEGER"/>
-			<item value="id"/>
-			<item value="deleteByPrimaryKey"/>
 		</list>
 		<list key="replacehistory">
 			<item value="net.qhhhq.server.netty"/>

@@ -9,9 +9,9 @@ public class SysHead {
 	private String serviceCode;
 	private String messageType;
 	private String messageCode;
-	private String tranStatus = "S";
-	private String retCode = "000000";
-	private String retMsg = "SUCCESS";
+	private String tranStatus;
+	private String retCode;
+	private String retMsg;
 
 	public String getSeqNo() {
 		return seqNo;

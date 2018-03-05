@@ -1,0 +1,10 @@
+package net.qhhhq.service.common.impl;
+
+import net.qhhhq.api.common.TranLogService;
+import net.qhhhq.base.dao.DaoSupport;
+import net.qhhhq.model.common.TranLog;
+
+public class TranLogServiceImpl extends DaoSupport<TranLog> implements TranLogService {
+
+
+}

@@ -1,0 +1,21 @@
+package net.qhhhq.global.auth.config;
+
+import java.util.List;
+
+public class AuthServiceConfig {
+
+	private List<AuthItemConfig> serviceList;
+
+	public AuthServiceConfig() {
+		this.serviceList = serviceList;
+	}
+
+	public List<AuthItemConfig> getServiceList() {
+		return serviceList;
+	}
+
+	public void setServiceList(List<AuthItemConfig> serviceList) {
+		this.serviceList = serviceList;
+	}
+
+}

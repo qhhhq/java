@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conf>
+	<tran serviceCode="hhq" messageType="1400" messageCode="1000">
+		<service authService="net.qhhhq.global.auth.impl.UserIdAuthServiceImpl" role="1" />
+		<service class="net.qhhhq.global.auth.impl.UserIdAuthServiceImpl" role="2" />
+	</tran>
+	<tran serviceCode="hhq" messageType="1400" messageCode="1200">
+		<service class="net.qhhhq.global.auth.impl.UserIdAuthServiceImpl" role="2" />
+	</tran>
+</conf>

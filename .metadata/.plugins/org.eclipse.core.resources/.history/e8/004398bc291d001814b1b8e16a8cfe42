@@ -1,0 +1,22 @@
+package net.qhhhq.global.auth.config;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+public class AuthServiceConfig {
+
+	private List<AuthItemConfig> serviceList;
+
+	public AuthServiceConfig() {
+		this.serviceList = new CopyOnWriteArrayList<AuthItemConfig>();
+	}
+
+	public List<AuthItemConfig> getServiceList() {
+		return serviceList;
+	}
+
+	public void setServiceList(List<AuthItemConfig> serviceList) {
+		this.serviceList = serviceList;
+	}
+
+}

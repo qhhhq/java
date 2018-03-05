@@ -14,6 +14,7 @@ import net.qhhhq.service.common.SysHead;
  *
  * @author bankqh-ldr
  *
+ * 校验系统头数据完整性
  */
 public class BaseCheckService implements MessageHandler {
 
@@ -21,6 +22,7 @@ public class BaseCheckService implements MessageHandler {
 
 	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead,
 			AppHead appHead, JSONObject data) {
+		log.info("BaseCheckService start ......");
 		if(sysHead == null) {
 			sysHead = new SysHead();
 			sysHead.setTranStatus("F");

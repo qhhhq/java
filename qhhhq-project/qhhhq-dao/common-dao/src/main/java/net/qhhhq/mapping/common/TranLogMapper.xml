@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.qhhhq.dao.common.TranLogMapper">
+  <resultMap id="BaseResultMap" type="net.qhhhq.model.common.TranLog">
+    <id column="seq_no" jdbcType="VARCHAR" property="seqNo" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="tran_date" jdbcType="VARCHAR" property="tranDate" />
+    <result column="service_code" jdbcType="VARCHAR" property="serviceCode" />
+    <result column="message_type" jdbcType="VARCHAR" property="messageType" />
+    <result column="message_code" jdbcType="VARCHAR" property="messageCode" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+    <result column="tran_status" jdbcType="VARCHAR" property="tranStatus" />
+    <result column="ret_code" jdbcType="VARCHAR" property="retCode" />
+    <result column="ret_msg" jdbcType="VARCHAR" property="retMsg" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    seq_no, source_type, user_id, tran_date, service_code, message_type, message_code, 
+    start_date, end_date, tran_status, ret_code, ret_msg
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comm_tran_log
+    where seq_no = #{seqNo,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from comm_tran_log
+    where seq_no = #{seqNo,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="net.qhhhq.model.common.TranLog">
+    insert into comm_tran_log (seq_no, source_type, user_id, 
+      tran_date, service_code, message_type, 
+      message_code, start_date, end_date, 
+      tran_status, ret_code, ret_msg
+      )
+    values (#{seqNo,jdbcType=VARCHAR}, #{sourceType,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{tranDate,jdbcType=VARCHAR}, #{serviceCode,jdbcType=VARCHAR}, #{messageType,jdbcType=VARCHAR}, 
+      #{messageCode,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}, 
+      #{tranStatus,jdbcType=VARCHAR}, #{retCode,jdbcType=VARCHAR}, #{retMsg,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="net.qhhhq.model.common.TranLog">
+    insert into comm_tran_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        seq_no,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="tranDate != null">
+        tran_date,
+      </if>
+      <if test="serviceCode != null">
+        service_code,
+      </if>
+      <if test="messageType != null">
+        message_type,
+      </if>
+      <if test="messageCode != null">
+        message_code,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="tranStatus != null">
+        tran_status,
+      </if>
+      <if test="retCode != null">
+        ret_code,
+      </if>
+      <if test="retMsg != null">
+        ret_msg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqNo != null">
+        #{seqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        #{messageType,jdbcType=VARCHAR},
+      </if>
+      <if test="messageCode != null">
+        #{messageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tranStatus != null">
+        #{tranStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="retCode != null">
+        #{retCode,jdbcType=VARCHAR},
+      </if>
+      <if test="retMsg != null">
+        #{retMsg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="net.qhhhq.model.common.TranLog">
+    update comm_tran_log
+    <set>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null">
+        tran_date = #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceCode != null">
+        service_code = #{serviceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="messageType != null">
+        message_type = #{messageType,jdbcType=VARCHAR},
+      </if>
+      <if test="messageCode != null">
+        message_code = #{messageCode,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tranStatus != null">
+        tran_status = #{tranStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="retCode != null">
+        ret_code = #{retCode,jdbcType=VARCHAR},
+      </if>
+      <if test="retMsg != null">
+        ret_msg = #{retMsg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where seq_no = #{seqNo,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.qhhhq.model.common.TranLog">
+    update comm_tran_log
+    set source_type = #{sourceType,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      tran_date = #{tranDate,jdbcType=VARCHAR},
+      service_code = #{serviceCode,jdbcType=VARCHAR},
+      message_type = #{messageType,jdbcType=VARCHAR},
+      message_code = #{messageCode,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      tran_status = #{tranStatus,jdbcType=VARCHAR},
+      ret_code = #{retCode,jdbcType=VARCHAR},
+      ret_msg = #{retMsg,jdbcType=VARCHAR}
+    where seq_no = #{seqNo,jdbcType=VARCHAR}
+  </update>
+</mapper>

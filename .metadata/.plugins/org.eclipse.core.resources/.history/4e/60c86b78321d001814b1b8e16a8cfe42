@@ -1,0 +1,8 @@
+package net.qhhhq.global.auth.factory;
+
+import net.qhhhq.global.auth.config.AuthList;
+
+public class AuthFactory {
+
+	private static AuthList authList;
+}

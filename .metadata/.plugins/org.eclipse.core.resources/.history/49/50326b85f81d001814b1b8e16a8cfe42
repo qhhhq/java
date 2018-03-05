@@ -1,0 +1,15 @@
+package net.qhhhq.service.user.impl;
+
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import net.qhhhq.api.user.UserService;
+import net.qhhhq.base.QueryResult;
+import net.qhhhq.base.dao.DaoSupport;
+import net.qhhhq.model.user.UserInfo;
+
+public class UserServiceImpl extends DaoSupport<UserInfo> implements UserService {
+
+
+}

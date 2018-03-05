@@ -1,0 +1,5 @@
+package net.qhhhq.global.auth.factory;
+
+public class AuthFactory {
+
+}

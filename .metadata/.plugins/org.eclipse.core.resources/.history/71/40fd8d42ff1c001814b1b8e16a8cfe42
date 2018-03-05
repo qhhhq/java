@@ -1,0 +1,8 @@
+package net.qhhhq.global.auth;
+
+import net.qhhhq.service.common.SysHead;
+
+public interface AuthHandler {
+
+	public void doHandler(SysHead sysHead, AuthHandlerChain chain);
+}

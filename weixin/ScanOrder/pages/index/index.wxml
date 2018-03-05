@@ -1,0 +1,80 @@
+<view class="container">
+  <view class="page-body">
+    <!--swiper-->
+    <view class="page-section swiper">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}"></view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!--swiper-->
+    <!--type-->
+    <view class="page-section">
+      <view class="page-section-spacing">
+        <!--row 1-->
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+        </view>
+        <!--row 2-->
+        <view class="flex-wrp" style="flex-direction:row;">
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+          <view class="flex-item">
+            <image class="icon-img" src="/image/icon3.png"/>
+            <view>111</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--type end-->
+    <view class="page-section page-section-spacing">
+      <view class="weui-cells__title">地区选择器</view>
+      <view>
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+          <view class="scroll-view-item_H">
+            <image class="active-img" src="/image/test/naicha.jpg"/>
+          </view>
+          <view class="scroll-view-item_H">...</view>
+          <view class="scroll-view-item_H">...</view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

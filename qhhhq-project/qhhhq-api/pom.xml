@@ -28,5 +28,6 @@
   	<module>common-api</module>
   	<module>merachant-api</module>
   	<module>base-api</module>
+  	<module>user-api</module>
   </modules>
 </project>

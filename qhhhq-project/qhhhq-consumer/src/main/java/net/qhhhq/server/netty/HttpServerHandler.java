@@ -39,7 +39,6 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
     	if(msg instanceof FullHttpRequest) {
     		FullHttpRequest fhr = (FullHttpRequest)msg;
         	parmMap = new RequestParser(fhr).parse();
-        	log.info("request data is:"+parmMap);
         	handlerChain.doHandler(parmMap);
         	responseMsg = handlerChain.getMessage();
     	}

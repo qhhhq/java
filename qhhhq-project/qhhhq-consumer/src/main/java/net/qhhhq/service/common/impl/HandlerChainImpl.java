@@ -4,7 +4,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import net.qhhhq.service.common.AppHead;
@@ -13,8 +12,6 @@ import net.qhhhq.service.common.MessageHandler;
 import net.qhhhq.service.common.SysHead;
 
 public class HandlerChainImpl implements HandlerChain {
-
-	private static Logger log = Logger.getLogger(HandlerChainImpl.class);
 
 	private static final String SYS_HEAD = "SYS_HEAD";
 	private static final String APP_HEAD = "APP_HEAD";

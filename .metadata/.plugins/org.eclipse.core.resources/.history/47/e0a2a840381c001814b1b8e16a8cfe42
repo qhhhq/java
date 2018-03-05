@@ -1,0 +1,17 @@
+package net.qhhhq.dao.common;
+
+import net.qhhhq.model.common.TranLog;
+
+public interface TranLogMapper {
+    int deleteByPrimaryKey(String seqNo);
+
+    int insert(TranLog record);
+
+    int insertSelective(TranLog record);
+
+    TranLog selectByPrimaryKey(String seqNo);
+
+    int updateByPrimaryKeySelective(TranLog record);
+
+    int updateByPrimaryKey(TranLog record);
+}

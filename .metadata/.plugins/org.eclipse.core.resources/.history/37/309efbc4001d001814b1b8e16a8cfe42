@@ -1,0 +1,6 @@
+package net.qhhhq.global.auth.config;
+
+public class AuthItemConfig {
+
+	private AuthService authService;
+}

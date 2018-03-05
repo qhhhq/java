@@ -1,0 +1,20 @@
+package net.qhhhq.global.auth.config;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+
+public class AuthServiceConfig {
+
+	private List<AuthItemConfig> serviceList;
+
+	@XmlElement(name="service")
+	public List<AuthItemConfig> getServiceList() {
+		return serviceList;
+	}
+
+	public void setServiceList(List<AuthItemConfig> serviceList) {
+		this.serviceList = serviceList;
+	}
+
+}

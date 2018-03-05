@@ -73,5 +73,6 @@
 		<module>common-provider</module>
 		<module>main-provider</module>
 		<module>merachant-provider</module>
+		<module>user-provider</module>
 	</modules>
 </project>

@@ -1,0 +1,28 @@
+package netty.http;
+
+import java.io.IOException;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import net.qhhhq.global.auth.factory.AuthFactory;
+import net.qhhhq.server.netty.AbstractNettyServer;
+import net.qhhhq.service.common.impl.HandlerChainFactory;
+
+public class HttpServerTest {
+
+	public static void main(String[] args) throws IOException {
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+		System.out.println(context.getDisplayName() + ": here");
+		context.start();
+		AuthFactory.createAuthList(new File(HttpServerTest.class.getClass().getResource("/auth.xml")));
+        System.out.println("服务已经启动...");
+        AbstractNettyServer server = (AbstractNettyServer)context.getBean("httpServer");
+        try {
+			server.startServer();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        //System.in.read();
+	}
+
+}

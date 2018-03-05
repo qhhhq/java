@@ -1,0 +1,7 @@
+package net.qhhhq.api.user;
+
+import net.qhhhq.api.base.DAO;
+
+public interface UserService extends DAO<UserInfo> {
+
+}

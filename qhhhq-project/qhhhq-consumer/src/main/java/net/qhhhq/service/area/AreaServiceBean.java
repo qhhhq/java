@@ -19,7 +19,7 @@ import net.qhhhq.service.common.SysHead;
 @Component
 public class AreaServiceBean implements MessageHandler {
 
-	private static Logger logger = Logger.getLogger(AreaServiceBean.class);
+	private static Logger log = Logger.getLogger(AreaServiceBean.class);
 
 	@Reference
 	static AreaService areaService;
@@ -30,13 +30,13 @@ public class AreaServiceBean implements MessageHandler {
 
 	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead,
 			AppHead appHead, JSONObject data) {
+		log.info("AreaServiceBean start ......");
 		if(sysHead.getMessageCode().equals("1000")) {
-			logger.debug("service 1000 start");
+			log.debug("service 1000 start");
 			QueryResult<Area> result = areaService.getScrollData();
 			data.put("result", new JSONObject(result));
-		} else {
-			paramHandlerChain.doHandler(paramMap);
 		}
+		paramHandlerChain.doHandler(paramMap);
 	}
 
 }

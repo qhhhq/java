@@ -1,5 +1,0 @@
-package net.qhhhq.server.netty.factory;
-
-public class NamedThreadFactory implements ThreadFactory {
-
-}

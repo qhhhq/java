@@ -1,0 +1,5 @@
+package net.qhhhq.http;
+
+public class HttpClient {
+
+}

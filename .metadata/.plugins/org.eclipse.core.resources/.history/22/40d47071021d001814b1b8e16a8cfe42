@@ -1,0 +1,11 @@
+package net.qhhhq.global.auth.config;
+
+import java.util.List;
+
+public class AuthConfig {
+
+	private List<AuthServiceConfig> trans;
+	private String serviceCode;
+	private String messageType;
+	private String messageCode;
+}

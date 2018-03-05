@@ -1,0 +1,11 @@
+package net.qhhhq.global.auth.config;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="conf")
+public class AuthList {
+
+	List<AuthConfig> trans;
+}

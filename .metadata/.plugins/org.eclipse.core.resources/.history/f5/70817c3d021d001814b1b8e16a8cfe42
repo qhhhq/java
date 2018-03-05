@@ -1,0 +1,10 @@
+package net.qhhhq.global.auth.config;
+
+import net.qhhhq.global.auth.AuthService;
+
+public class AuthItemConfig {
+
+	/* 权限规则 */
+	private AuthService authService;
+	private String role;
+}

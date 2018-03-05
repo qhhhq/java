@@ -14,7 +14,7 @@ public abstract class DaoSupport<T> implements DAO<T> {
 	public abstract BaseMapper<T> getMapper();
 
 	public void save(T entity) {
-		getMapper().insert(entity);
+		getMapper().insertSelective(entity);
 	}
 
 	public void update(T eitity) {

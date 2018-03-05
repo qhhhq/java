@@ -1,0 +1,36 @@
+package net.qhhhq.service.base;
+
+import java.util.Date;
+import java.util.Map;
+
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Reference;
+
+import net.qhhhq.api.common.TranLogService;
+import net.qhhhq.model.common.TranLog;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.MessageHandler;
+import net.qhhhq.service.common.SysHead;
+
+@Component
+public class LogEndService implements MessageHandler {
+
+	@Reference
+	static TranLogService tranLogService;
+
+	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+		TranLog tranLog = new TranLog();
+		tranLog.setSeqNo(sysHead.getSeqNo());
+		tranLog.setEndDate(new Date());
+		tranLog.setTranStatus(sysHead.getTranStatus());
+		tranLog.setRetCode(sysHead.getRetCode());
+		tranLog.setRetMsg(sysHead.getRetMsg());
+		tranLogService.update(tranLog);
+
+	}
+
+}
