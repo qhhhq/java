@@ -1,0 +1,20 @@
+package net.qhhhq.dao.shop;
+
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.model.shop.ShopType;
+
+public interface ShopTypeMapper extends BaseMapper<ShopType> {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(ShopType record);
+
+    int insertSelective(ShopType record);
+
+    ShopType selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(ShopType record);
+
+    int updateByPrimaryKey(ShopType record);
+
+    List<ShopType> selectByParent(Long parent);
+}

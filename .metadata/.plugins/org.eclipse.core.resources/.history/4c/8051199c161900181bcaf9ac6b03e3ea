@@ -1,6 +1,0 @@
-package net.qhhhq.service.common;
-
-public interface HandlerChain {
-
-	public abstract void doHandler(Map<String, String> paramMap);
-}

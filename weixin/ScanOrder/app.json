@@ -2,7 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/scan-code/scan-code",
-    "pages/logs/logs"
+    "pages/user/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -27,6 +27,12 @@
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "接口"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "我"
       }
     ]
   },

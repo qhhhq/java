@@ -73,5 +73,10 @@ public class SysHead {
 	public void setRetMsg(String retMsg) {
 		this.retMsg = retMsg;
 	}
+	public void setFail(String retCode, String retMsg) {
+		this.tranStatus = "F";
+		this.retCode = retCode;
+		this.retMsg = retMsg;
+	}
 
 }

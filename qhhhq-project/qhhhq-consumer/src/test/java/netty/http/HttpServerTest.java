@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import net.qhhhq.global.auth.factory.AuthFactory;
+import net.qhhhq.global.service.config.factory.ServiceConfigFactory;
 import net.qhhhq.server.netty.AbstractNettyServer;
 
 public class HttpServerTest {
@@ -15,7 +16,9 @@ public class HttpServerTest {
 		System.out.println(context.getDisplayName() + ": here");
 		context.start();
 		File file = new File(HttpServerTest.class.getClass().getResource("/auth.xml").getPath());
+		File fileService = new File(HttpServerTest.class.getClass().getResource("/service-conf.xml").getPath());
 		AuthFactory.createAuthList(file);
+		ServiceConfigFactory.createServiceMap(fileService);
         System.out.println("服务已经启动...");
         AbstractNettyServer server = (AbstractNettyServer)context.getBean("httpServer");
         try {

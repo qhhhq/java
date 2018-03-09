@@ -1,0 +1,9 @@
+package net.qhhhq.global.service.config;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="conf")
+public class ServiceConfig {
+
+	private List<ServiceItemConfig> service;
+}

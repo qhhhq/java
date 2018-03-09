@@ -1,0 +1,10 @@
+package net.qhhhq.service.enterprise.impl;
+
+import net.qhhhq.base.dao.DaoSupport;
+import net.qhhhq.model.enterprise.Enterprise;
+import net.qhhhq.service.enterprise.EnterpriseService;
+
+public class EnterpriseServiceImpl extends DaoSupport<Enterprise> implements EnterpriseService {
+
+
+}

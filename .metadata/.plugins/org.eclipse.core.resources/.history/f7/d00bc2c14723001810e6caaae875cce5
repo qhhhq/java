@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.qhhhq.dao.shop.ShopActiveMapper">
+	<resultMap id="BaseResultMap" type="net.qhhhq.model.shop.ShopActive">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="shop_id" jdbcType="BIGINT" property="shopId" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="img" jdbcType="VARCHAR" property="img" />
+		<result column="start_date" jdbcType="DATE" property="startDate" />
+		<result column="end_date" jdbcType="DATE" property="endDate" />
+		<result column="status" jdbcType="BIT" property="status" />
+		<result column="sort_num" jdbcType="INTEGER" property="sortNum" />
+	</resultMap>
+	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
+		type="net.qhhhq.model.shop.ShopActive">
+		<result column="description" jdbcType="LONGVARCHAR" property="description" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, shop_id, name, img, start_date, end_date, status, sort_num
+	</sql>
+	<sql id="Blob_Column_List">
+		description
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from shop_active
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from shop_active
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="net.qhhhq.model.shop.ShopActive">
+		insert into shop_active (id, shop_id, name,
+		img, start_date, end_date,
+		status, sort_num, description
+		)
+		values (#{id,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT},
+		#{name,jdbcType=VARCHAR},
+		#{img,jdbcType=VARCHAR}, #{startDate,jdbcType=DATE}, #{endDate,jdbcType=DATE},
+		#{status,jdbcType=BIT}, #{sortNum,jdbcType=INTEGER},
+		#{description,jdbcType=LONGVARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="net.qhhhq.model.shop.ShopActive">
+		insert into shop_active
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="shopId != null">
+				shop_id,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+			<if test="startDate != null">
+				start_date,
+			</if>
+			<if test="endDate != null">
+				end_date,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="sortNum != null">
+				sort_num,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+			<if test="startDate != null">
+				#{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				#{endDate,jdbcType=DATE},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=BIT},
+			</if>
+			<if test="sortNum != null">
+				#{sortNum,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="net.qhhhq.model.shop.ShopActive">
+		update shop_active
+		<set>
+			<if test="shopId != null">
+				shop_id = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+			<if test="startDate != null">
+				start_date = #{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				end_date = #{endDate,jdbcType=DATE},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=BIT},
+			</if>
+			<if test="sortNum != null">
+				sort_num = #{sortNum,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="net.qhhhq.model.shop.ShopActive">
+		update shop_active
+		set shop_id = #{shopId,jdbcType=BIGINT},
+		name = #{name,jdbcType=VARCHAR},
+		img = #{img,jdbcType=VARCHAR},
+		start_date = #{startDate,jdbcType=DATE},
+		end_date = #{endDate,jdbcType=DATE},
+		status = #{status,jdbcType=BIT},
+		sort_num = #{sortNum,jdbcType=INTEGER},
+		description = #{description,jdbcType=LONGVARCHAR}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="net.qhhhq.model.shop.ShopActive">
+		update shop_active
+		set shop_id = #{shopId,jdbcType=BIGINT},
+		name = #{name,jdbcType=VARCHAR},
+		img = #{img,jdbcType=VARCHAR},
+		start_date = #{startDate,jdbcType=DATE},
+		end_date = #{endDate,jdbcType=DATE},
+		status = #{status,jdbcType=BIT},
+		sort_num = #{sortNum,jdbcType=INTEGER}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<select id="getCount" resultType="java.lang.Long">
+		select count(*) from
+		shop_active
+	</select>
+	<select id="queryTotalRecords" resultType="java.lang.Long">
+		select count(*) from shop_active
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				and shopId = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="name != null">
+				and name like "%"#{name,jdbcType=VARCHAR}"%",
+			</if>
+			<if test="startDate != null">
+				and startDate &gt;= #{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				and endDate &lt;= #{endDate,jdbcType=DATE},
+			</if>
+			<if test="status != null">
+				and status = #{status,jdbcType=BIT},
+			</if>
+		</where>
+	</select>
+	<select id="queryAllRecords" parameterType="Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from shop_active
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				and shopId = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="name != null">
+				and name like "%"#{name,jdbcType=VARCHAR}"%",
+			</if>
+			<if test="startDate != null">
+				and startDate &gt;= #{startDate,jdbcType=DATE},
+			</if>
+			<if test="endDate != null">
+				and endDate &lt;= #{endDate,jdbcType=DATE},
+			</if>
+			<if test="status != null">
+				and status = #{status,jdbcType=BIT},
+			</if>
+		</where>
+		<if test="orderBy != null">
+			order by ${orderBy}
+		</if>
+		<if test="firstResult != null and maxResult != null">
+			limit #{firstResult},#{maxResult}
+		</if>
+	</select>
+	<select id="selectByOpenId" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user_info
+		where openid = #{openid,jdbcType=VARCHAR}
+	</select>
+</mapper>

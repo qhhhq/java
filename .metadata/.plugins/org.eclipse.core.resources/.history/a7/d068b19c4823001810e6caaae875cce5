@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.qhhhq.dao.shop.ShopInfoMapper">
+  <resultMap id="BaseResultMap" type="net.qhhhq.model.shop.ShopInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="enterprise_id" jdbcType="BIGINT" property="enterpriseId" />
+    <result column="type" jdbcType="BIGINT" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="rating" jdbcType="INTEGER" property="rating" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="status_desc" jdbcType="VARCHAR" property="statusDesc" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="manager" jdbcType="VARCHAR" property="manager" />
+    <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone" />
+    <result column="contact_name" jdbcType="VARCHAR" property="contactName" />
+    <result column="contact_email" jdbcType="VARCHAR" property="contactEmail" />
+    <result column="longitude" jdbcType="DOUBLE" property="longitude" />
+    <result column="dimension" jdbcType="DOUBLE" property="dimension" />
+    <result column="class1" jdbcType="BIGINT" property="class1" />
+    <result column="class2" jdbcType="BIGINT" property="class2" />
+    <result column="class3" jdbcType="BIGINT" property="class3" />
+    <result column="class4" jdbcType="BIGINT" property="class4" />
+    <result column="class5" jdbcType="BIGINT" property="class5" />
+    <result column="class6" jdbcType="BIGINT" property="class6" />
+    <result column="sort_num" jdbcType="BIGINT" property="sortNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enterprise_id, type, name, province, city, rating, status, status_desc, create_date, 
+    create_user, manager, contact_phone, contact_name, contact_email, longitude, dimension, 
+    class1, class2, class3, class4, class5, class6, sort_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from shop_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="net.qhhhq.model.shop.ShopInfo">
+    insert into shop_info (id, enterprise_id, type, 
+      name, province, city, 
+      rating, status, status_desc, 
+      create_date, create_user, manager, 
+      contact_phone, contact_name, contact_email, 
+      longitude, dimension, class1, 
+      class2, class3, class4, 
+      class5, class6, sort_num
+      )
+    values (#{id,jdbcType=BIGINT}, #{enterpriseId,jdbcType=BIGINT}, #{type,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{rating,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{statusDesc,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR}, 
+      #{contactPhone,jdbcType=VARCHAR}, #{contactName,jdbcType=VARCHAR}, #{contactEmail,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=DOUBLE}, #{dimension,jdbcType=DOUBLE}, #{class1,jdbcType=BIGINT}, 
+      #{class2,jdbcType=BIGINT}, #{class3,jdbcType=BIGINT}, #{class4,jdbcType=BIGINT}, 
+      #{class5,jdbcType=BIGINT}, #{class6,jdbcType=BIGINT}, #{sortNum,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="net.qhhhq.model.shop.ShopInfo">
+    insert into shop_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="rating != null">
+        rating,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="statusDesc != null">
+        status_desc,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="manager != null">
+        manager,
+      </if>
+      <if test="contactPhone != null">
+        contact_phone,
+      </if>
+      <if test="contactName != null">
+        contact_name,
+      </if>
+      <if test="contactEmail != null">
+        contact_email,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="dimension != null">
+        dimension,
+      </if>
+      <if test="class1 != null">
+        class1,
+      </if>
+      <if test="class2 != null">
+        class2,
+      </if>
+      <if test="class3 != null">
+        class3,
+      </if>
+      <if test="class4 != null">
+        class4,
+      </if>
+      <if test="class5 != null">
+        class5,
+      </if>
+      <if test="class6 != null">
+        class6,
+      </if>
+      <if test="sortNum != null">
+        sort_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        #{rating,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="statusDesc != null">
+        #{statusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null">
+        #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null">
+        #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="dimension != null">
+        #{dimension,jdbcType=DOUBLE},
+      </if>
+      <if test="class1 != null">
+        #{class1,jdbcType=BIGINT},
+      </if>
+      <if test="class2 != null">
+        #{class2,jdbcType=BIGINT},
+      </if>
+      <if test="class3 != null">
+        #{class3,jdbcType=BIGINT},
+      </if>
+      <if test="class4 != null">
+        #{class4,jdbcType=BIGINT},
+      </if>
+      <if test="class5 != null">
+        #{class5,jdbcType=BIGINT},
+      </if>
+      <if test="class6 != null">
+        #{class6,jdbcType=BIGINT},
+      </if>
+      <if test="sortNum != null">
+        #{sortNum,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="net.qhhhq.model.shop.ShopInfo">
+    update shop_info
+    <set>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="rating != null">
+        rating = #{rating,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="statusDesc != null">
+        status_desc = #{statusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="manager != null">
+        manager = #{manager,jdbcType=VARCHAR},
+      </if>
+      <if test="contactPhone != null">
+        contact_phone = #{contactPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="contactName != null">
+        contact_name = #{contactName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactEmail != null">
+        contact_email = #{contactEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="dimension != null">
+        dimension = #{dimension,jdbcType=DOUBLE},
+      </if>
+      <if test="class1 != null">
+        class1 = #{class1,jdbcType=BIGINT},
+      </if>
+      <if test="class2 != null">
+        class2 = #{class2,jdbcType=BIGINT},
+      </if>
+      <if test="class3 != null">
+        class3 = #{class3,jdbcType=BIGINT},
+      </if>
+      <if test="class4 != null">
+        class4 = #{class4,jdbcType=BIGINT},
+      </if>
+      <if test="class5 != null">
+        class5 = #{class5,jdbcType=BIGINT},
+      </if>
+      <if test="class6 != null">
+        class6 = #{class6,jdbcType=BIGINT},
+      </if>
+      <if test="sortNum != null">
+        sort_num = #{sortNum,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="net.qhhhq.model.shop.ShopInfo">
+    update shop_info
+    set enterprise_id = #{enterpriseId,jdbcType=BIGINT},
+      type = #{type,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      rating = #{rating,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      status_desc = #{statusDesc,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      manager = #{manager,jdbcType=VARCHAR},
+      contact_phone = #{contactPhone,jdbcType=VARCHAR},
+      contact_name = #{contactName,jdbcType=VARCHAR},
+      contact_email = #{contactEmail,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DOUBLE},
+      dimension = #{dimension,jdbcType=DOUBLE},
+      class1 = #{class1,jdbcType=BIGINT},
+      class2 = #{class2,jdbcType=BIGINT},
+      class3 = #{class3,jdbcType=BIGINT},
+      class4 = #{class4,jdbcType=BIGINT},
+      class5 = #{class5,jdbcType=BIGINT},
+      class6 = #{class6,jdbcType=BIGINT},
+      sort_num = #{sortNum,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,14 @@
+package net.qhhhq.api.common;
+
+import java.io.File;
+
+/**
+ *
+ * @author bankqh-ldr
+ *	二维码处理接口
+ */
+
+public interface QRCodeService {
+
+	public String generateQRCode(String text, int width, int height, String format, File file);
+}

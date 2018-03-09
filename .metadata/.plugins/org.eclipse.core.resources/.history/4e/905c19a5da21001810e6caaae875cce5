@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conf>
+	<service serviceCode="hhq" messageType="0001" impl-class="net.qhhhq.service.area.AreaServiceBean"></service>
+	<service serviceCode="hhq" messageType="0002" impl-class="net.qhhhq.service.user.UserServiceBean"></service>
+</conf>

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="io.netty.channel.ChannelInitializer"/>
-<fullyQualifiedTypeName name="org.jboss.netty.channel.Channel"/>
-<fullyQualifiedTypeName name="io.netty.channel.group.DefaultChannelGroup"/>
-<fullyQualifiedTypeName name="io.netty.channel.group.ChannelGroupFuture"/>
-<fullyQualifiedTypeName name="org.apache.log4j.spi.LoggerFactory"/>
 <fullyQualifiedTypeName name="io.netty.channel.group.ChannelGroup"/>
 <fullyQualifiedTypeName name="io.netty.channel.Channel"/>
 <fullyQualifiedTypeName name="net.qhhhq.server.Server"/>
@@ -37,11 +32,8 @@
 <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="net.qhhhq.service.common.AppHead"/>
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Service"/>
 <fullyQualifiedTypeName name="net.qhhhq.api.common.IdentityService"/>
 <fullyQualifiedTypeName name="net.qhhhq.dao.common.TranLogMapper"/>
-<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Reference"/>
 <fullyQualifiedTypeName name="net.qhhhq.api.common.TranLogService"/>
 <fullyQualifiedTypeName name="net.qhhhq.service.base.LogService"/>
@@ -60,4 +52,12 @@
 <fullyQualifiedTypeName name="net.qhhhq.global.auth.config.AuthList"/>
 <fullyQualifiedTypeName name="net.qhhhq.base.dao.BaseMapper"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Service"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="net.qhhhq.dao.user.UserInfoMapper"/>
+<fullyQualifiedTypeName name="org.apache.http.client.HttpClient"/>
+<fullyQualifiedTypeName name="org.apache.commons.httpclient.HttpClient"/>
+<fullyQualifiedTypeName name="net.qhhhq.http.HttpClient"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

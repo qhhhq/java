@@ -1,0 +1,35 @@
+package net.qhhhq.service.user.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Service;
+
+import net.qhhhq.api.common.IdentityService;
+import net.qhhhq.api.user.UserService;
+import net.qhhhq.base.dao.BaseMapper;
+import net.qhhhq.base.dao.DaoSupport;
+import net.qhhhq.dao.user.UserInfoMapper;
+import net.qhhhq.model.user.UserInfo;
+
+@Component
+@Service
+public class UserServiceImpl extends DaoSupport<UserInfo> implements UserService {
+
+	@Autowired
+	private UserInfoMapper userInfoMapper;
+	@Autowired
+	private IdentityService identityService;
+
+	@Override
+	public BaseMapper<UserInfo> getMapper() {
+		return userInfoMapper;
+	}
+
+	@Override
+	public void save(UserInfo entity) {
+		entity.setId(identityService.nextId());
+		super.save(entity);
+	}
+
+}

@@ -1,0 +1,8 @@
+package net.qhhhq.service.shop;
+
+import net.qhhhq.api.base.DAO;
+import net.qhhhq.model.shop.ShopType;
+
+public interface ShopTypeService extends DAO<ShopType> {
+
+}

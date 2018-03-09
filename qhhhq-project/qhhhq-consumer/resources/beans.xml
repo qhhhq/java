@@ -82,10 +82,7 @@
 	        	<bean class="net.qhhhq.service.base.LogStartService" />
 	        	<bean class="net.qhhhq.service.base.BaseCheckService" />
 	        	<bean class="net.qhhhq.service.base.AuthCheckService" />
-
-	            <bean class="net.qhhhq.service.area.AreaServiceBean" />
-	            <bean class="net.qhhhq.service.user.UserServiceBean" />
-
+	            <bean class="net.qhhhq.service.base.ExecuteService" />
 	        	<bean class="net.qhhhq.service.base.LogEndService" />
 	        </list>
 	    </property>

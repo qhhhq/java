@@ -1,0 +1,5 @@
+package net.qhhhq.global.service;
+
+public interface Service {
+
+}

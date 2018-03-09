@@ -25,7 +25,6 @@ public class TranLogServiceImpl extends DaoSupport<TranLog> implements TranLogSe
 
 	@Override
 	public void update(TranLog eitity) {
-		System.out.println("------------"+eitity);
 		tranLogMapper.updateByPrimaryKeySelective(eitity);
 	}
 

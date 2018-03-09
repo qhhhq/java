@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.qhhhq.dao.shop.ShopManagerMapper">
+	<resultMap id="BaseResultMap" type="net.qhhhq.model.shop.ShopManager">
+		<id column="id" jdbcType="BIGINT" property="id" />
+		<result column="shop_id" jdbcType="BIGINT" property="shopId" />
+		<result column="user_id" jdbcType="BIGINT" property="userId" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, shop_id, user_id, status, create_date
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from shop_manager
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+		delete from shop_manager
+		where id = #{id,jdbcType=BIGINT}
+	</delete>
+	<insert id="insert" parameterType="net.qhhhq.model.shop.ShopManager">
+		insert into shop_manager (id, shop_id, user_id,
+		status, create_date)
+		values (#{id,jdbcType=BIGINT}, #{shopId,jdbcType=BIGINT},
+		#{userId,jdbcType=BIGINT},
+		#{status,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+	</insert>
+	<insert id="insertSelective" parameterType="net.qhhhq.model.shop.ShopManager">
+		insert into shop_manager
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="shopId != null">
+				shop_id,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="createDate != null">
+				create_date,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				#{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="net.qhhhq.model.shop.ShopManager">
+		update shop_manager
+		<set>
+			<if test="shopId != null">
+				shop_id = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				create_date = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="net.qhhhq.model.shop.ShopManager">
+		update shop_manager
+		set shop_id = #{shopId,jdbcType=BIGINT},
+		user_id = #{userId,jdbcType=BIGINT},
+		status = #{status,jdbcType=VARCHAR},
+		create_date = #{createDate,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=BIGINT}
+	</update>
+	<select id="getCount" resultType="java.lang.Long">
+		select count(*) from
+		shop_manager
+	</select>
+	<select id="queryTotalRecords" resultType="java.lang.Long">
+		select count(*) from shop_manager
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				and shopId = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				and userId = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				and status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				and createDate = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</where>
+	</select>
+	<select id="queryAllRecords" parameterType="Map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from shop_manager
+		<where>
+			<if test="id != null">
+				and id = #{id,jdbcType=BIGINT},
+			</if>
+			<if test="shopId != null">
+				and shopId = #{shopId,jdbcType=BIGINT},
+			</if>
+			<if test="userId != null">
+				and userId = #{userId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null">
+				and status = #{status,jdbcType=VARCHAR},
+			</if>
+			<if test="createDate != null">
+				and createDate = #{createDate,jdbcType=TIMESTAMP},
+			</if>
+		</where>
+		<if test="orderBy != null">
+			order by ${orderBy}
+		</if>
+		<if test="firstResult != null and maxResult != null">
+			limit #{firstResult},#{maxResult}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,5 @@
+package net.qhhhq.global.service.config;
+
+public class ServiceConfig {
+
+}

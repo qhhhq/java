@@ -1,0 +1,11 @@
+package net.qhhhq.api.common;
+
+/**
+ *
+ * @author bankqh-ldr
+ *	二维码处理接口
+ */
+
+public interface QRCodeService {
+
+}

@@ -1,0 +1,6 @@
+@import "../common/index.wxss";
+
+.user-head-img{
+   width: 160rpx;
+  height: 160rpx;
+}

@@ -32,4 +32,17 @@ public class UserServiceImpl extends DaoSupport<UserInfo> implements UserService
 		super.save(entity);
 	}
 
+	public boolean hasOpenId(String openId) {
+		boolean result = true;
+		UserInfo user = userInfoMapper.selectByOpenId(openId);
+		if(user == null) {
+			result = false;
+		}
+		return result;
+	}
+
+	public UserInfo getUserByOpenId(String openId) {
+		return userInfoMapper.selectByOpenId(openId);
+	}
+
 }

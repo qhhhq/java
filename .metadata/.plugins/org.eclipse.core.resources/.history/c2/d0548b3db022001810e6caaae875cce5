@@ -1,0 +1,21 @@
+package net.qhhhq.service.image;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import net.qhhhq.global.service.Service;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+
+@Component
+public class QRCodeService implements Service {
+
+	public void execute(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+
+	}
+
+}

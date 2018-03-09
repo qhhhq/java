@@ -16,6 +16,11 @@ import io.netty.handler.codec.http.multipart.Attribute;
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
 import io.netty.handler.codec.http.multipart.InterfaceHttpData;
 
+/**
+ * 解析http请求中的请求数据
+ * @author bankqh-ldr
+ *
+ */
 public class RequestParser {
 
 	private static Logger logger = Logger.getLogger(RequestParser.class);

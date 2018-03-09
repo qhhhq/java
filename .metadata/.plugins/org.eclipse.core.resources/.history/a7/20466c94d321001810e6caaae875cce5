@@ -1,0 +1,25 @@
+package net.qhhhq.global.service.config.factory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+
+import javax.xml.bind.JAXBException;
+
+import net.qhhhq.global.service.config.ServiceConfig;
+import net.qhhhq.utils.XmlUtils;
+
+public class ServiceConfigFactory {
+
+	public static void createServiceMap(File file) {
+		try {
+			Map<String, ServiceItemConfig> map = new HashMap<String, ServiceItemConfig>();
+			Object object = XmlUtils.xmlToBean(file,ServiceConfig.class);
+			ServiceConfig config = (ServiceConfig) object;
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
