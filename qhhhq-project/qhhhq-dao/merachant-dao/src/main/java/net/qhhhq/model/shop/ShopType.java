@@ -2,18 +2,23 @@ package net.qhhhq.model.shop;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.ToStringSerializer;
+
 public class ShopType implements Serializable {
     /**
 	 *
 	 */
 	private static final long serialVersionUID = 3336941520961708446L;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
 	private Long id;
 
     private String name;
 
     private Boolean valid = true;
 
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long parent;
 
     public Long getId() {

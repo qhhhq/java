@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantTypeService.java[MerachantTypeService" modifiers="513" timestamp="1516613621943"/>
-<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantService.java[MerachantService" modifiers="513" timestamp="1516349917243"/>
-<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantLoginService.java[MerachantLoginService" modifiers="513" timestamp="1516937459126"/>
-<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.merachant.api{MerachantContactService.java[MerachantContactService" modifiers="513" timestamp="1516937541197"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server{Server.java[Server" modifiers="513" timestamp="1519349332610"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty{NettyServer.java[NettyServer" modifiers="513" timestamp="1519292880606"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty{AbstractNettyServer.java[AbstractNettyServer" modifiers="1025" timestamp="1519349595720"/>
@@ -13,9 +9,14 @@
 <typeInfo handle="=common-api/src\/main\/java&lt;net.qhhhq.api.common{TranLogService.java[TranLogService" modifiers="513" timestamp="1519789164553"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.auth{AuthHandlerChain.java[AuthHandlerChain" modifiers="513" timestamp="1519873597507"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.auth{AuthService.java[AuthService" modifiers="513" timestamp="1519956430182"/>
-<typeInfo handle="=base-api/src\/main\/java&lt;net.qhhhq.api.base{DAO.java[DAO" modifiers="513" timestamp="1516265665710"/>
 <typeInfo handle="=user-provider/C:\/Users\/bankqh-ldr\/.m2\/repository\/org\/springframework\/spring-tx\/4.3.10.RELEASE\/spring-tx-4.3.10.RELEASE.jar&lt;org.springframework.dao.support(DaoSupport.class[DaoSupport" modifiers="1057" timestamp="1514704939795"/>
-<typeInfo handle="=base-dao/src\/main\/java&lt;net.qhhhq.base.dao{DaoSupport.java[DaoSupport" modifiers="1025" timestamp="1520234002577"/>
-<typeInfo handle="=user-api/src\/main\/java&lt;net.qhhhq.api.user{UserService.java[UserService" modifiers="513" timestamp="1519980863425"/>
+<typeInfo handle="=user-api/src\/main\/java&lt;net.qhhhq.api.user{UserService.java[UserService" modifiers="513" timestamp="1520481362462"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.service.common{MessageHandler.java[MessageHandler" modifiers="513" timestamp="1519720918971"/>
+<typeInfo handle="=common-api/src\/main\/java&lt;net.qhhhq.api.common{QRCodeService.java[QRCodeService" modifiers="513" timestamp="1520498108296"/>
+<typeInfo handle="=base-api/src\/main\/java&lt;net.qhhhq.api.base{DAO.java[DAO" modifiers="513" timestamp="1516265665710"/>
+<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.service.enterprise{EnterpriseService.java[EnterpriseService" modifiers="513" timestamp="1521082920232"/>
+<typeInfo handle="=base-dao/src\/main\/java&lt;net.qhhhq.base.dao{DaoSupport.java[DaoSupport" modifiers="1025" timestamp="1520234002577"/>
+<typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.service.shop{ShopActiveService.java[ShopActiveService" modifiers="513" timestamp="1520566359585"/>
+<typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(SimpleChannelInboundHandler.class[SimpleChannelInboundHandler" modifiers="1057" timestamp="1517904274393"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.service{Service.java[Service" modifiers="513" timestamp="1520404454488"/>
 </typeInfoHistroy>

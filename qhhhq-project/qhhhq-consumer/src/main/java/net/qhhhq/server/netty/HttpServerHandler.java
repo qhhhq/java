@@ -36,6 +36,7 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
     	HandlerChain handlerChain = HandlerChainFactory.createHandlerChain();
+
     	if(msg instanceof FullHttpRequest) {
     		FullHttpRequest fhr = (FullHttpRequest)msg;
         	parmMap = new RequestParser(fhr).parse();

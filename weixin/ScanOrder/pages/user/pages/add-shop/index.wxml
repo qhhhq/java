@@ -1,0 +1,151 @@
+<view class="container">
+
+  <view class="index-hd">
+    <slider value="66" disabled="true" step="3"/>
+  </view>
+
+  <view class="page-body">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">门店类别</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker class="picker" bindchange="bindPickerChange" name="type" value="{{types[index].id}}"  range="{{types}}" range-key="name">
+              <view class="weui-input">{{types[index].name}}</view>
+            </picker>
+          </view>
+        </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="name" value="{{name}}" placeholder="门店名称" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">省</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker class="picker" bindchange="bindProvinceChange" value="{{pIndex}}"  range="{{provinces}}" range-key="province">
+              <view class="weui-input">{{provinces[pIndex].province}}</view>
+            </picker>
+          </view>
+        </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">市</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker class="picker" bindchange="bindCityChange" value="{{citys[cIndex].id}}"  range="{{citys}}" range-key="city">
+              <view class="weui-input">{{citys[cIndex].city}}</view>
+            </picker>
+          </view>
+        </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">区</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker class="picker" bindchange="bindDistrictChange" value="{{citys[dIndex].id}}"  range="{{districts}}" range-key="district">
+              <view class="weui-input">{{districts[dIndex].district}}</view>
+            </picker>
+          </view>
+        </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <view class="textarea-wrp">
+                <textarea name="address" auto-height />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="manager" value="{{manager}}" placeholder="门店老板" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="contactPhone" value="{{contactPhone}}" placeholder="联系电话" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="contactName" value="{{contactName}}" placeholder="联系人" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="contactEmail" value="{{contactEmail}}" placeholder="email" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="page-body-info">
+        <text class="page-body-text-small">当前位置经纬度</text>
+        <block wx:if="{{hasLocation === false}}">
+          <text bindtap="getLocation" class="page-body-text">未获取,点击获取</text>
+        </block>
+        <block wx:if="{{hasLocation === true}}">
+          <view class="page-body-text-location">
+            <text>E: {{location.longitude[0]}}°{{location.longitude[1]}}′</text>
+            <text>N: {{location.latitude[0]}}°{{location.latitude[1]}}′</text>
+          </view>
+        </block>
+      </view>
+      </view>
+
+      <button formType="submit">下一步</button>
+
+    </form>
+  </view>
+</view>

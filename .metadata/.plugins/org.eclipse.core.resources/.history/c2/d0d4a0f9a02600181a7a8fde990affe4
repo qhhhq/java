@@ -1,0 +1,12 @@
+package net.qhhhq.service.shop;
+
+import net.qhhhq.service.file.AbstractFileService;
+
+public class ShopImageUploadServiceBean extends AbstractFileService {
+
+	@Override
+	public String getFilePath() {
+		return "D:/netty/netty.jpg";
+	}
+
+}

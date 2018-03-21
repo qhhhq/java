@@ -1,0 +1,67 @@
+package net.qhhhq.service.file;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
+import io.netty.handler.codec.http.multipart.FileUpload;
+import net.qhhhq.global.service.Service;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+
+public class FileServiceBean implements Service {
+
+	private static Logger log = Logger.getLogger(FileServiceBean.class);
+
+	public void execute(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+		if (sysHead.getFileType() == null || sysHead.getFileType().trim().equals("")) {
+			sysHead.setFail("000011", "sysHead.FILE_TYPE 文件所属类别不能为空");
+		} else {
+			FileUpload fileUpload = (FileUpload) paramMap.get("file");
+			String filePath = (String) paramMap.get("filePath");
+			if(filePath == null) {
+				sysHead.setFail("999999", "系统错误，上传失败");
+				log.error("文件上传路径为空，系统错误");
+				return;
+			}
+			if(fileUpload != null) {
+				try {
+					String type = fileUpload.getContentType();
+					String[] typeArray = type.split("/");
+					StringBuffer fileName = new StringBuffer();
+					StringBuffer returnName = new StringBuffer("/");
+					fileName.append(filePath);
+					fileName.append(sysHead.getFileType()).append("/");
+					fileName.append(sysHead.getTranDate().replaceAll("-", ""));
+					returnName.append(sysHead.getFileType()).append("/");
+					returnName.append(sysHead.getTranDate()).append("/");
+					File dirFile = new File(fileName.toString());
+					if(!dirFile.exists()) {
+						dirFile.mkdir();
+					}
+					fileName.append("/");
+					fileName.append(sysHead.getSeqNo());
+					fileName.append(".");
+					fileName.append(typeArray[1]);
+					returnName.append(sysHead.getSeqNo());
+					returnName.append(".");
+					returnName.append(typeArray[1]);
+					log.info(fileName.toString());
+					fileUpload.renameTo(new File(fileName.toString()));
+					data.put("filePaht", returnName);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				log.info(fileUpload.getFilename());
+			} else {
+				sysHead.setFail("000012", "上传文件为空，上传失败");
+			}
+		}
+	}
+
+}

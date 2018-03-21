@@ -1,9 +1,0 @@
-package net.qhhhq.global.auth;
-
-import net.qhhhq.service.common.SysHead;
-
-public interface AuthService {
-
-	protected boolean result = true;
-	public boolean doHandler(SysHead sysHead);
-}

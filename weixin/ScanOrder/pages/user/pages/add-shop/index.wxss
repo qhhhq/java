@@ -1,0 +1,10 @@
+@import "../../../common/lib/weui.wxss";
+
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.textarea-wrp {
+    padding: 0 25rpx;
+    background-color: #fff;
+}

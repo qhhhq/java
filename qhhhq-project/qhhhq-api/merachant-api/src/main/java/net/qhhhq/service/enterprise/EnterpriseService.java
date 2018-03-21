@@ -5,4 +5,5 @@ import net.qhhhq.model.enterprise.Enterprise;
 
 public interface EnterpriseService extends DAO<Enterprise> {
 
+	public Enterprise getEnterpriseByUserId(long userId);
 }

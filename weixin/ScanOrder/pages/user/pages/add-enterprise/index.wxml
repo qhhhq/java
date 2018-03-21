@@ -1,0 +1,104 @@
+<view class="container">
+
+  <view class="index-hd">
+    <slider value="33" disabled="true" step="3"/>
+  </view>
+
+  <view class="page-body">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="code" value="{{code}}" placeholder="这是一个输入框" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="legal" value="{{legal}}" placeholder="这是一个输入框" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="legal_doc_id" value="{{legalDocId}}" placeholder="这是一个输入框" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="address" value="{{address}}" placeholder="这是一个输入框" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section">
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd">
+              <input class="weui-input" name="phone" value="{{phone}}" placeholder="手机号码" />
+            </view>
+          </view>
+        </view>
+      </view>
+      
+    <view class="page-section">
+      <view class="page-body-info">
+        <block wx:if="{{tpmImg}}">
+          <image src="{{tpmImg}}" class="image" mode="aspectFit" bindtap="chooseImage"></image>
+        </block>
+        <block wx:else>
+          <view class="image-plus image-plus-nb" bindtap="chooseImage">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">选择图片1</view>
+        </block>
+      </view>
+    </view>
+      
+    <view class="page-section">
+      <view class="page-body-info">
+        <block wx:if="{{tpmImg1}}">
+          <image src="{{tpmImg1}}" class="image" mode="aspectFit" bindtap="chooseImage1"></image>
+        </block>
+        <block wx:else>
+          <view class="image-plus image-plus-nb" bindtap="chooseImage1">
+            <view class="image-plus-horizontal"></view>
+            <view class="image-plus-vertical"></view>
+          </view>
+          <view class="image-plus-text">选择图片2</view>
+        </block>
+      </view>
+    </view>
+
+      <button formType="submit" loading="{{loading}}">下一步</button>
+
+    </form>
+  </view>
+</view>

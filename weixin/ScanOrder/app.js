@@ -1,7 +1,9 @@
+import wxValidate from './utils/wxValidate'
 const requestUrl = require('./config').requestUrl
 var sysHead = require('./utils/sysHead')
 
 App({
+  wxValidate: (rules, messages) => new wxValidate(rules, messages),
   onLaunch: function () {
     var self = this
     var userId = wx.getStorageSync('userId')

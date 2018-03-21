@@ -1,0 +1,22 @@
+package net.qhhhq.service.file;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
+import net.qhhhq.global.service.Service;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+
+public abstract class AbstractFileService implements Service {
+
+	public abstract String getFilePath();
+
+	public void execute(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+		HttpPostRequestDecoder decoder = (HttpPostRequestDecoder) paramMap.get("decoder");
+	}
+
+}

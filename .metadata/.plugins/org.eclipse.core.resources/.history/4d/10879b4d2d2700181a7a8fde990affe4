@@ -1,0 +1,19 @@
+package net.qhhhq.service.shop;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
+import net.qhhhq.global.service.Service;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+import net.qhhhq.service.file.AbstractFileService;
+
+public class ShopImageUploadServiceBean implements Service {
+
+	private static Logger log = Logger.getLogger(ShopImageUploadServiceBean.class);
+
+
+}

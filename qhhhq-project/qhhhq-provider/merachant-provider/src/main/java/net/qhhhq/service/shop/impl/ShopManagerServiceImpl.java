@@ -26,10 +26,11 @@ public class ShopManagerServiceImpl extends DaoSupport<ShopManager> implements S
 		return shopManagerMapper;
 	}
 
+
 	@Override
-	public void save(ShopManager entity) {
+	public ShopManager save(ShopManager entity) {
 		entity.setId(identityService.nextId());
-		super.save(entity);
+		return super.save(entity);
 	}
 
 

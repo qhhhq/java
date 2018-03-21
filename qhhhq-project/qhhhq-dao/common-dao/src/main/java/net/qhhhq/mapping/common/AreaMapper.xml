@@ -113,4 +113,8 @@
   	select id, city, district from comm_area
 	where parent = #{parent,jdbcType=INTEGER}
   </select>
+  <select id="queryAllProvince" resultMap="BaseResultMap">
+  	select id, province from comm_area
+	where parent is null
+  </select>
 </mapper>

@@ -1,0 +1,17 @@
+@import "../../../common/index.wxss";
+
+.user-head-img{
+   width: 160rpx;
+  height: 160rpx;
+}
+.button-sp-area{
+  margin: 0 auto;
+  width: 60%;
+}
+.shop-bd{
+  padding: 0 30rpx 40rpx;
+}
+.kind-list-status{
+  width: 60rpx;
+  height: 60rpx;
+}

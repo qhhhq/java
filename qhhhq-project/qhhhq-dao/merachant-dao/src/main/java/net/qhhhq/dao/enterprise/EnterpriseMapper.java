@@ -5,4 +5,5 @@ import net.qhhhq.model.enterprise.Enterprise;
 
 public interface EnterpriseMapper extends BaseMapper<Enterprise> {
 
+	Enterprise selectByUserId(long userId);
 }

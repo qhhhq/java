@@ -1,0 +1,92 @@
+package net.qhhhq.service.shop;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Reference;
+
+import net.qhhhq.global.service.Service;
+import net.qhhhq.model.shop.ShopInfo;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+
+@Component
+public class ShopServiceBean implements Service {
+
+	private static Logger log = Logger.getLogger(ShopServiceBean.class);
+	@Reference
+	static ShopService shopService;
+
+	public void execute(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+		log.info("ShopServiceBean start ......");
+		String messageCode = sysHead.getMessageCode();
+		if (messageCode.equals("0001")) {
+			getUserShops(sysHead, data);
+		} else if(messageCode.equals("0002")) {
+			add(paramMap, sysHead, data);
+		}
+	}
+
+	/**
+	 * 获取用户拥有的店铺列表
+	 *
+	 * @param sysHead
+	 * @param data
+	 */
+	private void getUserShops(SysHead sysHead, JSONObject data) {
+		long userId = Long.valueOf(sysHead.getUserId());
+		boolean has = shopService.hasUserShops(userId);
+		if (has) {
+			List<ShopInfo> list = shopService.getShopListByUserId(userId);
+			data.put("shops", list);
+			data.put("count", list.size());
+		} else {
+			data.put("count", 0);
+		}
+	}
+
+	private void add(Map<String, Object> paramMap, SysHead sysHead, JSONObject data) {
+		JSONObject json = new JSONObject(paramMap.get("DATA").toString());
+		ShopInfo shop = new ShopInfo();
+		try {
+			shop.setAddress(json.getString("address"));
+			shop.setCity(json.getString("city"));
+			shop.setContactEmail(json.getString("contactEmail"));
+			shop.setContactName(json.getString("contactName"));
+			shop.setContactPhone(json.getString("contactPhone"));
+			shop.setCreateUser(sysHead.getUserId());
+			shop.setDimension(json.getDouble("dimension"));
+			shop.setEnterpriseId(Long.valueOf(json.get("enterpriseId").toString()));
+			shop.setLongitude(json.getDouble("longitude"));
+			shop.setName(json.getString("name"));
+			shop.setProvince(json.getString("province"));
+			shop.setDistrict(json.getString("district"));
+			shop.setType(json.getLong("type"));
+			if (json.has("class1"))
+				shop.setClass1(json.getLong("class1"));
+			if (json.has("class2"))
+				shop.setClass2(json.getLong("class2"));
+			if (json.has("class3"))
+				shop.setClass3(json.getLong("class3"));
+			if (json.has("class4"))
+				shop.setClass4(json.getLong("class4"));
+			if (json.has("class5"))
+				shop.setClass5(json.getLong("class5"));
+			if (json.has("class6"))
+				shop.setClass6(json.getLong("class6"));
+			log.info("--------------------------------------=====================");
+			shopService.save(shop);
+			log.info("--------------------------------------");
+		} catch (JSONException e) {
+			sysHead.setFail("000013", "请求数据不完成");
+		}
+	}
+
+}

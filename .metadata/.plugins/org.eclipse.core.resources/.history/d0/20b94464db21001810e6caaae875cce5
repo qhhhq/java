@@ -1,7 +1,0 @@
-package net.qhhhq.utils;
-
-import net.qhhhq.service.common.SysHead;
-
-public class Utils {
-
-}

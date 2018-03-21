@@ -1,8 +1,0 @@
-package net.qhhhq.global.service.config;
-
-import net.qhhhq.global.service.Service;
-
-public class ServiceConfig {
-
-	private Service service;
-}

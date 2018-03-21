@@ -13,11 +13,12 @@
 		<result column="img1" jdbcType="VARCHAR" property="img1" />
 		<result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
 		<result column="status" jdbcType="BIT" property="status" />
+		<result column="user_id" jdbcType="BIGINT" property="userId" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, name, code, legal, legal_doc_id, address, phone, img,
 		img1,
-		createDate, status
+		createDate, status,user_id
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
 		resultMap="BaseResultMap">
@@ -36,14 +37,14 @@
 		name, code,
 		legal, legal_doc_id, address,
 		phone, img, img1, createDate,
-		status)
+		status,user_id)
 		values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
 		#{code,jdbcType=VARCHAR},
 		#{legal,jdbcType=VARCHAR},
 		#{legalDocId,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
 		#{phone,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR},
 		#{img1,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP},
-		#{status,jdbcType=BIT})
+		#{status,jdbcType=BIT},#{userId,jdbcType=BIGINT})
 	</insert>
 	<insert id="insertSelective" parameterType="net.qhhhq.model.enterprise.Enterprise">
 		insert into enterprise
@@ -81,6 +82,9 @@
 			<if test="status != null">
 				status,
 			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -115,6 +119,9 @@
 			</if>
 			<if test="status != null">
 				#{status,jdbcType=BIT},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=BIGINT},
 			</if>
 		</trim>
 	</insert>
@@ -151,6 +158,9 @@
 			<if test="status != null">
 				status = #{status,jdbcType=BIT},
 			</if>
+			<if test="userId != null">
+				user_id = #{legalDocId,jdbcType=VARCHAR},
+			</if>
 		</set>
 		where id = #{id,jdbcType=BIGINT}
 	</update>
@@ -168,7 +178,8 @@
 		#{img1,jdbcType=VARCHAR},
 		createDate =
 		#{createdate,jdbcType=TIMESTAMP},
-		status = #{status,jdbcType=BIT}
+		status = #{status,jdbcType=BIT},
+		user_id = #{userId,jdbcType=BIGINT}
 		where
 		id = #{id,jdbcType=BIGINT}
 	</update>
@@ -191,7 +202,7 @@
 				and legal = #{legal,jdbcType=VARCHAR},
 			</if>
 			<if test="legalDocId != null">
-				and legalDocId = #{legalDocId,jdbcType=VARCHAR},
+				and legal_doc_id = #{legalDocId,jdbcType=VARCHAR},
 			</if>
 			<if test="address != null">
 				and address = #{address,jdbcType=VARCHAR},
@@ -204,6 +215,9 @@
 			</if>
 			<if test="status != null">
 				and status = #{status,jdbcType=BIT},
+			</if>
+			<if test="userId != null">
+				and user_id = #{userId,jdbcType=BIGINT},
 			</if>
 		</where>
 	</select>
@@ -225,7 +239,7 @@
 				and legal = #{legal,jdbcType=VARCHAR},
 			</if>
 			<if test="legalDocId != null">
-				and legalDocId = #{legalDocId,jdbcType=VARCHAR},
+				and legal_doc_id = #{legalDocId,jdbcType=VARCHAR},
 			</if>
 			<if test="address != null">
 				and address = #{address,jdbcType=VARCHAR},
@@ -239,6 +253,9 @@
 			<if test="status != null">
 				and status = #{status,jdbcType=BIT},
 			</if>
+			<if test="userId != null">
+				and user_id = #{userId,jdbcType=BIGINT},
+			</if>
 		</where>
 		<if test="orderBy != null">
 			order by ${orderBy}
@@ -246,5 +263,12 @@
 		<if test="firstResult != null and maxResult != null">
 			limit #{firstResult},#{maxResult}
 		</if>
+	</select>
+	<select id="selectByUserId" parameterType="java.lang.Long"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from enterprise
+		where user_id = #{userId,jdbcType=BIGINT}
 	</select>
 </mapper>

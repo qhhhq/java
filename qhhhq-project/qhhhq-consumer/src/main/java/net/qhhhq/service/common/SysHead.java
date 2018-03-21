@@ -9,6 +9,7 @@ public class SysHead {
 	private String serviceCode;
 	private String messageType;
 	private String messageCode;
+	private String fileType;
 	private String tranStatus;
 	private String retCode;
 	private String retMsg;
@@ -54,6 +55,12 @@ public class SysHead {
 	}
 	public void setMessageCode(String messageCode) {
 		this.messageCode = messageCode;
+	}
+	public String getFileType() {
+		return fileType;
+	}
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
 	}
 	public String getTranStatus() {
 		return tranStatus;

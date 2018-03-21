@@ -3,12 +3,16 @@ package net.qhhhq.model.enterprise;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.ToStringSerializer;
+
 public class Enterprise implements Serializable {
     /**
 	 *
 	 */
 	private static final long serialVersionUID = 3535898938188431617L;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
 	private Long id;
 
     private String name;
@@ -29,7 +33,10 @@ public class Enterprise implements Serializable {
 
     private Date createdate = new Date();
 
-    private Boolean status = true;
+    private Boolean status = false;
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -118,4 +125,13 @@ public class Enterprise implements Serializable {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
 }

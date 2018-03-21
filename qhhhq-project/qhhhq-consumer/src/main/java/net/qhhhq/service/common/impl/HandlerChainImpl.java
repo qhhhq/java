@@ -78,6 +78,9 @@ public class HandlerChainImpl implements HandlerChain {
 			if(sysJson.has("MESSAGE_CODE")) {
 				sysHead.setMessageCode(sysJson.getString("MESSAGE_CODE"));
 			}
+			if(sysJson.has("FILE_TYPE")) {
+				sysHead.setFileType(sysJson.getString("FILE_TYPE"));
+			}
 		}
 		return sysHead;
 	}

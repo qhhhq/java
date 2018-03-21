@@ -1,8 +1,0 @@
-package net.qhhhq.global.auth.config;
-
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name="conf")
-public class AuthList {
-
-}

@@ -21,8 +21,10 @@ public class HttpServerTest {
 		ServiceConfigFactory.createServiceMap(fileService);
         System.out.println("服务已经启动...");
         AbstractNettyServer server = (AbstractNettyServer)context.getBean("httpServer");
+        AbstractNettyServer serverFile = (AbstractNettyServer)context.getBean("httpFileServer");
         try {
 			server.startServer();
+			serverFile.startServer();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

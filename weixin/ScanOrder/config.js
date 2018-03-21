@@ -28,7 +28,7 @@ var config = {
   templateMessageUrl: `https://${host}/templateMessage`,
 
   // 上传文件接口
-  uploadFileUrl: `https://${host}/upload`,
+  uploadFileUrl: `http://10.255.105.225:10088`,
 
   // 下载示例图片接口
   downloadExampleUrl: `https://${host}/static/weapp.jpg`

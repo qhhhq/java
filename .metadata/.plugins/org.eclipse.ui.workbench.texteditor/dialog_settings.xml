@@ -2,22 +2,26 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="423795780307128320" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="423795780307128320"/>
+			<item value="423795780307128300"/>
+			<item value="ch.pipeline()"/>
+			<item value="httpChannelOptions"/>
+			<item value="ShopSetting"/>
+			<item value="ShopManager"/>
 			<item value="LogEndService"/>
 			<item value="tranLogService"/>
-			<item value="updateByPrimaryKey"/>
-			<item value="out"/>
-			<item value="io.nadron.server.netty"/>
-			<item value="net.qhhhq.server.netty"/>
-			<item value="io.adam.server.netty"/>
-			<item value="java.lang"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pipeline"/>
+			<item value="ShopType"/>
+			<item value="ShopSetting"/>
+			<item value="Shop"/>
 			<item value="net.qhhhq.server.netty"/>
 			<item value="BIGINT"/>
 			<item value=""/>

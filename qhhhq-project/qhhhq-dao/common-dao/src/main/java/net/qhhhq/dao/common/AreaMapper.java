@@ -8,4 +8,6 @@ import net.qhhhq.model.common.Area;
 public interface AreaMapper extends BaseMapper<Area> {
 
     List<Area> queryAreaByParent(Integer parent);
+
+    List<Area> queryAllProvince();
 }

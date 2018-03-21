@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<conf>
-	<tran serviceCode="hhq" messageType="1400" messageCode="1000">
-		<service service="net.qhhhq.global.auth.impl.UserIdAuthServiceImpl" role="SYS_ADMIN" />
-	</tran>
-</conf>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<conf>
-	<service serviceCode="hhq" messageType="0001" impl-class=""></service>
-</conf>

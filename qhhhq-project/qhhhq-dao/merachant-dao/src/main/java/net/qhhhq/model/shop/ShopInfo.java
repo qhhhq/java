@@ -3,16 +3,22 @@ package net.qhhhq.model.shop;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.ToStringSerializer;
+
 public class ShopInfo implements Serializable {
     /**
 	 *
 	 */
 	private static final long serialVersionUID = 4871766098067133458L;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
 	private Long id;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
     private Long enterpriseId;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
     private Long type;
 
     private String name;
@@ -21,7 +27,11 @@ public class ShopInfo implements Serializable {
 
     private String city;
 
-    private Integer rating;
+    private String address;
+
+    private String district;
+
+    private Integer rating = 5;
 
     private String status = "1";
 
@@ -39,22 +49,36 @@ public class ShopInfo implements Serializable {
 
     private String contactEmail;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
     private Double longitude;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
     private Double dimension;
 
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class1;
 
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class2;
 
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class3;
 
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class4;
 
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class5;
 
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long class6;
 
+
+    @JSONField(serializeUsing = ToStringSerializer.class)
     private Long sortNum = 1l;
 
     public Long getId() {
@@ -105,7 +129,23 @@ public class ShopInfo implements Serializable {
         this.city = city == null ? null : city.trim();
     }
 
-    public Integer getRating() {
+    public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Integer getRating() {
         return rating;
     }
 

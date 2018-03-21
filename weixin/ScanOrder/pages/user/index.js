@@ -6,7 +6,7 @@ Page({
       {
         id: 'api',
         name: '开放接口',
-        open: false
+        url: 'user-shop/index'
       }, {
         id: 'page',
         name: '界面',

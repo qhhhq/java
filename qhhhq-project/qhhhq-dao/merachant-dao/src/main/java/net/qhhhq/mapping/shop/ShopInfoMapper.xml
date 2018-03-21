@@ -8,6 +8,8 @@
 		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="province" jdbcType="VARCHAR" property="province" />
 		<result column="city" jdbcType="VARCHAR" property="city" />
+    	<result column="district" jdbcType="VARCHAR" property="district" />
+		<result column="address" jdbcType="VARCHAR" property="address" />
 		<result column="rating" jdbcType="INTEGER" property="rating" />
 		<result column="status" jdbcType="VARCHAR" property="status" />
 		<result column="status_desc" jdbcType="VARCHAR" property="statusDesc" />
@@ -28,11 +30,18 @@
 		<result column="sort_num" jdbcType="BIGINT" property="sortNum" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, enterprise_id, type, name, province, city, rating, status,
+		id, enterprise_id, type,  name, province, city,district,address, rating, status,
 		status_desc, create_date,
 		create_user, manager, contact_phone, contact_name, contact_email, longitude,
 		dimension,
 		class1, class2, class3, class4, class5, class6, sort_num
+	</sql>
+	<sql id="Base_Column_List_Alias">
+		a.id, a.enterprise_id, a.type,  a.name, a.province, a.city,a.district,a.address, a.rating, a.status,
+		a.status_desc, a.create_date,
+		a.create_user, a.manager, a.contact_phone, a.contact_name, a.contact_email, a.longitude,
+		a.dimension,
+		a.class1, a.class2, a.class3, a.class4, a.class5, a.class6, a.sort_num
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
 		resultMap="BaseResultMap">
@@ -47,7 +56,7 @@
 	</delete>
 	<insert id="insert" parameterType="net.qhhhq.model.shop.ShopInfo">
 		insert into shop_info (id, enterprise_id, type,
-		name, province, city,
+		name, province, city,district,address,
 		rating, status, status_desc,
 		create_date, create_user, manager,
 		contact_phone, contact_name, contact_email,
@@ -58,6 +67,7 @@
 		values (#{id,jdbcType=BIGINT}, #{enterpriseId,jdbcType=BIGINT},
 		#{type,jdbcType=BIGINT},
 		#{name,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
+		#{district,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},
 		#{rating,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR},
 		#{statusDesc,jdbcType=VARCHAR},
 		#{createDate,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR},
@@ -89,6 +99,12 @@
 			</if>
 			<if test="city != null">
 				city,
+			</if>
+			<if test="district != null">
+				district,
+			</if>
+			<if test="address != null">
+				address,
 			</if>
 			<if test="rating != null">
 				rating,
@@ -164,6 +180,12 @@
 			<if test="city != null">
 				#{city,jdbcType=VARCHAR},
 			</if>
+			<if test="district != null">
+				#{district,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
 			<if test="rating != null">
 				#{rating,jdbcType=INTEGER},
 			</if>
@@ -238,6 +260,12 @@
 			<if test="city != null">
 				city = #{city,jdbcType=VARCHAR},
 			</if>
+			<if test="district != null">
+				#{district,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
 			<if test="rating != null">
 				rating = #{rating,jdbcType=INTEGER},
 			</if>
@@ -302,6 +330,8 @@
 		name = #{name,jdbcType=VARCHAR},
 		province = #{province,jdbcType=VARCHAR},
 		city = #{city,jdbcType=VARCHAR},
+		district = #{district,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
 		rating = #{rating,jdbcType=INTEGER},
 		status = #{status,jdbcType=VARCHAR},
 		status_desc = #{statusDesc,jdbcType=VARCHAR},
@@ -322,6 +352,18 @@
 		sort_num = #{sortNum,jdbcType=BIGINT}
 		where id = #{id,jdbcType=BIGINT}
 	</update>
+	<select id="getUserShopsCount" resultType="java.lang.Long">
+		select count(*) from shop_info a,shop_manager b
+		where a.id = b.shop_id
+		and b.user_id = #{userId,jdbcType=BIGINT}
+	</select>
+	<select id="getUserShops" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List_Alias" />
+		from shop_info a,shop_manager b
+		where a.id = b.shop_id
+		and b.user_id = #{userId,jdbcType=BIGINT}
+	</select>
 	<select id="getCount" resultType="java.lang.Long">
 		select count(*) from shop_info
 	</select>
@@ -345,6 +387,12 @@
 			</if>
 			<if test="city != null">
 				and city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="district != null">
+				and district = #{district,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				and address = #{address,jdbcType=VARCHAR},
 			</if>
 			<if test="rating != null">
 				and rating &gt;= #{rating,jdbcType=INTEGER},
@@ -415,6 +463,12 @@
 			</if>
 			<if test="city != null">
 				and city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="district != null">
+				and district = #{district,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				and address = #{address,jdbcType=VARCHAR},
 			</if>
 			<if test="rating != null">
 				and rating &gt;= #{rating,jdbcType=INTEGER},

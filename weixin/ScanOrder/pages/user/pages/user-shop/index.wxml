@@ -1,0 +1,44 @@
+<view class="index">
+  <view hidden="{{noEnterprise}}" class="index-hd">
+    <image class="index-logo" src="../../resources/kind/logo.png"></image>
+    <view class="index-desc">您还没有</view>
+    <view class="button-sp-area">
+      <button type="default" plain="true" bindtap="addEnterprise">添加</button>
+    </view>
+  </view>
+
+  <view class="index-bd">
+    <view class="kind-list">
+      <view class="kind-list-item">
+        <view id="{{enterprise.id}}" class="kind-list-item-hd" bindtap="">
+          <view class="kind-list-text">{{enterprise.name}}</view>
+          <view class="kind-list-status">{{enterprise.status}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="shop-bd">
+    <view class="kind-list">
+      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class="kind-list-item">
+          <navigator url="pages/{{page.url}}" class="kind-list-item-hd">
+            <image class="user-head-img" src="resources/kind/{{item.id}}.png"></image>
+            <view class="kind-list-text">
+              <view>{{item.name}}</view>
+              <view>{{item.name}}</view>
+            </view>
+          <view class="kind-list-status">{{enterprise.status}}</view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+  <view hidden="{{!noEnterprise}}" class="index-hd">
+    <view class="button-sp-area">
+      <button type="default" plain="true" bindtap="addShop">添加</button>
+    </view>
+  </view>
+</view>

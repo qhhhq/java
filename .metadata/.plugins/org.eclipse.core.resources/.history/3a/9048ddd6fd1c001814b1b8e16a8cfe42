@@ -1,5 +1,0 @@
-package net.qhhhq.global.auth;
-
-public interface AuthHandler {
-
-}

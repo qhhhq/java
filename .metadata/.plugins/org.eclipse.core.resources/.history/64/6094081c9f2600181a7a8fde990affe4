@@ -1,0 +1,19 @@
+package net.qhhhq.service.file;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+
+import net.qhhhq.global.service.Service;
+import net.qhhhq.service.common.AppHead;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.SysHead;
+
+public class AbstractFileService implements Service {
+
+	public void execute(Map<String, Object> paramMap, HandlerChain paramHandlerChain, SysHead sysHead, AppHead appHead,
+			JSONObject data) {
+
+	}
+
+}
