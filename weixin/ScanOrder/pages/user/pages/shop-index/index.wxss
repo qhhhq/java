@@ -1,0 +1,12 @@
+@import "../../../common/index.wxss";
+
+.message-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+.data-text-align{
+  text-align: center
+}
+.base-line{
+  border-bottom: solid 1rpx #F8F8F8;
+}

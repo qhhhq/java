@@ -5,7 +5,8 @@
     "pages/user/index",
     "pages/user/pages/user-shop/index",
     "pages/user/pages/add-shop/index",
-    "pages/user/pages/add-enterprise/index"
+    "pages/user/pages/add-enterprise/index",
+    "pages/user/pages/shop-index/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",

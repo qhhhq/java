@@ -23,7 +23,8 @@ Page({
     hasLocation: false,
     longitude:0,
     dimension:0,
-    loading:false
+    loading:false,
+    shop:null
   },
 
   /**
@@ -31,79 +32,27 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.enterpriseId)
+    console.log(options.shopId)
     var self = this
-    self.setData({
-      enterpriseId: options.enterpriseId
-    })
+    var enterpriseId = options.enterpriseId
+    var shopId = options.shopId
+    if (enterpriseId != null && enterpriseId != "") {
+      self.setData({
+        enterpriseId: options.enterpriseId
+      })
+    }
+    if (shopId != null && shopId !="") {
+      self.loadShopInfo(shopId)
+    }
+    self.loadTypes()
+    self.loadProvince()
+    self.initValidate()
+  },
 
-    // 发起网络请求，加载分类
-    sysHead.MESSAGE_TYPE = '0007'
-    sysHead.MESSAGE_CODE = '0001'
-    var reqData = new Object()
-    reqData.parent = "423896709274537984"
-    wx.showNavigationBarLoading()
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead),
-        DATA: JSON.stringify(reqData)
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-        if (res.data.SYS_HEAD.retCode == "000000") {
-          self.setData({
-            types: JSON.parse(res.data.DATA.types)
-          })
-        } else {
-          wx.showToast({
-            title: res.data.SYS_HEAD.retMsg,
-            duration: 2000
-          })
-        }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-      }
-    })
-
-    // 发起网络请求，加载省
-    sysHead.MESSAGE_TYPE = '0001'
-    sysHead.MESSAGE_CODE = '0001'
-    wx.showNavigationBarLoading()
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead)
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-        if (res.data.SYS_HEAD.retCode == "000000") {
-          self.setData({
-            provinces: res.data.DATA.provinces
-          })
-        } else {
-          wx.showToast({
-            title: res.data.SYS_HEAD.retMsg,
-            duration: 2000
-          })
-        }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-      }
-    })
-
-    /**
-     * 表单验证
-     */
+  /**
+   * 初始化验证组件
+   */
+  initValidate: function () {
     this.wxValidate = appInstance.wxValidate(
       {
         name: {
@@ -167,52 +116,168 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 校验表单数据
    */
-  onReady: function () {
-  
+  checkForm: function (e) {
+    var self = this
+    var valid = true
+    var validMsg = ""
+
+    if (self.data.index == -1 || self.data.index == null) {
+      validMsg = "门店类别不能为空"
+      valid = false
+    }
+    if (self.data.pIndex == -1 || self.data.pIndex == null) {
+      validMsg = "省份不能为空"
+      valid = false
+    }
+    if (self.data.cIndex == -1 || self.data.cIndex == null) {
+      validMsg = "城市不能为空"
+      valid = false
+    }
+    if (self.data.dIndex == -1 || self.data.dIndex == null) {
+      validMsg = "区域不能为空"
+      valid = false
+    }
+    if (self.data.longitude == 0 || self.data.longitude == null) {
+      validMsg = "店铺位置不能为空"
+      valid = false
+    }
+    if (self.data.dimension == 0 || self.data.dimension == null) {
+      validMsg = "店铺位置不能为空"
+      valid = false
+    }
+    if (!this.wxValidate.checkForm(e)) {
+      const error = this.wxValidate.errorList[0]
+      validMsg = `${error.msg} `
+      valid = false
+    }
+    if (valid == false) {
+      wx.showModal({
+        content: validMsg
+      })
+    }
+    return valid
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 发起网络请求，加载分类
    */
-  onShow: function () {
-  
+  loadTypes: function () {
+    var self = this
+    sysHead.MESSAGE_TYPE = '0007'
+    sysHead.MESSAGE_CODE = '0001'
+    var reqData = new Object()
+    reqData.parent = "423896709274537984"
+    wx.showNavigationBarLoading()
+    wx.request({
+      url: requestUrl,
+      method: "POST",
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        SYS_HEAD: JSON.stringify(sysHead),
+        DATA: JSON.stringify(reqData)
+      },
+      success: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+        if (res.data.SYS_HEAD.retCode == "000000") {
+          self.setData({
+            types: JSON.parse(res.data.DATA.types)
+          })
+        } else {
+          wx.showToast({
+            title: res.data.SYS_HEAD.retMsg,
+            duration: 2000
+          })
+        }
+      },
+      fail: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+      }
+    })
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 发起网络请求，加载省
    */
-  onHide: function () {
-  
+  loadProvince: function () {
+    var self = this
+    sysHead.MESSAGE_TYPE = '0001'
+    sysHead.MESSAGE_CODE = '0001'
+    wx.showNavigationBarLoading()
+    wx.request({
+      url: requestUrl,
+      method: "POST",
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        SYS_HEAD: JSON.stringify(sysHead)
+      },
+      success: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+        if (res.data.SYS_HEAD.retCode == "000000") {
+          self.setData({
+            provinces: res.data.DATA.provinces
+          })
+        } else {
+          wx.showToast({
+            title: res.data.SYS_HEAD.retMsg,
+            duration: 2000
+          })
+        }
+      },
+      fail: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+      }
+    })
   },
 
   /**
-   * 生命周期函数--监听页面卸载
+   * 发起网络请求，店铺信息
    */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  loadShopInfo: function (shopId) {
+    var self = this
+    sysHead.MESSAGE_TYPE = '0004'
+    sysHead.MESSAGE_CODE = '0003'
+    var reqData = new Object()
+    reqData.shopId = shopId
+    wx.showNavigationBarLoading()
+    wx.request({
+      url: requestUrl,
+      method: "POST",
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        SYS_HEAD: JSON.stringify(sysHead),
+        DATA: JSON.stringify(reqData)
+      },
+      success: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+        if (res.data.SYS_HEAD.retCode == "000000") {
+          var shop = JSON.parse(res.data.DATA.shop)
+          self.setData({
+            shop: shop,
+            enterpriseId: shop.enterpriseId,
+            hasLocation: true,
+            longitude: shop.longitude,
+            dimension: shop.dimension,
+            location: formatLocation(shop.longitude, shop.dimension)
+          })
+        } else {
+          wx.showToast({
+            title: res.data.SYS_HEAD.retMsg,
+            duration: 2000
+          })
+        }
+      },
+      fail: function (res) {
+        wx.hideNavigationBarLoading()
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -361,6 +426,9 @@ Page({
       reqData.contactEmail = e.detail.value.contactEmail
       reqData.longitude = self.data.longitude
       reqData.dimension = self.data.dimension
+      if (self.data.shop != null) {
+        reqData.id = self.data.shop.id
+      }
 
       //发起网络请求，提交表单
       wx.request({
@@ -398,46 +466,53 @@ Page({
     }
   },
 
-  checkForm: function (e) {
-    var self = this
-    var valid = true
-    var validMsg = ""
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
-    if (self.data.index == -1 || self.data.index == null) {
-      validMsg = "门店类别不能为空"
-      valid = false
-    }
-    if (self.data.pIndex == -1 || self.data.pIndex == null) {
-      validMsg = "省份不能为空"
-      valid = false
-    }
-    if (self.data.cIndex == -1 || self.data.cIndex == null) {
-      validMsg = "城市不能为空"
-      valid = false
-    }
-    if (self.data.dIndex == -1 || self.data.dIndex == null) {
-      validMsg = "区域不能为空"
-      valid = false
-    }
-    if (self.data.longitude == 0 || self.data.longitude == null) {
-      validMsg = "店铺位置不能为空"
-      valid = false
-    }
-    if (self.data.dimension == 0 || self.data.dimension == null) {
-      validMsg = "店铺位置不能为空"
-      valid = false
-    }
-    if (!this.wxValidate.checkForm(e)) {
-      const error = this.wxValidate.errorList[0]
-      validMsg = `${error.msg} `
-      valid = false
-    }
-    if (valid == false) {
-      wx.showModal({
-        content: validMsg
-      })
-    }
-    return valid
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 
 })

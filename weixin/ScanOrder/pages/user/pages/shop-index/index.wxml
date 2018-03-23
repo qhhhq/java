@@ -1,0 +1,116 @@
+<view class="index">
+
+  <view class="index-bd">
+    <view class="kind-list">
+      <view class="kind-list-item">
+
+        <view class="kind-list-item-hd">
+          <view class="kind-list-text" bindtap="setting">设置</view>
+          <view class="kind-list-status">
+            <image class="message-img" src="../../resources/kind/api.png"></image>
+          </view>
+        </view>
+
+        <view class="kind-list-item-hd">
+          <image class="index-logo" src="../../resources/kind/logo.png"></image>
+          <view class="kind-list-text">
+            <view>{{shop.name}}</view>
+            <view>{{shop.address}}</view>
+          </view>
+          <view class="kind-list-status">{{enterprise.status}}</view>
+        </view>
+
+        <view class="kind-list-item-hd">
+          .........................
+        </view>
+
+        <view class="kind-list-item-hd data-text-align">
+          <view class="kind-list-text">
+            <view>test name</view>
+            <view>0</view>
+          </view>
+          <view class="kind-list-text">
+            <view>test name</view>
+            <view>0</view>
+          </view>
+          <view class="kind-list-text">
+            <view>test name</view>
+            <view>100</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 订单 -->
+    <view class="kind-list">
+      <view class="kind-list-item">
+        <view class="kind-list-item-hd base-line">
+          <view class="kind-list-text">我的订单</view>
+          <view class="kind-list-status"></view>
+        </view>
+
+        <view class="kind-list-item-hd data-text-align">
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>0</view>
+          </view>
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>0</view>
+          </view>
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>0</view>
+          </view>
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>0</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <!-- 产品 -->
+    <view class="kind-list">
+      <view class="kind-list-item">
+        <view class="kind-list-item-hd base-line">
+          <view class="kind-list-text">我的产品</view>
+          <view class="kind-list-status"></view>
+        </view>
+
+        <view class="kind-list-item-hd data-text-align">
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>已发布</view>
+          </view>
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>待发布</view>
+          </view>
+          <view class="kind-list-text">
+            <view>
+              <image class="message-img" src="../../resources/kind/api.png"></image>
+            </view>
+            <view>添加</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

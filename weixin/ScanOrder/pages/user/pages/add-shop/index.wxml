@@ -26,7 +26,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-              <input class="weui-input" name="name" value="{{name}}" placeholder="门店名称" />
+              <input class="weui-input" name="name" value="{{shop.name}}" placeholder="门店名称" />
             </view>
           </view>
         </view>
@@ -82,7 +82,7 @@
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
               <view class="textarea-wrp">
-                <textarea name="address" auto-height />
+                <textarea name="address" value="{{shop.address}}" auto-height />
               </view>
             </view>
           </view>
@@ -93,7 +93,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-              <input class="weui-input" name="manager" value="{{manager}}" placeholder="门店老板" />
+              <input class="weui-input" name="manager" value="{{shop.manager}}" placeholder="门店老板" />
             </view>
           </view>
         </view>
@@ -103,7 +103,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-              <input class="weui-input" name="contactPhone" value="{{contactPhone}}" placeholder="联系电话" />
+              <input class="weui-input" name="contactPhone" value="{{shop.contactPhone}}" placeholder="联系电话" />
             </view>
           </view>
         </view>
@@ -113,7 +113,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-              <input class="weui-input" name="contactName" value="{{contactName}}" placeholder="联系人" />
+              <input class="weui-input" name="contactName" value="{{shop.contactName}}" placeholder="联系人" />
             </view>
           </view>
         </view>
@@ -123,7 +123,7 @@
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd">
-              <input class="weui-input" name="contactEmail" value="{{contactEmail}}" placeholder="email" />
+              <input class="weui-input" name="contactEmail" value="{{shop.contactEmail}}" placeholder="email" />
             </view>
           </view>
         </view>

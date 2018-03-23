@@ -12,6 +12,6 @@
   padding: 0 30rpx 40rpx;
 }
 .kind-list-status{
-  width: 60rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
 }

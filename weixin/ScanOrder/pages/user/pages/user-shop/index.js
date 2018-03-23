@@ -1,5 +1,5 @@
 var sysHead = require('../../../../utils/sysHead')
-const requestUrl = require('../../../../config').requestUrl
+var appInstance = getApp()
 
 Page({
   data: {
@@ -35,40 +35,24 @@ Page({
   /**
    * 发起网络请求,加载用户店铺列表
    */
-  loadUserShops:function() {
-    wx.showNavigationBarLoading()
-    var that = this
-    sysHead.MESSAGE_TYPE = '0004';
-    sysHead.MESSAGE_CODE = '0001';
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead)
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-        if (res.data.SYS_HEAD.retCode == "000000") {
-          var count = res.data.DATA.count
-          if (count == 0) {
-          } else {
-            that.setData({
-              list: JSON.parse(res.data.DATA.shops)
-            })
-          }
-          console.log("data", res.data.DATA.count)
+  loadUserShops: function () {
+    var self = this
+    var shopService = appInstance.shopService()
+    shopService.getUserShopList(appInstance, function (res) {
+      if (res.data.SYS_HEAD.retCode == "000000") {
+        var count = res.data.DATA.count
+        if (count == 0) {
         } else {
-          wx.showToast({
-            title: res.data.SYS_HEAD.retMsg,
-            duration: 2000
+          self.setData({
+            list: JSON.parse(res.data.DATA.shops)
           })
         }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
+        console.log("data", res.data.DATA.count)
+      } else {
+        wx.showToast({
+          title: res.data.SYS_HEAD.retMsg,
+          duration: 2000
+        })
       }
     })
   },
@@ -76,21 +60,17 @@ Page({
   /**
    * 发起网络请求,加载企业信息
    */
-  loadEnterprise:function() {
+  loadEnterprise: function () {
+    wx.showToast({
+      title: "loading",
+      icon: "loading",
+      duration: 5000
+    })
     var self = this
-    sysHead.MESSAGE_TYPE = '0006'
-    sysHead.MESSAGE_CODE = '0002'
-    wx.showNavigationBarLoading()
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead)
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
+    var enterpriseService = appInstance.enterpriseService()
+    enterpriseService.getUserEnterprise(appInstance,
+      function (res) {
+        wx.hideToast()
         if (res.data.SYS_HEAD.retCode == "000000") {
           var enterprise = JSON.parse(res.data.DATA.enterprise)
           var hasEnterprise = res.data.DATA.hasEnterprise
@@ -104,18 +84,43 @@ Page({
               noEnterprise: false
             })
           }
-          
         } else {
           wx.showToast({
             title: res.data.SYS_HEAD.retMsg,
             duration: 2000
           })
         }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
+      })
+  },
+
+  /**
+   * 企业信息审核失败，修改信息
+   */
+  updateEpterprise:function() {
+    var self = this
+    if (self.data.enterprise.status == false) {
+      wx.navigateTo({
+        url: '../add-enterprise/index?enterpriseId=' + self.data.enterprise.id
+      })
+    }
+  },
+
+  /**
+   * 点击店铺事件
+   */
+  shopIndex:function(e) {
+    var self = this
+    var shopStatus = e.currentTarget.dataset.text
+    if (self.data.enterprise.status == true) {
+      if (shopStatus == "0") {  //正常状态，打开店铺
+        wx.navigateTo({
+          url: '../shop-index/index?shopId=' + e.currentTarget.id
+        })
+      } else if (shopStatus == "2") {   //审核失败，修改信息
+        wx.navigateTo({
+          url: '../add-shop/index?shopId=' + e.currentTarget.id
+        })
       }
-    })
+    }
   }
 })

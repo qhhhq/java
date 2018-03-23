@@ -1,9 +1,13 @@
 import wxValidate from './utils/wxValidate'
+import shopService from './pages/user/service/shopService'
+import enterpriseService from './pages/user/service/enterpriseService'
 const requestUrl = require('./config').requestUrl
 var sysHead = require('./utils/sysHead')
 
 App({
   wxValidate: (rules, messages) => new wxValidate(rules, messages),
+  shopService: () => new shopService(),
+  enterpriseService: () => new enterpriseService(),
   onLaunch: function () {
     var self = this
     var userId = wx.getStorageSync('userId')
@@ -28,7 +32,7 @@ App({
                   method: "POST",
                   header: { 'content-type': 'application/x-www-form-urlencoded' },
                   data: {
-                    data: JSON.stringify(obj),
+                    DATA: JSON.stringify(obj),
                     SYS_HEAD: JSON.stringify(sysHead)
                   },
                   success: function (u) {
@@ -51,5 +55,42 @@ App({
   globalData: {
     userInfo: null,
     userId:null
+  },
+
+  /**
+   * POST提交数据
+   */
+  postRequest: function (head, body, successCallback) {
+    var bodyData = new Object()
+    if(body != null && body != "") {
+      bodyData = body
+    }
+    wx.request({
+      url: requestUrl, 
+      method: "POST",
+      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
+        SYS_HEAD: JSON.stringify(head),
+        DATA: JSON.stringify(bodyData)
+      },
+      success:function(res) {
+        if(res.data) {
+          typeof successCallback == "function" && successCallback(res)
+        } else {
+          var message = res.errMsg;
+          if(message.length == 0) {
+            message = "访问服务器发生错误。"
+          }
+          wx.showModal({
+            content: message
+          })
+        }
+      },
+      fail:function(res) {
+        wx.showModal({
+          content: "似乎没网络连接，请确认后重试。"
+        })
+      }
+    })
   }
 })

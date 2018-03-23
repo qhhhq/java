@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
 
 import net.qhhhq.global.service.Service;
 import net.qhhhq.model.shop.ShopInfo;
@@ -33,7 +34,16 @@ public class ShopServiceBean implements Service {
 		if (messageCode.equals("0001")) {
 			getUserShops(sysHead, data);
 		} else if(messageCode.equals("0002")) {
-			add(paramMap, sysHead, data);
+			merge(paramMap, sysHead, data);
+		} else if(messageCode.equals("0003")) {
+			JSONObject json = new JSONObject(paramMap.get("DATA").toString());
+			if(json.has("shopId")) {
+				ShopInfo shop = shopService.find(Long.valueOf(json.getString("shopId")));
+				data.put("shop", com.alibaba.fastjson.JSONObject.toJSONString(shop));
+			} else {
+				sysHead.setFail("000015", "请求错误");
+			}
+
 		}
 	}
 
@@ -55,7 +65,13 @@ public class ShopServiceBean implements Service {
 		}
 	}
 
-	private void add(Map<String, Object> paramMap, SysHead sysHead, JSONObject data) {
+	/**
+	 * 新增商户信息
+	 * @param paramMap
+	 * @param sysHead
+	 * @param data
+	 */
+	private void merge(Map<String, Object> paramMap, SysHead sysHead, JSONObject data) {
 		JSONObject json = new JSONObject(paramMap.get("DATA").toString());
 		ShopInfo shop = new ShopInfo();
 		try {
@@ -65,6 +81,7 @@ public class ShopServiceBean implements Service {
 			shop.setContactName(json.getString("contactName"));
 			shop.setContactPhone(json.getString("contactPhone"));
 			shop.setCreateUser(sysHead.getUserId());
+			shop.setManager(json.getString("manager"));
 			shop.setDimension(json.getDouble("dimension"));
 			shop.setEnterpriseId(Long.valueOf(json.getString("enterpriseId")));
 			shop.setLongitude(json.getDouble("longitude"));
@@ -84,14 +101,19 @@ public class ShopServiceBean implements Service {
 				shop.setClass5(Long.valueOf(json.getString("class5")));
 			if (json.has("class6"))
 				shop.setClass6(Long.valueOf(json.getString("class6")));
-			ShopInfo si = shopService.save(shop);
+			if(json.has("id")) {
+				shop.setId(Long.valueOf(json.getString("id")));
+				shopService.update(shop);
+			} else {
+				ShopInfo si = shopService.save(shop);
 
-			//添加商品的用户默认添加为管理员
-			ShopManager sm = new ShopManager();
-			log.info("shopId:"+si.getId());
-			sm.setShopId(si.getId());
-			sm.setUserId(Long.valueOf(sysHead.getUserId()));
-			shopManagerService.save(sm);
+				//添加商户的用户默认添加为管理员
+				ShopManager sm = new ShopManager();
+				log.info("shopId:"+si.getId());
+				sm.setShopId(si.getId());
+				sm.setUserId(Long.valueOf(sysHead.getUserId()));
+				shopManagerService.save(sm);
+			}
 		} catch (JSONException e) {
 			sysHead.setFail("000013", "请求数据不正确");
 		}

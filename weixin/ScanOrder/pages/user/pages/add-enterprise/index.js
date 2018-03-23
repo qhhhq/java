@@ -92,46 +92,30 @@ Page({
   /**
    * 发起网络请求，获取企业信息
    */
-  loadEnterprise:function() {
+  loadEnterprise: function () {
     var self = this
-    sysHead.MESSAGE_TYPE = '0006'
-    sysHead.MESSAGE_CODE = '0002'
-    wx.showNavigationBarLoading()
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead)
-      },
-      success: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
-        if (res.data.SYS_HEAD.retCode == "000000") {
-          var enterprise = JSON.parse(res.data.DATA.enterprise)
-          console.log("data", res.data.DATA.enterprise)
-          self.setData({
-            tpmImg: requestUrl + enterprise.img,
-            tmpImg1: requestUrl + enterprise.img1,
-            img: enterprise.img,
-            img1: enterprise.img1,
-            name: enterprise.name,
-            code: enterprise.code,
-            legal: enterprise.legal,
-            legalDocId: enterprise.legalDocId,
-            address: enterprise.address,
-            phone: enterprise.phone
-          })
-        } else {
-          wx.showToast({
-            title: res.data.SYS_HEAD.retMsg,
-            duration: 2000
-          })
-        }
-      },
-      fail: function (res) {
-        wx.hideNavigationBarLoading()
-        console.log(res)
+    var enterpriseService = appInstance.enterpriseService()
+    enterpriseService.getUserEnterprise(appInstance, function (res) {
+      if (res.data.SYS_HEAD.retCode == "000000") {
+        var enterprise = JSON.parse(res.data.DATA.enterprise)
+        console.log("data", res.data.DATA.enterprise)
+        self.setData({
+          tpmImg: requestUrl + enterprise.img,
+          tmpImg1: requestUrl + enterprise.img1,
+          img: enterprise.img,
+          img1: enterprise.img1,
+          name: enterprise.name,
+          code: enterprise.code,
+          legal: enterprise.legal,
+          legalDocId: enterprise.legalDocId,
+          address: enterprise.address,
+          phone: enterprise.phone
+        })
+      } else {
+        wx.showToast({
+          title: res.data.SYS_HEAD.retMsg,
+          duration: 2000
+        })
       }
     })
   },
@@ -218,8 +202,6 @@ Page({
       return false
     }
 
-    sysHead.MESSAGE_TYPE = '0006';
-    sysHead.MESSAGE_CODE = '0001';
     var reqData = new Object()
     reqData.name = e.detail.value.name
     reqData.code = e.detail.value.code
@@ -230,36 +212,22 @@ Page({
     reqData.img = img
     reqData.img1 = img1
     //发起网络请求，提交表单
-    wx.request({
-      url: requestUrl,
-      method: "POST",
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      data: {
-        SYS_HEAD: JSON.stringify(sysHead),
-        DATA: JSON.stringify(reqData)
-      },
-      success: function (res) {
-        console.log(res)
-        if (res.data.SYS_HEAD.retCode == "000000") {
-          wx.navigateTo({
-            url: '../add-shop/index?enterpriseId=' + res.data.DATA.enterpriseId,
-          })
-        } else {
-          wx.showToast({
-            title: res.data.SYS_HEAD.retMsg,
-            duration: 2000
-          })
-        }
-        self.setData({
-          loading: false
+    var enterpriseService = appInstance.enterpriseService()
+    enterpriseService.mergeEnterprise(appInstance, reqData, function (res) {
+      console.log(res)
+      if (res.data.SYS_HEAD.retCode == "000000") {
+        wx.navigateTo({
+          url: '../add-shop/index?enterpriseId=' + res.data.DATA.enterpriseId,
         })
-      },
-      fail: function (res) {
-        console.log(res)
-        self.setData({
-          loading: false
+      } else {
+        wx.showToast({
+          title: res.data.SYS_HEAD.retMsg,
+          duration: 2000
         })
       }
+      self.setData({
+        loading: false
+      })
     })
   },
 

@@ -10,7 +10,7 @@
   <view class="index-bd">
     <view class="kind-list">
       <view class="kind-list-item">
-        <view id="{{enterprise.id}}" class="kind-list-item-hd" bindtap="">
+        <view id="{{enterprise.id}}" class="kind-list-item-hd" bindtap="updateEpterprise">
           <view class="kind-list-text">{{enterprise.name}}</view>
           <view class="kind-list-status">{{enterprise.status}}</view>
         </view>
@@ -22,14 +22,14 @@
     <view class="kind-list">
       <block wx:for-items="{{list}}" wx:key="{{item.id}}">
         <view class="kind-list-item">
-          <navigator url="pages/{{page.url}}" class="kind-list-item-hd">
-            <image class="user-head-img" src="resources/kind/{{item.id}}.png"></image>
+          <view class="kind-list-item-hd {{enterprise.status == false ? 'index-desc' : ''}}" bindtap="shopIndex" id="{{item.id}}" data-text="{{item.status}}">
+            <image class="user-head-img" src="../../resources/kind/logo.png"></image>
             <view class="kind-list-text">
               <view>{{item.name}}</view>
-              <view>{{item.name}}</view>
+              <view class="index-desc">{{item.address}}</view>
             </view>
-          <view class="kind-list-status">{{enterprise.status}}</view>
-          </navigator>
+            <view class="kind-list-status">{{item.status != '0' ? '不可用' : '正常'}}</view>
+          </view>
         </view>
       </block>
     </view>
