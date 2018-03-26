@@ -1,7 +1,0 @@
-package net.qhhhq.service.shop;
-
-import net.qhhhq.api.base.DAO;
-
-public interface ShopManagerService extends DAO<ShopManager> {
-
-}
