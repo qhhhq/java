@@ -1,0 +1,10 @@
+package net.qhhhq.weixin;
+
+public class AccessToken {
+
+	private WXConfig config;
+
+	public AccessToken(WXConfig config) {
+		this.config = config;
+	}
+}

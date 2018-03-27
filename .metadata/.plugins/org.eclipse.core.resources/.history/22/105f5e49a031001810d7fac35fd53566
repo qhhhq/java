@@ -1,0 +1,26 @@
+package net.qhhhq.weixin;
+
+public class WXConstants {
+
+	public enum SignType {
+        MD5, HMACSHA256
+    }
+
+    public static final String DOMAIN_API = "api.weixin.qq.com";
+
+
+    public static final String FAIL     = "FAIL";
+    public static final String SUCCESS  = "SUCCESS";
+    public static final String HMACSHA256 = "HMAC-SHA256";
+    public static final String MD5 = "MD5";
+
+    public static final String FIELD_SIGN = "sign";
+    public static final String FIELD_SIGN_TYPE = "sign_type";
+
+    public static final String ACCESSTOKEN_URL_SUFFIX     = "/cgi-bin/token";
+    public static final String TEMPLATEMESSAGE_URL_SUFFIX = "/cgi-bin/message/wxopen/template/send";
+
+    // sandbox
+    public static final String SANDBOX_ACCESSTOKEN_URL_SUFFIX     = "/sandboxnew/cgi-bin/token";
+    public static final String SANDBOX_TEMPLATEMESSAGE_URL_SUFFIX = "/sandboxnew/cgi-bin/message/wxopen/template/send";
+}

@@ -21,5 +21,6 @@
   	<module>qhhhq-provider</module>
   	<module>qhhhq-dao</module>
   	<module>qhhhq-consumer</module>
+  	<module>weixin-api</module>
   </modules>
 </project>

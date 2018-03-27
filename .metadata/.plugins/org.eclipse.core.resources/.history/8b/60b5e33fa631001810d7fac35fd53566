@@ -1,0 +1,6 @@
+package net.qhhhq.weixin.service.impl;
+
+public class WXConfigImpl extends WXConfig {
+
+
+}

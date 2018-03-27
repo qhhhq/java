@@ -1,0 +1,36 @@
+import java.io.InputStream;
+
+import net.qhhhq.weixin.WXConfig;
+
+public class AccessTokenTest {
+
+	public static void main(String[] args) {
+		WXConfig config = new WXConfig() {
+
+			@Override
+			String getMchID() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			String getKey() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			InputStream getCertStream() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			String getAppID() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+	}
+
+}

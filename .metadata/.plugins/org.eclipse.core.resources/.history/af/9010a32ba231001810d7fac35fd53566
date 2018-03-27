@@ -1,0 +1,25 @@
+package net.qhhhq.weixin;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class AccessToken {
+
+	private static final String ACCESS_TOKEN = "access_token";
+	private static Map<String, String> tokenMap = new HashMap<String, String>();
+
+	private WXConfig config;
+
+	public AccessToken(WXConfig config) {
+		this.config = config;
+	}
+
+	public String getToken() {
+		String token = null;
+		if(tokenMap.get(ACCESS_TOKEN) != null) {
+			token = tokenMap.get(ACCESS_TOKEN);
+		}
+	}
+
+
+}

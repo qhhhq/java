@@ -1,0 +1,10 @@
+package net.qhhhq.weixin.service.impl;
+
+import java.io.InputStream;
+
+import net.qhhhq.weixin.service.WXConfig;
+
+public class WXConfigImpl extends WXConfig {
+
+
+}

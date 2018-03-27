@@ -1,0 +1,10 @@
+package net.qhhhq.weixin;
+
+public class WXRequest {
+
+	private WXConfig config;
+
+	public WXRequest(WXConfig config) throws Exception {
+		this.config = config;
+	}
+}

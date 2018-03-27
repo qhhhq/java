@@ -1,0 +1,5 @@
+package net.qhhhq.core.boot;
+
+public class PlatformBootstart {
+
+}
