@@ -1,40 +1,7 @@
 package net.qhhhq.weixin.service;
 
-import java.io.InputStream;
-
 public abstract class WXConfig {
 
-
-    /**
-     * 获取 App ID
-     *
-     * @return App ID
-     */
-    abstract String getAppID();
-
-
-    /**
-     * 获取 Mch ID
-     *
-     * @return Mch ID
-     */
-    abstract String getMchID();
-
-
-    /**
-     * 获取 API 密钥
-     *
-     * @return API密钥
-     */
-    abstract String getKey();
-
-
-    /**
-     * 获取商户证书内容
-     *
-     * @return 商户证书内容
-     */
-    abstract InputStream getCertStream();
 
     /**
      * HTTP(S) 连接超时时间，单位毫秒

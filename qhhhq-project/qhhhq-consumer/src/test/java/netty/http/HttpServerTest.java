@@ -22,9 +22,11 @@ public class HttpServerTest {
         System.out.println("服务已经启动...");
         AbstractNettyServer server = (AbstractNettyServer)context.getBean("httpServer");
         AbstractNettyServer serverFile = (AbstractNettyServer)context.getBean("httpFileServer");
+        AbstractNettyServer wxServer = (AbstractNettyServer)context.getBean("wxHttpServer");
         try {
 			server.startServer();
 			serverFile.startServer();
+			wxServer.startServer();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

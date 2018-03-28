@@ -40,13 +40,22 @@
 		<constructor-arg ref="httpFileChannelInitializer" />
 	</bean>
 
-	<bean id="httpChannelInitializer" class="net.qhhhq.server.netty.HttpChannelInitializer">
+	<bean id="wxHttpServer" class="net.qhhhq.server.netty.NettyHTTPServer"
+		destroy-method="stopServer">
+		<constructor-arg ref="wxHttpConfig" />
+		<constructor-arg ref="wxHttpChannelInitializer" />
+	</bean>
+
+	<bean id="httpChannelInitializer" class="net.qhhhq.server.netty.initializer.HttpChannelInitializer">
 		<property name="keyStorePath" value="${keyStorePath}" />
 		<property name="keyPassword" value="${keyPassword}" />
 	</bean>
 
-	<bean id="httpFileChannelInitializer" class="net.qhhhq.server.netty.HttpFileChannelInitializer">
+	<bean id="httpFileChannelInitializer" class="net.qhhhq.server.netty.initializer.HttpFileChannelInitializer">
 		<property name="filePath" value="${uploadFilePath}" />
+	</bean>
+
+	<bean id="wxHttpChannelInitializer" class="net.qhhhq.server.netty.initializer.WXHttpChannelInitializer">
 	</bean>
 
 	<bean id="httpConfig" class="net.qhhhq.server.netty.NettyConfig">
@@ -61,6 +70,13 @@
 		<property name="bossGroup" ref="bossGroup" />
 		<property name="workerGroup" ref="workerGroup" />
 		<property name="portNumber" value="10088" />
+	</bean>
+
+	<bean id="wxHttpConfig" class="net.qhhhq.server.netty.NettyConfig">
+		<property name="channelOptions" ref="httpChannelOptions" />
+		<property name="bossGroup" ref="bossGroup" />
+		<property name="workerGroup" ref="workerGroup" />
+		<property name="portNumber" value="80" />
 	</bean>
 
 	<util:map id="httpChannelOptions" map-class="java.util.HashMap">

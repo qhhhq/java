@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="D:\tools\MBG\mysql-connector-java-5.1.34_1.jar" />
+
+  <context id="MysqlTables" targetRuntime="MyBatis3">
+
+	<commentGenerator>
+		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://47.94.237.8:3306/mybatis_test"
+        userId="root"
+        password="bonc">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="net.qhhhq.model.shop" targetProject="D:\tools\MBG\src">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="net.qhhhq.mapping.shop"  targetProject="D:\tools\MBG\src">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="net.qhhhq.dao.shop"  targetProject="D:\tools\MBG\src">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table tableName="shop_manager" domainObjectName="ShopManager" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">
+    </table>
+
+  </context>
+</generatorConfiguration>

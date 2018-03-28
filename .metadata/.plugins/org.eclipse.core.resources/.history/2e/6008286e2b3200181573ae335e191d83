@@ -1,0 +1,14 @@
+package net.qhhhq.weixin.service.templatemessage;
+
+import org.apache.log4j.Logger;
+
+import net.qhhhq.weixin.service.accesstoken.AccessTokenServiceBean;
+
+public class TemplatemessageServiceBean {
+
+	private static Logger log = Logger.getLogger(TemplatemessageServiceBean.class);
+	private static final String TEMPLATE_MESSAGE_URL_SUFFIX = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send";
+	private AccessTokenServiceBean accessTokenServiceBean;
+
+
+}

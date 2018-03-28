@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="net.qhhhq.global.service.config.factory.ServiceConfigFactory"/>
 <fullyQualifiedTypeName name="net.qhhhq.global.service.Service"/>
 <fullyQualifiedTypeName name="net.qhhhq.api.common.QRCodeService"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
@@ -16,7 +14,6 @@
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.Cookie"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.cookie.ServerCookieDecoder"/>
 <fullyQualifiedTypeName name="io.netty.handler.stream.ChunkedFile"/>
-<fullyQualifiedTypeName name="io.netty.handler.ssl.SslHandler"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpRequestDecoder"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpResponseEncoder"/>
 <fullyQualifiedTypeName name="io.netty.handler.stream.ChunkedWriteHandler"/>
@@ -44,11 +41,9 @@
 <fullyQualifiedTypeName name="io.netty.util.CharsetUtil"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpMethod"/>
 <fullyQualifiedTypeName name="io.netty.channel.ChannelHandlerContext"/>
-<fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="net.qhhhq.service.enterprise.EnterpriseService"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Reference"/>
-<fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.asm.Type"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSON"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
+<fullyQualifiedTypeName name="io.netty.handler.ssl.SslHandler"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="net.qhhhq.weixin.WXRequest"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="net.qhhhq.weixin.WXConfig"/>
 </qualifiedTypeNameHistroy>

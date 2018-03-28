@@ -1,0 +1,28 @@
+package net.qhhhq.weixin.service.templatemessage;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+
+import net.qhhhq.weixin.service.WXConfig;
+import net.qhhhq.weixin.service.WXRequest;
+import net.qhhhq.weixin.service.accesstoken.AccessTokenServiceBean;
+
+public class TemplatemessageServiceBean {
+
+	private static Logger log = Logger.getLogger(TemplatemessageServiceBean.class);
+	private static final String TEMPLATE_MESSAGE_URL_SUFFIX = "https://api.weixin.qq.com/cgi-bin/message/wxopen/template/send";
+	private AccessTokenServiceBean accessTokenServiceBean;
+	private WXRequest wxRequest;
+	private WXConfig config = new TemplateMessageConfig();
+
+	public TemplatemessageServiceBean(AccessTokenServiceBean accessTokenServiceBean) {
+		this.accessTokenServiceBean = accessTokenServiceBean;
+		wxRequest = new WXRequest();
+	}
+
+
+	public JSONObject send(JSONObject message) {
+		String urlSuffix = TEMPLATE_MESSAGE_URL_SUFFIX + "?access_token=" + accessTokenServiceBean.getToken();
+		wxRequest.post(urlSuffix, message.toString(), config.getHttpConnectTimeoutMs(), config.getHttpReadTimeoutMs())
+	}
+}

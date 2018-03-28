@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getUserShops" key="selection"/>
+		<item value="json" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="json"/>
+			<item value="uuid"/>
+			<item value="JAVA_AGENT"/>
+			<item value="ASPECTJ_WEAVER_JAR"/>
+			<item value="LIB_JARS"/>
+			<item value="GALAXY_CORE_JAR"/>
 			<item value="getUserShops"/>
 			<item value="getShop"/>
-			<item value="an"/>
-			<item value="address"/>
-			<item value="district"/>
-			<item value="city"/>
-			<item value="423795780307128320"/>
-			<item value="423795780307128300"/>
 		</list>
 		<list key="replacehistory">
 			<item value="district"/>

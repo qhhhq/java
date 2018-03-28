@@ -403,6 +403,7 @@ Page({
    * 提交表单
    */
   formSubmit: function (e) {
+    console.log(e.detail.formId)
     var self = this
 
     self.setData({
@@ -426,6 +427,7 @@ Page({
       reqData.contactEmail = e.detail.value.contactEmail
       reqData.longitude = self.data.longitude
       reqData.dimension = self.data.dimension
+      reqData.formId = e.detail.formId
       if (self.data.shop != null) {
         reqData.id = self.data.shop.id
       }

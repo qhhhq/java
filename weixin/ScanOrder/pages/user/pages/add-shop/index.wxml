@@ -5,7 +5,7 @@
   </view>
 
   <view class="page-body">
-    <form catchsubmit="formSubmit" catchreset="formReset">
+    <form report-submit="true" catchsubmit="formSubmit" catchreset="formReset">
 
       <view class="page-section">
         <view class="weui-cells weui-cells_after-title">

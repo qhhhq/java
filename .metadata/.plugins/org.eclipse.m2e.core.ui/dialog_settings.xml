@@ -9,8 +9,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="user-api"/>
-			<item value="qhhhq-api"/>
+			<item value="weixin-api"/>
+			<item value="qhhhq-project"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -67,6 +67,7 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="weixin-api"/>
 			<item value="user-api"/>
 			<item value="user-provider"/>
 			<item value="user-dao"/>
@@ -96,6 +97,7 @@
 			<item value="net.qhhhq"/>
 		</list>
 		<list key="artifactId">
+			<item value="weixin-api"/>
 			<item value="user-api"/>
 			<item value="user-provider"/>
 			<item value="user-dao"/>
