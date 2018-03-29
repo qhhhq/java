@@ -10,7 +10,7 @@ Page({
       }, {
         id: 'page',
         name: '界面',
-        open: false
+        url:'../pages/index/pages/web-socket/web-socket'
       }, {
         id: 'device',
         name: '设备',

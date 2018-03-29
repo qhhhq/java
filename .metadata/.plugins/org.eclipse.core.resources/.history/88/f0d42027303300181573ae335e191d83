@@ -1,0 +1,46 @@
+package net.qhhhq.server.netty.handler;
+
+import org.apache.log4j.Logger;
+
+import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.HttpHeaders.Names;
+import io.netty.handler.codec.http.HttpHeaders.Values;
+import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+
+public class WebSocketServerHandler extends BaseWebSocketServerHandler {
+
+	private static Logger log = Logger.getLogger(WebSocketServerHandler.class);
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		log.info("连接成功");
+		push(ctx, "连接成功");
+	}
+
+	@Override
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+		ctx.flush();
+	}
+
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+		if(msg instanceof WebSocketFrame){
+    		log.info("web socket start");
+		}
+		FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
+        		HttpResponseStatus.OK, Unpooled.wrappedBuffer("ok".toString().getBytes("UTF-8")));
+        response.headers().set(Names.CONTENT_TYPE, "text/plain");
+        response.headers().set(Names.CONTENT_LENGTH,
+                response.content().readableBytes());
+        ctx.write(response);
+        ctx.flush();
+	}
+
+}

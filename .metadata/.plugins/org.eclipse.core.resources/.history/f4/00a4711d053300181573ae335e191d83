@@ -1,0 +1,32 @@
+package net.qhhhq.server.netty.handler;
+
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.util.Constant;
+
+public class WebSocketServerHandler extends BaseWebSocketServerHandler {
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		push(ctx, "连接成功");
+	}
+
+	@Override
+	public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+		for (String key : Constant.pushCtxMap.keySet()) {
+			if (ctx.equals(Constant.pushCtxMap.get(key))) {
+				// 从连接池内剔除
+				System.out.println(Constant.pushCtxMap.size());
+				System.out.println("剔除" + key);
+				Constant.pushCtxMap.remove(key);
+				System.out.println(Constant.pushCtxMap.size());
+			}
+
+		}
+	}
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext arg0, Object arg1) throws Exception {
+
+	}
+
+}

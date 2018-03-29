@@ -1,0 +1,8 @@
+package net.qhhhq.server.netty.handler;
+
+import io.netty.channel.SimpleChannelInboundHandler;
+
+public abstract class BaseWebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
+
+
+}

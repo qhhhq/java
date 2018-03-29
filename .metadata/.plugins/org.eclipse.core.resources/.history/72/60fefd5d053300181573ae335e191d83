@@ -1,0 +1,25 @@
+package net.qhhhq.server.netty.handler;
+
+import io.netty.channel.ChannelHandlerContext;
+
+public class WebSocketServerHandler extends BaseWebSocketServerHandler {
+
+	@Override
+	public void channelActive(ChannelHandlerContext ctx) throws Exception {
+		push(ctx, "连接成功");
+	}
+
+	@Override
+	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+		ctx.flush();
+	}
+
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+		if(msg instanceof WebSocketFrame){
+
+		}
+	}
+
+}

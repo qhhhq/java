@@ -13,7 +13,7 @@ var config = {
   loginUrl: `http://${host}/login`,
 
   // 测试的请求地址，用于测试会话
-  requestUrl: `http://${host}`,
+  requestUrl: `https://${host}`,
 
   // 用code换取openId
   openIdUrl: `http://${host}/openid`,

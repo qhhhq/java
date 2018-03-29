@@ -16,6 +16,7 @@ import io.netty.handler.codec.http.HttpContent;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpHeaders.Names;
 import io.netty.handler.codec.http.HttpHeaders.Values;
+import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import io.netty.handler.codec.http.HttpRequest;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
@@ -28,7 +29,7 @@ public class WXHttpServerHandler extends ChannelInboundHandlerAdapter {
 
 	private HttpRequest request;
 	private Map<String, Object> parmMap;
-	private JSONObject responseMsg = new JSONObject("{success}");
+	private JSONObject responseMsg = new JSONObject();
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)

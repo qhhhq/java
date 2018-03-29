@@ -17,7 +17,8 @@
 <typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.service.enterprise{EnterpriseService.java[EnterpriseService" modifiers="513" timestamp="1521082920232"/>
 <typeInfo handle="=base-dao/src\/main\/java&lt;net.qhhhq.base.dao{DaoSupport.java[DaoSupport" modifiers="1025" timestamp="1521689972188"/>
 <typeInfo handle="=merachant-api/src\/main\/java&lt;net.qhhhq.service.shop{ShopActiveService.java[ShopActiveService" modifiers="513" timestamp="1520566359585"/>
-<typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(SimpleChannelInboundHandler.class[SimpleChannelInboundHandler" modifiers="1057" timestamp="1517904274393"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.service{Service.java[Service" modifiers="513" timestamp="1520404454488"/>
-<typeInfo handle="=weixin-api/src\/main\/java&lt;net.qhhhq.weixin.service{WXConfig.java[WXConfig" modifiers="1025" timestamp="1522144741977"/>
+<typeInfo handle="=weixin-api/src\/main\/java&lt;net.qhhhq.weixin.service{WXConfig.java[WXConfig" modifiers="1025" timestamp="1522199287385"/>
+<typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(SimpleChannelInboundHandler.class[SimpleChannelInboundHandler" modifiers="1057" timestamp="1517904274393"/>
+<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty.handler{BaseWebSocketServerHandler.java[BaseWebSocketServerHandler" modifiers="1025" timestamp="1522295503902"/>
 </typeInfoHistroy>

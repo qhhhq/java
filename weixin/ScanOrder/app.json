@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/index/pages/web-socket/web-socket",
     "pages/scan-code/scan-code",
     "pages/user/index",
     "pages/user/pages/user-shop/index",
@@ -31,6 +32,12 @@
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "接口"
+      },
+      {
+        "pagePath": "pages/index/pages/web-socket/web-socket",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "wss"
       },
       {
         "pagePath": "pages/user/index",
