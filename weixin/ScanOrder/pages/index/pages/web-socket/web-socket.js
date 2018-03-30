@@ -59,7 +59,7 @@ Page({
   },
 
   openSocket: function () {
-    var socket = this.socket = new qcloud.Tunnel("wss://10.255.105.225:10086")
+    var socket = this.socket = new qcloud.Tunnel("https://10.255.105.225:10086")
 
     socket.on('connect', () => {
       console.log('WebSocket 已连接')

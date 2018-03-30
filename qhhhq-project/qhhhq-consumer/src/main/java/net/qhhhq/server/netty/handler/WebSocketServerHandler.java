@@ -51,19 +51,23 @@ public class WebSocketServerHandler extends BaseWebSocketServerHandler {
 		// 传统的HTTP接入
         if (msg instanceof FullHttpRequest) {
         	log.info("http request start");
-        	FullHttpRequest fhr = (FullHttpRequest)msg;
+        	/*FullHttpRequest fhr = (FullHttpRequest)msg;
+        	log.info(fhr);
         	Map<String, Object> parmMap = new RequestParser(fhr).parse();
         	log.info(parmMap);
         	JSONObject json = new JSONObject();
-        	json.put("session", "1111111111");
+        	JSONObject session = new JSONObject();
+        	session.put("nale", "2");
+        	json.put("session", session);
+        	json.put("F2C224D4-2BCE-4C64-AF9F-A6D872000D1A", "666666");
         	FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
             		HttpResponseStatus.OK, Unpooled.wrappedBuffer(json.toString().getBytes("UTF-8")));
             response.headers().set(Names.CONTENT_TYPE, "text/plain");
             response.headers().set(Names.CONTENT_LENGTH,
                     response.content().readableBytes());
             ctx.write(response);
-            ctx.flush();
-            //handleHttpRequest(ctx, (FullHttpRequest) msg);
+            ctx.flush();*/
+            handleHttpRequest(ctx, (FullHttpRequest) msg);
         }
         // WebSocket接入
         else if (msg instanceof WebSocketFrame) {
@@ -75,7 +79,7 @@ public class WebSocketServerHandler extends BaseWebSocketServerHandler {
 	private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
 		// 如果HTTP解码失败，返回HHTP异常
 		if (!req.decoderResult().isSuccess() || (!"websocket".equals(req.headers().get("Upgrade")))) {
-			sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
+			sendHttpResponse(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK));
 			return;
 		}
 
