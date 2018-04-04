@@ -4,13 +4,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="net.qhhhq"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="weixin-api"/>
-			<item value="qhhhq-project"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -90,13 +87,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.qcloud.qcloud_sdk"/>
 			<item value="org.user.api"/>
 			<item value="org.user.provider"/>
 		</list>
 		<list key="groupId">
+			<item value="com.qcloud"/>
 			<item value="net.qhhhq"/>
 		</list>
 		<list key="artifactId">
+			<item value="qcloud-sdk"/>
 			<item value="weixin-api"/>
 			<item value="user-api"/>
 			<item value="user-provider"/>
@@ -119,6 +119,18 @@
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
 		</list>
 	</section>
 </section>

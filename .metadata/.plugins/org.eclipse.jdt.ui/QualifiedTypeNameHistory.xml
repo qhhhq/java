@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpResponseEncoder"/>
-<fullyQualifiedTypeName name="io.netty.handler.stream.ChunkedWriteHandler"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.InterfaceHttpData.HttpDataType"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpHeaders"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.HttpPostRequestDecoder.EndOfDataDecoderException"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.Attribute"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpResponseStatus"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.DiskFileUpload"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.InterfaceHttpData"/>
-<fullyQualifiedTypeName name="io.netty.channel.FileRegion"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.DefaultHttpDataFactory"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpVersion"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.FileUpload"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpRequest"/>
-<fullyQualifiedTypeName name="io.netty.channel.Channel"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpResponse"/>
-<fullyQualifiedTypeName name="io.netty.channel.DefaultFileRegion"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.HttpPostRequestDecoder"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.HttpDataFactory"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.DefaultHttpResponse"/>
@@ -25,7 +7,6 @@
 <fullyQualifiedTypeName name="net.qhhhq.service.enterprise.EnterpriseService"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="com.alibaba.dubbo.config.annotation.Reference"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.asm.Type"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.annotation.JSONField"/>
@@ -59,5 +40,24 @@
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.websocketx.TextWebSocketFrame"/>
 <fullyQualifiedTypeName name="io.netty.util.ResourceLeakDetector.Level"/>
 <fullyQualifiedTypeName name="io.netty.handler.codec.http.websocketx.PingWebSocketFrame"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.FullHttpRequest"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.FullHttpResponse"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.qhhhq.service.common.HttpRequestHandler"/>
+<fullyQualifiedTypeName name="net.qhhhq.service.common.impl.HttpRequestHandlerChainFactory"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.HttpHeaders"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.DefaultHttpHeaders"/>
+<fullyQualifiedTypeName name="java.security.InvalidKeyException"/>
+<fullyQualifiedTypeName name="java.security.Key"/>
+<fullyQualifiedTypeName name="com.qcloud.weapp.tunnel.TunnelService"/>
+<fullyQualifiedTypeName name="com.qcloud.weapp.ConfigurationManager"/>
+<fullyQualifiedTypeName name="com.qcloud.weapp.authorization.LoginService"/>
+<fullyQualifiedTypeName name="com.qcloud.weapp.authorization.UserInfo"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.InterfaceHttpData"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.http.multipart.InterfaceHttpData.HttpDataType"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.Base64"/>
+<fullyQualifiedTypeName name="net.qhhhq.utils.AES"/>
+<fullyQualifiedTypeName name="net.qhhhq.model.user.UserInfo"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 </qualifiedTypeNameHistroy>

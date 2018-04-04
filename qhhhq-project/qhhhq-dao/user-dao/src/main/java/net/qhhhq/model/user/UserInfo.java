@@ -28,6 +28,10 @@ public class UserInfo implements Serializable {
 
     private String unionid;
 
+    private String skey;
+
+    private String sid;
+
     public Long getId() {
         return id;
     }
@@ -107,4 +111,21 @@ public class UserInfo implements Serializable {
     public void setUnionid(String unionid) {
         this.unionid = unionid == null ? null : unionid.trim();
     }
+
+	public String getSkey() {
+		return skey;
+	}
+
+	public void setSkey(String skey) {
+		this.skey = skey;
+	}
+
+	public String getSid() {
+		return sid;
+	}
+
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+
 }

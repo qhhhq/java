@@ -1,7 +1,0 @@
-package net.qhhhq.weixin.service.accesstoken;
-
-import net.qhhhq.weixin.service.WXConfig;
-
-public class AccessTokenConfig extends WXConfig {
-
-}

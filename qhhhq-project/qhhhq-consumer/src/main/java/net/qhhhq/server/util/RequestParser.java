@@ -9,12 +9,14 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.HttpMethod;
 import io.netty.handler.codec.http.QueryStringDecoder;
 import io.netty.handler.codec.http.multipart.Attribute;
 import io.netty.handler.codec.http.multipart.HttpPostRequestDecoder;
 import io.netty.handler.codec.http.multipart.InterfaceHttpData;
+import io.netty.handler.codec.http.multipart.InterfaceHttpData.HttpDataType;
 
 /**
  * 解析http请求中的请求数据
@@ -58,12 +60,12 @@ public class RequestParser {
             // 是POST请求
             HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(fullReq);
             decoder.offer(fullReq);
-
             List<InterfaceHttpData> parmList = decoder.getBodyHttpDatas();
-
             for (InterfaceHttpData parm : parmList) {
-                Attribute data = (Attribute) parm;
-                parmMap.put(data.getName().toUpperCase(), data.getValue());
+            	if(parm.getHttpDataType() == HttpDataType.Attribute) {
+            		Attribute data = (Attribute) parm;
+	                parmMap.put(data.getName().toUpperCase(), data.getValue());
+            	}
             }
         }
         return parmMap;

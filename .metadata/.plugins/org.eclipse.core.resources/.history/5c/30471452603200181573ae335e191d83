@@ -1,8 +1,0 @@
-package net.qhhhq.utils;
-
-import javax.net.ssl.SSLContext;
-
-public class SslUtil {
-
-	private static volatile SSLContext sslContext = null;
-}

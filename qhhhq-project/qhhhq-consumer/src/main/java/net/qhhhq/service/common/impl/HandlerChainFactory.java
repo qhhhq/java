@@ -8,7 +8,7 @@ import net.qhhhq.service.common.MessageHandler;
 
 public class HandlerChainFactory {
 
-	private static List<MessageHandler> handlers = new ArrayList();
+	private static List<MessageHandler> handlers = new ArrayList<MessageHandler>();
 	private static HandlerChain HandlerChain;
 
 	public void setHandlers(List<MessageHandler> handlers) {
@@ -16,7 +16,7 @@ public class HandlerChainFactory {
 	}
 
 	public static HandlerChain createHandlerChain() {
-		List<MessageHandler> hds = new ArrayList();
+		List<MessageHandler> hds = new ArrayList<MessageHandler>();
 		for (MessageHandler handlerClass : handlers) {
 			hds.add(handlerClass);
 		}

@@ -1,0 +1,121 @@
+package net.qhhhq.service.http.qcloud;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.qcloud.weapp.authorization.Constants;
+
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.FullHttpRequest;
+import net.qhhhq.api.user.UserService;
+import net.qhhhq.http.HttpClient;
+import net.qhhhq.http.JsonResponseHandler;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.HttpRequestHandler;
+import net.qhhhq.utils.JSONUtils;
+
+@Component
+public class MinaAuthServiceBean implements HttpRequestHandler {
+
+	private static Logger log = Logger.getLogger(MinaAuthServiceBean.class);
+	@Reference
+	static UserService userService;
+
+	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data) {
+		log.info("MinaAuthServiceBean start ......");
+		FullHttpRequest fhr = (FullHttpRequest) paramMap.get("fhr");
+		String uri = fhr.uri();
+		log.info(paramMap.get("uri"));
+		if(fhr != null && uri != null && uri.equals("/mina_auth")) {
+			String reqData = (String) paramMap.get("DATA");
+			JSONObject json = new JSONObject(reqData.replaceAll("Mixed: ", ""));
+			JSONObject intface = json.getJSONObject("interface");
+			String interfaceName = intface.getString("interfaceName");
+			JSONObject para = intface.getJSONObject("para");
+			if(interfaceName.equals("qcloud.cam.id_skey")) { //登录
+				String code = para.getString("code");
+				String encryptedData = para.getString("encrypt_data");
+				String iv = para.getString("iv");
+				try {
+					JSONObject open = getOpenId(code);
+					byte[] resultByte  = AES.decrypt(Base64.decodeBase64(encryptedData),
+		                    Base64.decodeBase64(open.getString("session_key")),
+		                    Base64.decodeBase64(iv));
+		                if(null != resultByte && resultByte.length > 0){
+		                    String strUser = new String(resultByte, "UTF-8");
+		                    long userId = save(strUser);
+		            		JSONObject json = prepareResponseJson();
+		            		JSONObject session = new JSONObject();
+		            		JSONObject userInfo = null;
+		        			session.put("id", userId);
+		        			session.put("skey", userId);
+		        			json.put("session", session);
+		        			data.put("response", json);
+		                } else {
+		                	log.error("用户信息解密失败");
+		                }
+				} catch (URISyntaxException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		paramHandlerChain.doHandler(paramMap);
+	}
+
+	private long save(String strUser) {
+		net.qhhhq.model.user.UserInfo user = null;
+		JSONObject userJson = new JSONObject(strUser);
+		if(userJson.has("openId")) {
+			String openId = userJson.getString("openId");
+			if(!userService.hasOpenId(openId)) {
+				user.setOpenid(openId);
+				if(userJson.has("unionid"))
+					user.setUnionid(userJson.getString("unionid"));
+				user.setAvatarurl(userJson.getString("avatarUrl"));
+				user.setCity(userJson.getString("city"));
+				user.setCountry(userJson.getString("country"));
+				user.setGender(String.valueOf(userJson.getInt("gender")));
+				user.setLanguage(userJson.getString("language"));
+				user.setNickname(userJson.getString("nickName"));
+				user.setProvince(userJson.getString("province"));
+				user = userService.save(user);
+			} else {
+				user = userService.getUserByOpenId(openId);
+			}
+		}
+		return user.getId();
+	}
+
+
+	/**
+	 * 获取openid和session_key
+	 * @param code
+	 * @return
+	 * @throws URISyntaxException
+	 * @throws IOException
+	 */
+	private JSONObject getOpenId(String code) throws URISyntaxException, IOException {
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("appid", "wx275a30f644ebc4c9");
+		params.put("secret", "ae0c581b7a6bf0792c87d00a1a8a1d9b");
+		params.put("js_code", code);
+		params.put("grant_type", "authorization_code");
+		JsonResponseHandler handler = new JsonResponseHandler();
+		Object obj = HttpClient.doGet("https://api.weixin.qq.com/sns/jscode2session", params, handler);
+		JSONObject json = (JSONObject) obj;
+		return json;
+	}
+
+}

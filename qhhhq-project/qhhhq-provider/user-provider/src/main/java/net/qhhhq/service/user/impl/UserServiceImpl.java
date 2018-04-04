@@ -1,5 +1,8 @@
 package net.qhhhq.service.user.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +32,8 @@ public class UserServiceImpl extends DaoSupport<UserInfo> implements UserService
 	@Override
 	public UserInfo save(UserInfo entity) {
 		entity.setId(identityService.nextId());
+		System.out.println(entity.getSid());
+		System.out.println(entity.getSid());
 		return super.save(entity);
 	}
 
@@ -43,6 +48,13 @@ public class UserServiceImpl extends DaoSupport<UserInfo> implements UserService
 
 	public UserInfo getUserByOpenId(String openId) {
 		return userInfoMapper.selectByOpenId(openId);
+	}
+
+	public UserInfo getUserBySkey(String skey, String sid) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("skey", skey);
+		map.put("sid", sid);
+		return userInfoMapper.selectBySkey(map);
 	}
 
 }

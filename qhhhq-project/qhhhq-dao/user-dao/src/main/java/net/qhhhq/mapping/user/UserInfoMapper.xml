@@ -12,10 +12,12 @@
 		<result column="country" jdbcType="VARCHAR" property="country" />
 		<result column="language" jdbcType="VARCHAR" property="language" />
 		<result column="unionId" jdbcType="VARCHAR" property="unionid" />
+		<result column="skey" jdbcType="VARCHAR" property="skey" />
+		<result column="sid" jdbcType="VARCHAR" property="sid" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, openId, nickName, avatarUrl, gender, city, province, country,
-		language, unionId
+		language, unionId,skey,sid
 	</sql>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Long"
 		resultMap="BaseResultMap">
@@ -32,13 +34,15 @@
 		insert into user_info (id, openId, nickName,
 		avatarUrl, gender, city,
 		province, country, language,
-		unionId)
+		unionId,skey,sid)
 		values (#{id,jdbcType=BIGINT}, #{openid,jdbcType=VARCHAR},
 		#{nickname,jdbcType=VARCHAR},
 		#{avatarurl,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
 		#{province,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR},
 		#{language,jdbcType=VARCHAR},
-		#{unionid,jdbcType=VARCHAR})
+		#{unionid,jdbcType=VARCHAR},
+		#{skey,jdbcType=VARCHAR},
+		#{sid,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="net.qhhhq.model.user.UserInfo">
 		insert into user_info
@@ -73,6 +77,12 @@
 			<if test="unionid != null">
 				unionId,
 			</if>
+			<if test="skey != null">
+				skey,
+			</if>
+			<if test="sid != null">
+				sid,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -104,6 +114,12 @@
 			</if>
 			<if test="unionid != null">
 				#{unionid,jdbcType=VARCHAR},
+			</if>
+			<if test="skey != null">
+				#{skey,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				#{sid,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -137,6 +153,12 @@
 			<if test="unionid != null">
 				unionId = #{unionid,jdbcType=VARCHAR},
 			</if>
+			<if test="skey != null">
+				skey = #{skey,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				sid = #{sid,jdbcType=VARCHAR},
+			</if>
 		</set>
 		where id = #{id,jdbcType=BIGINT}
 	</update>
@@ -150,7 +172,9 @@
 		province = #{province,jdbcType=VARCHAR},
 		country = #{country,jdbcType=VARCHAR},
 		language = #{language,jdbcType=VARCHAR},
-		unionId = #{unionid,jdbcType=VARCHAR}
+		unionId = #{unionid,jdbcType=VARCHAR},
+		skey = #{skey,jdbcType=VARCHAR},
+		sid = #{sid,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=BIGINT}
 	</update>
 	<select id="getCount" resultType="java.lang.Long">
@@ -183,6 +207,12 @@
 			<if test="unionid != null">
 				and unionId = #{unionid,jdbcType=VARCHAR},
 			</if>
+			<if test="skey != null">
+				and skey = #{skey,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				and sid = #{sid,jdbcType=VARCHAR},
+			</if>
 		</where>
 	</select>
 	<select id="queryAllRecords" parameterType="Map" resultMap="BaseResultMap">
@@ -214,6 +244,12 @@
 			<if test="unionid != null">
 				and unionId = #{unionid,jdbcType=VARCHAR},
 			</if>
+			<if test="skey != null">
+				and skey = #{skey,jdbcType=VARCHAR},
+			</if>
+			<if test="sid != null">
+				and sid = #{sid,jdbcType=VARCHAR},
+			</if>
 		</where>
 		<if test="orderBy != null">
 			order by ${orderBy}
@@ -228,5 +264,12 @@
 		<include refid="Base_Column_List" />
 		from user_info
 		where openid = #{openid,jdbcType=VARCHAR}
+	</select>
+	<select id="selectBySkey" parameterType="Map"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from user_info
+		where skey = #{skey,jdbcType=VARCHAR} and sid = #{sid,jdbcType=VARCHAR}
 	</select>
 </mapper>

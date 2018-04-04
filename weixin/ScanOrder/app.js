@@ -14,6 +14,7 @@ App({
 
     if (userId == null || userId == "") {
       // 登录
+      /*
       wx.login({
         success: function (resl) {
           if (resl.code) {
@@ -48,6 +49,7 @@ App({
           }
         }
       })
+      */
     } else {
       console.log("userid:", userId)
     }

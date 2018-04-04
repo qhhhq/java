@@ -34,19 +34,28 @@
 		<constructor-arg ref="httpChannelInitializer" />
 	</bean>
 
+	<bean id="httpsServer" class="net.qhhhq.server.netty.NettyHTTPServer"
+		destroy-method="stopServer">
+		<constructor-arg ref="httpsConfig" />
+		<constructor-arg ref="httpsChannelInitializer" />
+	</bean>
+
 	<bean id="httpFileServer" class="net.qhhhq.server.netty.NettyHTTPServer"
 		destroy-method="stopServer">
 		<constructor-arg ref="httpFileConfig" />
 		<constructor-arg ref="httpFileChannelInitializer" />
 	</bean>
 
-	<bean id="wxHttpServer" class="net.qhhhq.server.netty.NettyHTTPServer"
+	<bean id="wxHttpsServer" class="net.qhhhq.server.netty.NettyHTTPServer"
 		destroy-method="stopServer">
-		<constructor-arg ref="wxHttpConfig" />
-		<constructor-arg ref="wxHttpChannelInitializer" />
+		<constructor-arg ref="wxHttpsConfig" />
+		<constructor-arg ref="wxHttpsChannelInitializer" />
 	</bean>
 
 	<bean id="httpChannelInitializer" class="net.qhhhq.server.netty.initializer.HttpChannelInitializer">
+	</bean>
+
+	<bean id="httpsChannelInitializer" class="net.qhhhq.server.netty.initializer.HttpsChannelInitializer">
 		<property name="keyStorePath" value="${keyStorePath}" />
 		<property name="keyPassword" value="${keyPassword}" />
 	</bean>
@@ -55,10 +64,19 @@
 		<property name="filePath" value="${uploadFilePath}" />
 	</bean>
 
-	<bean id="wxHttpChannelInitializer" class="net.qhhhq.server.netty.initializer.WXHttpChannelInitializer">
+	<bean id="wxHttpsChannelInitializer" class="net.qhhhq.server.netty.initializer.WXHttpsChannelInitializer">
+		<property name="keyStorePath" value="${keyStorePath}" />
+		<property name="keyPassword" value="${keyPassword}" />
 	</bean>
 
 	<bean id="httpConfig" class="net.qhhhq.server.netty.NettyConfig">
+		<property name="channelOptions" ref="httpChannelOptions" />
+		<property name="bossGroup" ref="bossGroup" />
+		<property name="workerGroup" ref="workerGroup" />
+		<property name="portNumber" value="80" />
+	</bean>
+
+	<bean id="httpsConfig" class="net.qhhhq.server.netty.NettyConfig">
 		<property name="channelOptions" ref="httpChannelOptions" />
 		<property name="bossGroup" ref="bossGroup" />
 		<property name="workerGroup" ref="workerGroup" />
@@ -72,11 +90,11 @@
 		<property name="portNumber" value="10088" />
 	</bean>
 
-	<bean id="wxHttpConfig" class="net.qhhhq.server.netty.NettyConfig">
+	<bean id="wxHttpsConfig" class="net.qhhhq.server.netty.NettyConfig">
 		<property name="channelOptions" ref="httpChannelOptions" />
 		<property name="bossGroup" ref="bossGroup" />
 		<property name="workerGroup" ref="workerGroup" />
-		<property name="portNumber" value="80" />
+		<property name="portNumber" value="443" />
 	</bean>
 
 	<util:map id="httpChannelOptions" map-class="java.util.HashMap">
@@ -124,6 +142,23 @@
 	        	<bean class="net.qhhhq.service.base.AuthCheckService" />
 	            <bean class="net.qhhhq.service.base.ExecuteService" />
 	        	<bean class="net.qhhhq.service.base.LogEndService" />
+	        </list>
+	    </property>
+	</bean>
+
+	<bean id="httpRequestHandlerChainFactory" class="net.qhhhq.service.common.impl.HttpRequestHandlerChainFactory">
+	    <property name="handlers">
+	        <list>
+	        	<bean class="net.qhhhq.service.http.qcloud.MinaAuthServiceBean" />
+	        </list>
+	    </property>
+	</bean>
+
+	<bean id="wxHttpsRequestHandlerChainFactory" class="net.qhhhq.service.common.impl.WXHttpsRequestHandlerChainFactory">
+	    <property name="handlers">
+	        <list>
+	        	<bean class="net.qhhhq.service.http.qcloud.LoginServiceBean" />
+	        	<bean class="net.qhhhq.service.http.qcloud.TunnelServiceBean" />
 	        </list>
 	    </property>
 	</bean>

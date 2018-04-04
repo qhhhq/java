@@ -4,12 +4,12 @@ package com.qcloud.weapp.authorization;
  * 登录服务常量，包括登录错误类型
  * */
 public final class Constants {
-    static final String WX_SESSION_MAGIC_ID = "F2C224D4-2BCE-4C64-AF9F-A6D872000D1A";
-    static final String WX_HEADER_CODE = "X-WX-Code";
-    static final String WX_HEADER_ID = "X-WX-Id";
-    static final String WX_HEADER_SKEY = "X-WX-Skey";
-    static final String WX_HEADER_ENCRYPTED_DATA = "X-WX-Encrypted-Data";
-    static final String WX_HEADER_IV = "X-WX-IV";
+    public static final String WX_SESSION_MAGIC_ID = "F2C224D4-2BCE-4C64-AF9F-A6D872000D1A";
+    public static final String WX_HEADER_CODE = "X-WX-Code";
+    public static final String WX_HEADER_ID = "X-WX-Id";
+    public static final String WX_HEADER_SKEY = "X-WX-Skey";
+    public static final String WX_HEADER_ENCRYPTED_DATA = "X-WX-Encrypted-Data";
+    public static final String WX_HEADER_IV = "X-WX-IV";
 
     /**
      * 表示登录失败

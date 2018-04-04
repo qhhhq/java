@@ -1,0 +1,5 @@
+package net.qhhhq.service.http.qcloud;
+
+public class ChatTunnelHandler {
+
+}

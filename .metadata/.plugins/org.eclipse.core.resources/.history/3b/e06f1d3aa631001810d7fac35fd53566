@@ -1,8 +1,0 @@
-package net.qhhhq.weixin.service.impl;
-
-import net.qhhhq.weixin.service.WXConfig;
-
-public class WXConfigImpl  {
-
-
-}

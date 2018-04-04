@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="wxHttpsChannelInitializer" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="wxHttpsChannelInitializer"/>
+			<item value="insertSelective"/>
+			<item value="unionId"/>
+			<item value="httpChannelInitializer"/>
+			<item value="httpsChannelInitializer"/>
+			<item value="httpsConfig"/>
+			<item value="httpConfig"/>
 			<item value="HttpFileHandler"/>
-			<item value="EnterpriseServiceBean"/>
-			<item value="json"/>
-			<item value="uuid"/>
-			<item value="JAVA_AGENT"/>
-			<item value="ASPECTJ_WEAVER_JAR"/>
-			<item value="LIB_JARS"/>
-			<item value="GALAXY_CORE_JAR"/>
 		</list>
 		<list key="replacehistory">
 			<item value="district"/>

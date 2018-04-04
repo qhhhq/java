@@ -1,0 +1,26 @@
+package net.qhhhq.service.http.qcloud;
+
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.qcloud.weapp.tunnel.TunnelService;
+
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.HttpRequestHandler;
+
+@Component
+public class TunnelServiceBean implements HttpRequestHandler {
+
+	private static Logger log = Logger.getLogger(TunnelServiceBean.class);
+
+	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data) {
+		if(paramMap.get("uri") != null && paramMap.get("uri").equals("/tunnel")) {		//会话
+			TunnelService tunnelService = new TunnelService();
+		}
+		paramHandlerChain.doHandler(paramMap);
+	}
+
+}

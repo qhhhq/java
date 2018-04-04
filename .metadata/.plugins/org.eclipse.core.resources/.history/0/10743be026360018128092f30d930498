@@ -1,0 +1,10 @@
+package net.qhhhq.service.common;
+
+import java.util.Map;
+
+import org.json.JSONObject;
+
+public class HttpRequestHandler {
+
+	public abstract void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data);
+}

@@ -8,4 +8,6 @@ public interface UserService extends DAO<UserInfo> {
 	public boolean hasOpenId(String openId);
 
 	public UserInfo getUserByOpenId(String openId);
+
+	public UserInfo getUserBySkey(String skey, String sid);
 }
