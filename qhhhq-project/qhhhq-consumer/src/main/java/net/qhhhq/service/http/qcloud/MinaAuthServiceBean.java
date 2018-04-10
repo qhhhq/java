@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.FullHttpRequest;
 import net.qhhhq.api.user.UserService;
 import net.qhhhq.http.HttpClient;
@@ -28,11 +29,12 @@ import net.qhhhq.utils.AES;
 public class MinaAuthServiceBean implements HttpRequestHandler {
 
 	private static Logger log = Logger.getLogger(MinaAuthServiceBean.class);
+	private FullHttpRequest fhr = null;
 	@Reference
 	static UserService userService;
 
 	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data) {
-		FullHttpRequest fhr = (FullHttpRequest) paramMap.get("fhr");
+		fhr = (FullHttpRequest) paramMap.get("fhr");
 		String uri = fhr.uri();
 		log.info("MinaAuthServiceBean start ......"+ uri);
 		if(fhr != null && uri != null && uri.equals("/mina_auth")) {

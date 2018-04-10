@@ -1,0 +1,18 @@
+package net.qhhhq.service.http.qcloud;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import io.netty.channel.ChannelHandlerContext;
+
+public class TunnelChannel {
+
+	private static Map<String, ChannelHandlerContext> tunnelList = null;
+
+	public void addTunnelChannel(String tunnelId, ChannelHandlerContext ctx) {
+		if(tunnelList == null) {
+			tunnelList = new HashMap<String, ChannelHandlerContext>();
+		}
+		tunnelList.put(tunnelId, ctx);
+	}
+}

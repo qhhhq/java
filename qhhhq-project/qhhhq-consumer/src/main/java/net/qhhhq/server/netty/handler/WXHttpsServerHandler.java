@@ -40,11 +40,12 @@ public class WXHttpsServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
-    	log.info(msg);
     	HandlerChain handlerChain = WXHttpsRequestHandlerChainFactory.createHandlerChain();
     	JSONObject responseMsg = null;
+    	String uri = "";
     	if(msg instanceof FullHttpRequest) {
     		FullHttpRequest fhr = (FullHttpRequest)msg;
+    		uri = fhr.uri();
         	parmMap = new WXRequestParser(fhr).parse();
         	parmMap.put("ctx", ctx);
         	parmMap.put("fhr", fhr);
@@ -55,20 +56,22 @@ public class WXHttpsServerHandler extends ChannelInboundHandlerAdapter {
             request = (HttpRequest) msg;
     	}
     	if (msg instanceof HttpContent) {
-            HttpContent content = (HttpContent) msg;
+           /* HttpContent content = (HttpContent) msg;
             ByteBuf buf = content.content();
-            buf.release();
+            buf.release();*/
+    		if(!uri.equals("/tunnel")) {
             log.info("response data is:"+JSONUtils.formatJson(responseMsg.toString()));
-            FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
-            		HttpResponseStatus.OK, Unpooled.wrappedBuffer(responseMsg.toString().getBytes("UTF-8")));
-            response.headers().set(Names.CONTENT_TYPE, "application/json");
-            response.headers().set(Names.CONTENT_LENGTH,
-                    response.content().readableBytes());
-            if (HttpHeaders.isKeepAlive(request)) {
-                response.headers().set(Names.CONNECTION, Values.KEEP_ALIVE);
-            }
-            ctx.write(response);
-            ctx.flush();
+	            FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
+	            		HttpResponseStatus.OK, Unpooled.wrappedBuffer(responseMsg.toString().getBytes("UTF-8")));
+	            response.headers().set(Names.CONTENT_TYPE, "application/json");
+	            response.headers().set(Names.CONTENT_LENGTH,
+	                    response.content().readableBytes());
+	            if (HttpHeaders.isKeepAlive(request)) {
+	                response.headers().set(Names.CONNECTION, Values.KEEP_ALIVE);
+	            }
+	            ctx.write(response);
+	            ctx.flush();
+    		}
     	}
     }
 

@@ -52,6 +52,12 @@
 		<constructor-arg ref="wxHttpsChannelInitializer" />
 	</bean>
 
+	<bean id="websocketHttpsServer" class="net.qhhhq.server.netty.NettyHTTPServer"
+		destroy-method="stopServer">
+		<constructor-arg ref="websocketHttpsConfig" />
+		<constructor-arg ref="websocketHttpsChannelInitializer" />
+	</bean>
+
 	<bean id="httpChannelInitializer" class="net.qhhhq.server.netty.initializer.HttpChannelInitializer">
 	</bean>
 
@@ -65,6 +71,11 @@
 	</bean>
 
 	<bean id="wxHttpsChannelInitializer" class="net.qhhhq.server.netty.initializer.WXHttpsChannelInitializer">
+		<property name="keyStorePath" value="${keyStorePath}" />
+		<property name="keyPassword" value="${keyPassword}" />
+	</bean>
+
+	<bean id="websocketHttpsChannelInitializer" class="net.qhhhq.server.netty.initializer.WebSocketHttpsChannelInitializer">
 		<property name="keyStorePath" value="${keyStorePath}" />
 		<property name="keyPassword" value="${keyPassword}" />
 	</bean>
@@ -95,6 +106,13 @@
 		<property name="bossGroup" ref="bossGroup" />
 		<property name="workerGroup" ref="workerGroup" />
 		<property name="portNumber" value="443" />
+	</bean>
+
+	<bean id="websocketHttpsConfig" class="net.qhhhq.server.netty.NettyConfig">
+		<property name="channelOptions" ref="httpChannelOptions" />
+		<property name="bossGroup" ref="bossGroup" />
+		<property name="workerGroup" ref="workerGroup" />
+		<property name="portNumber" value="10010" />
 	</bean>
 
 	<util:map id="httpChannelOptions" map-class="java.util.HashMap">
@@ -150,6 +168,8 @@
 	    <property name="handlers">
 	        <list>
 	        	<bean class="net.qhhhq.service.http.qcloud.MinaAuthServiceBean" />
+	        	<bean class="net.qhhhq.service.http.qcloud.TunnelConnectionServiceBean" />
+	        	<bean class="net.qhhhq.service.http.qcloud.WsPushServiceBean" />
 	        </list>
 	    </property>
 	</bean>

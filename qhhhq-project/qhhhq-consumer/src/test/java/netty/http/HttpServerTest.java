@@ -26,11 +26,13 @@ public class HttpServerTest {
         AbstractNettyServer server = (AbstractNettyServer)context.getBean("httpsServer");
         AbstractNettyServer serverFile = (AbstractNettyServer)context.getBean("httpFileServer");
         AbstractNettyServer wxServer = (AbstractNettyServer)context.getBean("wxHttpsServer");
+        AbstractNettyServer websocketHttpsServer = (AbstractNettyServer)context.getBean("websocketHttpsServer");
         try {
         	http.startServer();
 			server.startServer();
 			serverFile.startServer();
 			wxServer.startServer();
+			websocketHttpsServer.startServer();
 
 			String configFilePath = getConfigFilePath();
 			System.out.println("QCloud SDK 配置文件路径：" + configFilePath);

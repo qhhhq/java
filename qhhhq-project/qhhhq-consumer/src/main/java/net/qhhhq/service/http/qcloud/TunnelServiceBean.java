@@ -19,10 +19,12 @@ import net.qhhhq.service.common.HttpRequestHandler;
 public class TunnelServiceBean implements HttpRequestHandler {
 
 	private static Logger log = Logger.getLogger(TunnelServiceBean.class);
+	private ChannelHandlerContext ctx = null;
+	private FullHttpRequest fhr = null;
 
 	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data) {
-		ChannelHandlerContext ctx = (ChannelHandlerContext) paramMap.get("ctx");
-		FullHttpRequest fhr = (FullHttpRequest) paramMap.get("fhr");
+		ctx = (ChannelHandlerContext) paramMap.get("ctx");
+		fhr = (FullHttpRequest) paramMap.get("fhr");
 		String uri = fhr.uri();
 		log.info("TunnelServiceBean start ......"+ uri);
 		if(fhr != null && uri != null && uri.equals("/tunnel")) {		//会话
@@ -30,7 +32,7 @@ public class TunnelServiceBean implements HttpRequestHandler {
 			TunnelHandleOptions options = new TunnelHandleOptions();
 			options.setCheckLogin(true);
 			try {
-				tunnelService.handle(new ChatTunnelHandler(), options);
+				tunnelService.handle(new ChatTunnelHandler(), options, null);
 			} catch (ConfigurationException e) {
 				e.printStackTrace();
 			}

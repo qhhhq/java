@@ -1,11 +1,9 @@
 package com.qcloud.weapp.tunnel;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
 
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,6 +19,9 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.codec.http.HttpHeaders.Names;
+import io.netty.handler.codec.http.HttpHeaders.Values;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 
@@ -29,6 +30,7 @@ import io.netty.handler.codec.http.HttpVersion;
  * 提供信道服务
  * */
 public class TunnelService {
+	private static Logger log = Logger.getLogger(TunnelService.class);
 	private FullHttpRequest request;
 	private ChannelHandlerContext ctx;
 
@@ -44,9 +46,13 @@ public class TunnelService {
 		try {
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
             		HttpResponseStatus.OK, Unpooled.wrappedBuffer(json.toString().getBytes("UTF-8")));
-			response.headers().set("Content-Type", "application/json");
-			response.headers().set("Content-Encoding", "utf-8");
-			ctx.write(response);
+            response.headers().set(Names.CONTENT_TYPE, "application/json");
+            response.headers().set(Names.CONTENT_LENGTH,
+                    response.content().readableBytes());
+            if (HttpHeaders.isKeepAlive(request)) {
+                response.headers().set(Names.CONNECTION, Values.KEEP_ALIVE);
+            }
+            ctx.write(response);
             ctx.flush();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -77,12 +83,11 @@ public class TunnelService {
 	 * @param handler 指定信道处理器处理信道事件
 	 * @param options 指定信道服务的配置
 	 */
-	public void handle(TunnelHandler handler, TunnelHandleOptions options) throws ConfigurationException {
-		if (request.getMethod().toString().toUpperCase() == "GET") {
+	public void handle(TunnelHandler handler, TunnelHandleOptions options, String content) throws ConfigurationException {
+		if (request == null || request.getMethod().toString().toUpperCase() == "POST") {
+			handlePost(handler, options, content);
+		} else if (request.getMethod().toString().toUpperCase() == "GET") {
 			handleGet(handler, options);
-		}
-		if (request.getMethod().toString().toUpperCase() == "POST") {
-			handlePost(handler, options);
 		}
 	}
 
@@ -120,8 +125,8 @@ public class TunnelService {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		log.info("response data is:"+ result);
 		writeJson(result);
-
 		handler.onTunnelRequest(tunnel, user);
 	}
 
@@ -133,8 +138,7 @@ public class TunnelService {
 		return schema + "://" + host + path;
 	}
 
-	private void handlePost(TunnelHandler handler, TunnelHandleOptions options) throws ConfigurationException {
-		String requestContent = null;
+	private void handlePost(TunnelHandler handler, TunnelHandleOptions options, String content) throws ConfigurationException {
 
 		// 1. 读取报文内容
 
@@ -142,7 +146,7 @@ public class TunnelService {
 		JSONObject body = null;
 		String data = null, signature = null;
 		try {
-			body = new JSONObject(requestContent);
+			body = new JSONObject(content);
 			data = body.getString("data");
 			signature = body.getString("signature");
 			// String signature = body.getString("signature");
@@ -187,7 +191,7 @@ public class TunnelService {
 			JSONObject response = new JSONObject();
 			response.put("code", 0);
 			response.put("message", "OK");
-			writeJson(response);
+			//writeJson(response);
 		} catch (JSONException e) {
 			JSONObject response = new JSONObject();
 			try {

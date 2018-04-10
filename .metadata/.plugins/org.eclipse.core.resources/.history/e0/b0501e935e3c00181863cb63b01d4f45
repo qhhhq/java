@@ -1,0 +1,6 @@
+package net.qhhhq.service.http.qcloud;
+
+public class TunnelChannel {
+
+	private Map<String tunnelId, ChannelHandlerContext ctx> tunnelList = null;
+}

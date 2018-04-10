@@ -1,0 +1,101 @@
+package net.qhhhq.service.http.qcloud;
+
+import java.util.Map;
+import java.util.UUID;
+
+import org.apache.log4j.Logger;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+
+import com.qcloud.weapp.Hash;
+
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaders;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.websocketx.WebSocketFrameDecoder;
+import io.netty.handler.codec.http.websocketx.WebSocketFrameEncoder;
+import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
+import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
+import io.netty.handler.codec.http.websocketx.WebSocketVersion;
+import net.qhhhq.service.common.HandlerChain;
+import net.qhhhq.service.common.HttpRequestHandler;
+
+@Component
+public class TunnelConnectionServiceBean implements HttpRequestHandler {
+
+	private static Logger log = Logger.getLogger(TunnelConnectionServiceBean.class);
+	private WebSocketServerHandshaker handshaker;
+
+	public void handle(Map<String, Object> paramMap, HandlerChain paramHandlerChain, JSONObject data) {
+		ChannelHandlerContext ctx = (ChannelHandlerContext) paramMap.get("ctx");
+		FullHttpRequest fhr = (FullHttpRequest) paramMap.get("fhr");
+		String uri = fhr.uri();
+		log.info("TunnelConnectionServiceBean start ......"+ uri);
+		if(fhr != null && uri != null && uri.equals("/get/wsurl")) {
+			String reqData = (String) paramMap.get("DATA");
+			JSONObject reqJson = new JSONObject(reqData);
+			String tcKey = reqJson.getString("tcKey");
+			String signature = reqJson.getString("signature");
+			String tcId = reqJson.getString("tcId");
+			String dataJson = reqJson.getString("data");
+			log.info(signature(dataJson, tcKey)+"==="+signature);
+			if(signature(dataJson, tcKey).equals(signature)) {
+				log.info(reqData);
+				String tunnelId = UUID.randomUUID().toString().replaceAll("-", "");
+				String connectUrl = "ws://10.255.105.225";
+				handleHttpRequest(ctx, fhr);
+
+				data.put("tunnelId", tunnelId);
+				data.put("connectUrl", connectUrl);
+			}
+		}
+		paramHandlerChain.doHandler(paramMap);
+	}
+    private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest request) throws Exception {
+        // 如果HTTP解码失败，返回HHTP异常
+       /* if (!request.getDecoderResult().isSuccess() || (!"websocket".equals(request.headers().get("Upgrade")))) {
+            sendHttpResponse(ctx, request, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
+            return;
+        }  */
+
+        // 正常WebSocket的Http连接请求，构造握手响应返回
+        WebSocketServerHandshakerFactory wsFactory = new WebSocketServerHandshakerFactory("ws://" + request.headers().get(HttpHeaders.Names.HOST), null, false);
+        //handshaker = wsFactory.newHandshaker(request);
+        handshaker = new WebSocketServerHandshaker(WebSocketVersion.V13,"ws://10.255.105.225", null, 2048) {
+
+			@Override
+			protected WebSocketFrameDecoder newWebsocketDecoder() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			protected WebSocketFrameEncoder newWebSocketEncoder() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			protected FullHttpResponse newHandshakeResponse(FullHttpRequest paramFullHttpRequest,
+					HttpHeaders paramHttpHeaders) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+        if (handshaker == null) { // 无法处理的websocket版本
+            WebSocketServerHandshakerFactory.sendUnsupportedWebSocketVersionResponse(ctx.channel());
+        } else { // 向客户端发送websocket握手,完成握手
+            handshaker.handshake(ctx.channel(), request);
+            // 记录管道处理上下文，便于服务器推送数据到客户端
+        }
+    }
+
+	private String signature(String data, String key) {
+		return Hash.sha1(data + key);
+	}
+
+}

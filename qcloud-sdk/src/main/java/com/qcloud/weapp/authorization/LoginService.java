@@ -12,8 +12,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.DefaultFullHttpResponse;
 import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.FullHttpResponse;
+import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.HttpHeaders.Names;
+import io.netty.handler.codec.http.HttpHeaders.Values;
 
 /**
  * 提供登录服务
@@ -36,9 +39,13 @@ public class LoginService {
 		try {
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
             		HttpResponseStatus.OK, Unpooled.wrappedBuffer(json.toString().getBytes("UTF-8")));
-			response.headers().set("Content-Type", "application/json");
-			response.headers().set("Content-Encoding", "utf-8");
-			ctx.write(response);
+            response.headers().set(Names.CONTENT_TYPE, "application/json");
+            response.headers().set(Names.CONTENT_LENGTH,
+                    response.content().readableBytes());
+            if (HttpHeaders.isKeepAlive(request)) {
+                response.headers().set(Names.CONNECTION, Values.KEEP_ALIVE);
+            }
+            ctx.write(response);
             ctx.flush();
 		} catch (IOException e) {
 			e.printStackTrace();

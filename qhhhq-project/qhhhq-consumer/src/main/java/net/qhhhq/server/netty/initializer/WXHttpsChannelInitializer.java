@@ -34,13 +34,16 @@ public class WXHttpsChannelInitializer extends ChannelInitializer<SocketChannel>
                 new WXHttpsServerHandler());
 	}
 
+
 	public String getKeyStorePath() {
 		return keyStorePath;
 	}
 
+
 	public void setKeyStorePath(String keyStorePath) {
 		this.keyStorePath = keyStorePath;
 	}
+
 
 	public String getKeyPassword() {
 		return keyPassword;

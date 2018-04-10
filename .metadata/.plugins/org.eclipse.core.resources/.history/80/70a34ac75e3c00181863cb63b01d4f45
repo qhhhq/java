@@ -1,0 +1,10 @@
+package net.qhhhq.service.http.qcloud;
+
+import java.util.Map;
+
+import io.netty.channel.ChannelHandlerContext;
+
+public class TunnelChannel {
+
+	private Map<String, ChannelHandlerContext> tunnelList = null;
+}
