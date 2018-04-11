@@ -112,7 +112,6 @@ function Tunnel(serviceUrl) {
         eventHandlers.forEach(function (handler) {
             var handleType = handler[0];
             var handleFn = handler[1];
-
             if (handleType === '*') {
                 handleFn(eventType, eventPayload);
             } else if (handleType === eventType) {
@@ -125,6 +124,7 @@ function Tunnel(serviceUrl) {
      * 派发事件，事件类型和系统保留冲突的，事件名会自动加上 '@' 前缀
      */
     function dispatchEscapedEvent(eventType, eventPayload) {
+      console.log(eventType)
         if (preservedEventTypes.indexOf(eventType) > -1) {
             eventType = '@' + eventType;
         }
@@ -307,7 +307,6 @@ function Tunnel(serviceUrl) {
      * 解析并处理从信道接收到的包
      */
     function resolvePacket(raw) {
-      console.log(raw)
         var packetParts = raw.split(':');
         var packetType = packetParts.shift();
         var packetContent = packetParts.join(':') || null;
@@ -342,7 +341,8 @@ function Tunnel(serviceUrl) {
      * 收到消息包，直接 dispatch 给处理函数
      */
     function handleMessagePacket(packet) {
-        var message = packet.content;
+      var message = packet.content;
+      console.log(message)
         dispatchEscapedEvent(message.type, message.content);
     }
 

@@ -155,6 +155,11 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler {
         	JSONObject message = new JSONObject(requestMsg.replaceAll("message:", ""));
         	String type = message.getString("type");
         	JSONObject content = message.getJSONObject("content");
+        	JSONObject sendContent = new JSONObject();
+        	JSONObject word = new JSONObject();
+        	word.put("word", content.getString("content"));
+        	sendContent.put("type", "speak");
+        	sendContent.put("content", word);
 
 
             TunnelService tunnelService = new TunnelService(buildHttpRequest(), ctx);
@@ -165,7 +170,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler {
 				JSONObject data = new JSONObject();
 				data.put("tunnelId", tunnelId);
 				data.put("type", type);
-				data.put("content", content.toString());
+				data.put("content", sendContent.toString());
 				json.put("data", data.toString());
 				String signature = signature(data.toString(), "20180402");
 				log.info(signature);

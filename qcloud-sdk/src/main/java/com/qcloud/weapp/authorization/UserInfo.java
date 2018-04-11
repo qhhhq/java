@@ -7,31 +7,31 @@ import org.json.JSONObject;
  * 表示微信用户信息.
  */
 public class UserInfo {
-	
+
 	/** The open id. */
 	private String openId;
-	
+
 	/** The nick name. */
 	private String nickName;
-	
+
 	/** The avatar url. */
 	private String avatarUrl;
-	
+
 	/** The gender. */
 	private Integer gender;
-	
+
 	/** The language. */
 	private String language;
-	
+
 	/** The city. */
 	private String city;
-	
+
 	/** The province. */
 	private String province;
-	
+
 	/** The country. */
 	private String country;
-	
+
 	/**
 	 * Builds the from json.
 	 *
@@ -40,12 +40,12 @@ public class UserInfo {
 	 */
 	static UserInfo BuildFromJson(JSONObject json) {
 		if (json == null) return null;
-		
+
 		UserInfo userInfo = new UserInfo();
 		try {
-			if (json.has("openId")) userInfo.openId = json.getString("openId");
-			if (json.has("nickName")) userInfo.nickName = json.getString("nickName");
-			if (json.has("avatarUrl")) userInfo.avatarUrl = json.getString("avatarUrl");
+			if (json.has("openid")) userInfo.openId = json.getString("openid");
+			if (json.has("nickname")) userInfo.nickName = json.getString("nickname");
+			if (json.has("avatarurl")) userInfo.avatarUrl = json.getString("avatarurl");
 			if (json.has("gender")) userInfo.gender = json.getInt("gender");
 			if (json.has("language")) userInfo.language = json.getString("language");
 			if (json.has("city")) userInfo.city = json.getString("city");

@@ -12,7 +12,7 @@ import com.qcloud.weapp.ConfigurationManager;
 import com.qcloud.weapp.HttpRequest;
 
 class AuthorizationAPI {
-		
+
 	private String getAPIUrl() throws ConfigurationException {
 		return ConfigurationManager.getCurrentConfiguration().getAuthServerUrl();
 	}
@@ -24,7 +24,7 @@ class AuthorizationAPI {
 		params.put("iv", iv);
 		return request("qcloud.cam.id_skey", params);
 	}
-	
+
 	public JSONObject checkLogin(String id, String skey) throws AuthorizationAPIException, ConfigurationException {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("id", id);
@@ -38,14 +38,14 @@ class AuthorizationAPI {
 
 		try {
 			HttpRequest request = new HttpRequest(getAPIUrl());
-			
+
 			requestBody = buildRequestBody(apiName, apiParams);
 			System.out.println("==============Auth Request=============");
 			System.out.println(requestBody);
 
 			responseBody = request.post(requestBody);
 			System.out.println("==============Auth Response=============");
-			System.out.println(requestBody);
+			System.out.println(responseBody);
 		} catch (IOException e) {
 			throw new AuthorizationAPIException("连接鉴权服务错误，请检查网络状态" + getAPIUrl() + e.getMessage());
 		}
@@ -53,7 +53,7 @@ class AuthorizationAPI {
 		JSONObject body = null;
 		int returnCode = 0;
 		String returnMessage = null;
-		
+
 		try {
 			body = new JSONObject(responseBody);
 			returnCode = body.getInt("returnCode");
@@ -81,7 +81,7 @@ class AuthorizationAPI {
 			JSONObject interfaceJson = new JSONObject();
 			interfaceJson.put("interfaceName", apiName);
 			interfaceJson.put("para", apiParams);
-			
+
 			jsonObject.put("version", 1);
 			jsonObject.put("componentName", "MA");
 			jsonObject.put("interface", interfaceJson);

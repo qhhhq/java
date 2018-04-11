@@ -14,6 +14,7 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import net.qhhhq.service.common.HandlerChain;
 import net.qhhhq.service.common.HttpRequestHandler;
+import net.qhhhq.utils.JSONUtils;
 
 @Component
 public class WsPushServiceBean implements HttpRequestHandler {
@@ -27,18 +28,27 @@ public class WsPushServiceBean implements HttpRequestHandler {
 		if(fhr != null && uri != null && uri.equals("/ws/push")) {
 			String reqData = (String) paramMap.get("DATA");
 			JSONObject reqJson = new JSONObject(reqData);
+			log.info(JSONUtils.formatJson(reqJson.toString()));
+			JSONArray dataArray = new JSONArray(reqJson.getString("data"));
 			String signature = reqJson.getString("signature");
 			String tcId = reqJson.getString("tcId");
-			JSONArray dataJson = new JSONArray(reqJson.getString("data"));
-			for(int i = 0; i<dataJson.length(); i++) {
-				JSONObject tunnelJson = dataJson.getJSONObject(i);
-				String type = tunnelJson.getString("type");
-				JSONArray tunnelIds = tunnelJson.getJSONArray("tunnelIds");
-				JSONObject content = new JSONObject(tunnelJson.getString("content"));
-				for(int j = 0; j<tunnelIds.length(); j++) {
-					String tunnelId = tunnelIds.getString(j);
+			String dataEncode = reqJson.getString("dataEncode");
+			for(int i = 0; i<dataArray.length(); i++) {
+				JSONObject dataJson = dataArray.getJSONObject(i);
+				String type = dataJson.getString("type");
+				JSONObject content = new JSONObject(dataJson.getString("content"));
+				JSONArray tunnelIdArray = dataJson.getJSONArray("tunnelIds");
+				String contentType = content.getString("type");
+				JSONObject contentContent = content.getJSONObject("content");
+				contentContent.put("type", type);
+				for(int j = 0; j<tunnelIdArray.length(); j ++) {
+					String tunnelId = tunnelIdArray.getString(j);
 					ChannelHandlerContext ctx = TunnelChannel.getChannel(tunnelId);
-					ctx.channel().write(new TextWebSocketFrame("用户上线"));
+					if(contentType.equals("speak")) {
+						ctx.channel().writeAndFlush(new TextWebSocketFrame(type+":"+contentContent.toString()));
+					} else if(contentType.equals("people")) {
+						ctx.channel().writeAndFlush(new TextWebSocketFrame("用户上线"));
+					}
 				}
 			}
 			data.put("code", 0);
