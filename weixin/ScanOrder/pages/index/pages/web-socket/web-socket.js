@@ -20,8 +20,12 @@ function showSuccess(title) {
 
 Page({
   data: {
-    socketStatus: 'closed'
+    socketStatus: 'closed',
+    text:'',
+    content:'',
+    messages:[]
   },
+  extraLine: [],
 
   onLoad: function () {
     var self = this
@@ -34,6 +38,7 @@ Page({
         self.setData({
           hasLogin: true
         })
+        self.openSocket()
       },
 
       fail: function (error) {
@@ -85,10 +90,23 @@ Page({
 
     // 监听服务器推送消息
     socket.on('message', message => {
-      showSuccess('收到信道消息')
+      var self = this
+      var who = message.who
+      var messages = self.data.messages
+      var msg = new Object()
+      msg.icon = who.avatarUrl
+      msg.msg = message.word
+      if (messages.length % 3 == 0) {
+        msg.from = "me"
+      } else {
+        msg.from = "oth"
+      }
+      messages.push(msg)
+      console.log(messages)
       console.log('socket message:', message)
       this.setData({
-        loading: false
+        loading: false,
+        messages: messages
       })
     })
 
@@ -104,14 +122,17 @@ Page({
     this.setData({ socketStatus: 'closed' })
   },
 
-  sendMessage: function () {
+  formSubmit: function (e) {
+    var self = this
+    var text = e.detail.value.messageText
     if (this.socket && this.socket.isActive()) {
       this.socket.emit('message', {
-        'content': 'Hello, 小程序!'
+        'content': text
       })
       this.setData({
-        loading: true
+        loading: true,
+        text: ''
       })
     }
-  },
+  }
 })

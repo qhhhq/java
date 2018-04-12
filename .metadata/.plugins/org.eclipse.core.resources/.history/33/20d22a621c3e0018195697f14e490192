@@ -39,15 +39,13 @@ public class WsPushServiceBean implements HttpRequestHandler {
 				JSONObject content = new JSONObject(dataJson.getString("content"));
 				JSONArray tunnelIdArray = dataJson.getJSONArray("tunnelIds");
 				String contentType = content.getString("type");
-				JSONObject message = new JSONObject();
 				JSONObject contentContent = content.getJSONObject("content");
-				message.put("type", type);
-				message.put("content", contentContent);
+				contentContent.put("type", type);
 				for(int j = 0; j<tunnelIdArray.length(); j ++) {
 					String tunnelId = tunnelIdArray.getString(j);
 					ChannelHandlerContext ctx = TunnelChannel.getChannel(tunnelId);
 					if(contentType.equals("speak")) {
-						ctx.channel().writeAndFlush(new TextWebSocketFrame(type+":"+message.toString()));
+						ctx.channel().writeAndFlush(new TextWebSocketFrame(type+":"+contentContent.toString()));
 					} else if(contentType.equals("people")) {
 						ctx.channel().writeAndFlush(new TextWebSocketFrame("用户上线"));
 					}
