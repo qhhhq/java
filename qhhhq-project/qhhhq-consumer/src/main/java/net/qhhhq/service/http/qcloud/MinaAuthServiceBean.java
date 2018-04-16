@@ -56,11 +56,12 @@ public class MinaAuthServiceBean implements HttpRequestHandler {
 		                    String strUser = new String(resultByte, "UTF-8");
 		                    String skey = UUID.randomUUID().toString().replaceAll("-", "");
 		                    String sid = UUID.randomUUID().toString().replaceAll("-", "");
-		                    save(strUser, skey, sid);
+		                    net.qhhhq.model.user.UserInfo userInfo = save(strUser, skey, sid);
 		                    JSONObject returnData = new JSONObject();
 		                    returnData.put("id", sid);
 		                    returnData.put("skey", skey);
-		                    returnData.put("user_info", new JSONObject(strUser));
+		                    String u = com.alibaba.fastjson.JSONObject.toJSONString(userInfo);
+		                    returnData.put("user_info", new JSONObject(u));
 		                    data.put("returnData", returnData);
 		                    data.put("returnMessage", "success");
 		                    data.put("returnCode", 0);
@@ -83,16 +84,15 @@ public class MinaAuthServiceBean implements HttpRequestHandler {
                 JSONObject returnData = new JSONObject();
                 data.put("returnMessage", "success");
                 data.put("returnCode", 0);
-                com.alibaba.fastjson.JSONObject jsonUser = (com.alibaba.fastjson.JSONObject) com.alibaba.fastjson.JSONObject.toJSON(user);
-                returnData.put("user_info", jsonUser);
+                com.alibaba.fastjson.JSONObject.toJSONString(user);
+                returnData.put("user_info", new JSONObject(com.alibaba.fastjson.JSONObject.toJSONString(user)));
                 data.put("returnData", returnData);
-                log.info(jsonUser);
 			}
 		}
 		paramHandlerChain.doHandler(paramMap);
 	}
 
-	private long save(String strUser, String skey, String sid) {
+	private net.qhhhq.model.user.UserInfo save(String strUser, String skey, String sid) {
 		net.qhhhq.model.user.UserInfo user = null;
 		JSONObject userJson = new JSONObject(strUser);
 		if(userJson.has("openId")) {
@@ -119,7 +119,7 @@ public class MinaAuthServiceBean implements HttpRequestHandler {
 				userService.update(user);
 			}
 		}
-		return user.getId();
+		return user;
 	}
 
 

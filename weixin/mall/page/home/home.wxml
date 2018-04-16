@@ -1,0 +1,57 @@
+<view class='container'>
+  <view class='header'>
+    <view class='search'>
+      <view>
+        <image class="head-icon" src="/image/icon_component_HL.png"></image>
+      </view>
+      <view class='search-input'>
+        <input type='text'></input>
+      </view>
+      <view>
+        <image class="head-icon" src="/image/icon_component_HL.png"></image>
+      </view>
+    </view>
+    <view class='category'>
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">情感</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">职场</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">育儿</view>
+        <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">纠纷</view>
+        <view class="tab-item {{currentTab==5?'active':''}}" data-current="5" bindtap="swichNav">青葱</view>
+        <view class="tab-item {{currentTab==6?'active':''}}" data-current="6" bindtap="swichNav">全部</view>
+        <view class="tab-item {{currentTab==7?'active':''}}" data-current="7" bindtap="swichNav">其他</view>
+    </scroll-view>
+    </view>
+  </view>
+
+  <view class='body'>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+     style="height:{{winHeight+28}}rpx">
+        <swiper-item wx:for="{{[0,1,2,3,4,5,6,7]}}">
+            <scroll-view scroll-y="true" class="scoll-h" >
+            <!--swiper-->
+              <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <block wx:for="{{background}}" wx:key="*this">
+                  <swiper-item>
+                    <view class="swiper-item {{item}}"></view>
+                  </swiper-item>
+                </block>
+              </swiper>
+              <!--item1-->
+              <view class="kind-list">
+                <view class="kind-list-item">
+                  <view class="kind-list-item-hd ">
+                    每日精选
+                  </view>
+                  <view class="kind-list-item-bd ">
+                    每日精选
+                  </view>
+                </view>
+              </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>

@@ -16,7 +16,6 @@
 <fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="com.alibaba.fastjson.JSON"/>
-<fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
 <fullyQualifiedTypeName name="net.qhhhq.weixin.WXRequest"/>
 <fullyQualifiedTypeName name="net.qhhhq.weixin.WXConfig"/>
 <fullyQualifiedTypeName name="net.qhhhq.weixin.service.accesstoken.AccessTokenServiceBean"/>
@@ -59,5 +58,6 @@
 <fullyQualifiedTypeName name="net.qhhhq.utils.AES"/>
 <fullyQualifiedTypeName name="net.qhhhq.model.user.UserInfo"/>
 <fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="com.alibaba.fastjson.JSONObject"/>
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 </qualifiedTypeNameHistroy>

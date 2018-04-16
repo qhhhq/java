@@ -13,6 +13,11 @@ import io.netty.handler.codec.http.FullHttpRequest;
 import net.qhhhq.service.common.HandlerChain;
 import net.qhhhq.service.common.HttpRequestHandler;
 
+/**
+ * 返回websocket申请url
+ * @author bankqh-ldr
+ *
+ */
 @Component
 public class TunnelConnectionServiceBean implements HttpRequestHandler {
 
@@ -30,10 +35,13 @@ public class TunnelConnectionServiceBean implements HttpRequestHandler {
 			String tcId = reqJson.getString("tcId");
 			String dataJson = reqJson.getString("data");
 			if(signature(dataJson, tcKey).equals(signature)) {
-				String tunnelId = UUID.randomUUID().toString().replaceAll("-", "");
-				String connectUrl = "wss://10.255.105.225:10010/"+ tunnelId;
+				JSONObject jsonObject = new JSONObject(dataJson);
+				String receiveUrl = jsonObject.getString("receiveUrl");
+				String protocolType = jsonObject.getString("protocolType");
+				String userId = jsonObject.getString("userId");
+				String connectUrl = protocolType+"://10.255.105.225:10010/"+ userId;
 				JSONObject json = new JSONObject();
-				json.put("tunnelId", tunnelId);
+				json.put("tunnelId", userId);
 				json.put("connectUrl", connectUrl);
 				data.put("data", json.toString());
 				data.put("code", 0);

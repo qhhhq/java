@@ -9,7 +9,7 @@
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.auth{AuthHandlerChain.java[AuthHandlerChain" modifiers="513" timestamp="1519873597507"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.auth{AuthService.java[AuthService" modifiers="513" timestamp="1519956430182"/>
 <typeInfo handle="=user-provider/C:\/Users\/bankqh-ldr\/.m2\/repository\/org\/springframework\/spring-tx\/4.3.10.RELEASE\/spring-tx-4.3.10.RELEASE.jar&lt;org.springframework.dao.support(DaoSupport.class[DaoSupport" modifiers="1057" timestamp="1514704939795"/>
-<typeInfo handle="=user-api/src\/main\/java&lt;net.qhhhq.api.user{UserService.java[UserService" modifiers="513" timestamp="1520481362462"/>
+<typeInfo handle="=user-api/src\/main\/java&lt;net.qhhhq.api.user{UserService.java[UserService" modifiers="513" timestamp="1522830142871"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.service.common{MessageHandler.java[MessageHandler" modifiers="513" timestamp="1522640160783"/>
 <typeInfo handle="=common-api/src\/main\/java&lt;net.qhhhq.api.common{QRCodeService.java[QRCodeService" modifiers="513" timestamp="1520498108296"/>
 <typeInfo handle="=base-api/src\/main\/java&lt;net.qhhhq.api.base{DAO.java[DAO" modifiers="513" timestamp="1521689993130"/>
@@ -19,7 +19,6 @@
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.global.service{Service.java[Service" modifiers="513" timestamp="1520404454488"/>
 <typeInfo handle="=weixin-api/src\/main\/java&lt;net.qhhhq.weixin.service{WXConfig.java[WXConfig" modifiers="1025" timestamp="1522199287385"/>
 <typeInfo handle="=qhhhq-consumer/C:\/Users\/bankqh-ldr\/.m2\/repository\/io\/netty\/netty-all\/4.1.21.Final\/netty-all-4.1.21.Final.jar&lt;io.netty.channel(SimpleChannelInboundHandler.class[SimpleChannelInboundHandler" modifiers="1057" timestamp="1517904274393"/>
-<typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.server.netty.handler{BaseWebSocketServerHandler.java[BaseWebSocketServerHandler" modifiers="1025" timestamp="1522295503902"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.service.common{HandlerChain.java[HandlerChain" modifiers="513" timestamp="1519720734783"/>
 <typeInfo handle="=qhhhq-consumer/src\/main\/java&lt;net.qhhhq.service.common{HttpRequestHandler.java[HttpRequestHandler" modifiers="513" timestamp="1522641300582"/>
 </typeInfoHistroy>

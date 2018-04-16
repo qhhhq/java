@@ -8,6 +8,7 @@ import org.json.JSONObject;
  */
 public class UserInfo {
 
+	private String id;
 	/** The open id. */
 	private String openId;
 
@@ -43,6 +44,7 @@ public class UserInfo {
 
 		UserInfo userInfo = new UserInfo();
 		try {
+			if (json.has("id")) userInfo.id = json.getString("id");
 			if (json.has("openid")) userInfo.openId = json.getString("openid");
 			if (json.has("nickname")) userInfo.nickName = json.getString("nickname");
 			if (json.has("avatarurl")) userInfo.avatarUrl = json.getString("avatarurl");
@@ -56,6 +58,13 @@ public class UserInfo {
 		}
 		return userInfo;
 	}
+
+
+
+	public String getId() {
+		return id;
+	}
+
 
 	/**
 	 * Gets the open id.

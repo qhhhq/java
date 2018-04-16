@@ -1,0 +1,32 @@
+1、connection
+请求url
+input
+{
+	data:{
+		receiveUrl:'',
+		protocolType:'wss',
+		userId:''
+	},
+	dataEncode:'json',
+	tcId:'',
+	tcKey:'',   //秘钥
+	signature:''	//签名
+}
+
+output
+{
+	code:0,
+	data:{
+		tunnelId:'',
+		connectUrl:''
+	}
+}
+建立连接wss-->websocket-->handler
+input
+{
+	data:{
+		tunnelId:'',
+		type:'connect'
+	},
+	signature:''
+}

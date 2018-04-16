@@ -16,13 +16,14 @@ class TunnelAPI {
 		return ConfigurationManager.getCurrentConfiguration().getTunnelServerUrl();
 	}
 
-	public Tunnel requestConnect(String receiveUrl) throws Exception {
+	public Tunnel requestConnect(String receiveUrl, String userId) throws Exception {
 		JSONObject data = null;
 
 		try {
 			data = new JSONObject();
 			data.put("receiveUrl", receiveUrl);
 			data.put("protocolType", "wss");
+			data.put("userId", userId);
 		} catch (JSONException e) {
 			// impossible
 		}

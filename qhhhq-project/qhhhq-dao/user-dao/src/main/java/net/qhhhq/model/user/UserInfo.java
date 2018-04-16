@@ -2,12 +2,16 @@ package net.qhhhq.model.user;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.ToStringSerializer;
+
 public class UserInfo implements Serializable {
     /**
 	 *
 	 */
 	private static final long serialVersionUID = 8315468497765897895L;
 
+	@JSONField(serializeUsing = ToStringSerializer.class)
 	private Long id;
 
     private String openid;

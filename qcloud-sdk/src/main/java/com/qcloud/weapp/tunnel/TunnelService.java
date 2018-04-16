@@ -113,7 +113,7 @@ public class TunnelService {
 		TunnelAPI api = new TunnelAPI();
 		try {
 			String receiveUrl = buildReceiveUrl();
-			tunnel = api.requestConnect(receiveUrl);
+			tunnel = api.requestConnect(receiveUrl, user.getId());
 		} catch (Exception e) {
 			writeJson(getJsonForError(e));
 			return;

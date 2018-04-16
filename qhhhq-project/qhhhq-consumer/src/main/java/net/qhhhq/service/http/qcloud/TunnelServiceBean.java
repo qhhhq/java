@@ -28,6 +28,7 @@ public class TunnelServiceBean implements HttpRequestHandler {
 		String uri = fhr.uri();
 		log.info("TunnelServiceBean start ......"+ uri);
 		if(fhr != null && uri != null && uri.equals("/tunnel")) {		//会话
+			log.info(fhr.headers().toString());
 			TunnelService tunnelService = new TunnelService(fhr, ctx);
 			TunnelHandleOptions options = new TunnelHandleOptions();
 			options.setCheckLogin(true);
