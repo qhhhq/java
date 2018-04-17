@@ -1,2 +1,72 @@
-<!--page/buycart/buycart.wxml-->
-<text>page/buycart/buycart.wxml</text>
+<view class="container"> 
+<scroll-view scroll-y="true" class="scoll-h" >
+  <view class="kind-list">
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <radio value="radio1"/>
+        <view class='shop-name'>
+          标签里设置
+        </view>
+        <image mode='widthFix' class="message-icon" src="/image/icon_component_HL.png"></image>
+      </view>
+
+      <view class="kind-list-item-bd ">
+        <radio value="radio1"/>
+        <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+          <view>
+            <view class="">
+              <view class='product-name'>使用bindload绑定函数动态自适应</view>
+              <view class="product-title">宽度不变，高度自动变化</view>
+              <view class="product-price-box">
+                <view class='product-price'>￥100.00</view>
+                <image mode='widthFix' class="buycart-img" src="/image/icon_component_HL.png"></image>
+              </view>
+            </view>
+          </view>
+      </view>
+    </view>
+  
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <radio value="radio1"/>
+        <view class='shop-name'>
+          标签里设置
+        </view>
+        <image mode='widthFix' class="message-icon" src="/image/icon_component_HL.png"></image>
+      </view>
+
+      <view class="kind-list-item-bd ">
+        <radio value="radio1"/>
+        <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+          <view>
+            <view class="">
+              <view class='product-name'>使用bindload绑定函数动态自适应</view>
+              <view class="product-title">宽度不变，高度自动变化</view>
+              <view class="product-price-box">
+                <view class='product-price'>￥100.00</view>
+                <image mode='widthFix' class="buycart-img" src="/image/icon_component_HL.png"></image>
+              </view>
+            </view>
+          </view>
+      </view>
+
+      <view class="kind-list-item-bd ">
+        <radio value="radio1"/>
+        <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+          <view>
+            <view class="">
+              <view class='product-name'>使用bindload绑定函数动态自适应</view>
+              <view class="product-title">宽度不变，高度自动变化</view>
+              <view class="product-price-box">
+                <view class='product-price'>￥100.00</view>
+                <image mode='widthFix' class="buycart-img" src="/image/icon_component_HL.png"></image>
+              </view>
+            </view>
+          </view>
+      </view>
+    </view>
+
+  </view>
+  </scroll-view >
+</view>

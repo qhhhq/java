@@ -1,2 +1,90 @@
-<!--page/category/category.wxml-->
-<text>page/category/category.wxml</text>
+<view class="container">  
+  <view class='header head-box'>
+    <view class='search'>
+      <view>
+        <image class="head-icon" src="/image/icon_component_HL.png"></image>
+      </view>
+      <view class='search-input'>
+        <input type='text'></input>
+      </view>
+    </view>
+  </view>
+  <view class="category">
+    <view class='left'>
+      <scroll-view scroll-y="true" class="tab-h">
+        <view class="tab-item active"  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+        <view class="tab-item "  data-current="0" bindtap="swichNav">健康</view>
+      </scroll-view>
+    </view>
+    <view class='right'>
+      <scroll-view scroll-y="true" class="tab-h">
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+        <view>scroll-view为滚动视图</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

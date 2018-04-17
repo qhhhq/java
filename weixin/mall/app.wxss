@@ -11,6 +11,7 @@ page {
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .header{
   width: 100%;
@@ -55,8 +56,25 @@ page {
   opacity: .2;
 }
 .kind-list-item-bd {
-  overflow: hidden;
+  padding: 30rpx;
+  display: flex;
+  border-bottom: solid 1px #ECECEC;
 }
 .kind-list-item-bd-show {
   height: auto;
+}
+.product-img{
+  width: 160rpx;
+  border-radius: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+.buycart-img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
+.scoll-h{
+    height: 100%;
+    overflow: hidden;
 }

@@ -8,11 +8,11 @@
 }
 .search-input input{
   height: 70rpx;
-  border: solid 1px #F8F8F8;
+  border: solid 1px #ECECEC;
 }
 .category{
-  border-bottom: solid 1px #F8F8F8;
-  z-index: 9;
+  height: 181rpx;
+  border-bottom: solid 1px #ECECEC;
 }
 
 
@@ -106,4 +106,19 @@ background: #4675F9;
 .swiper-item{
   display: block;
   height: 150px;
+}
+.product-name{
+  font-size: 35rpx;
+}
+.product-title{
+  color: #999;
+}
+.product-price-box{
+  padding-top: 30rpx;
+  display: flex;
+}
+.product-price{
+  color: #ff0000;
+  font-size: 40rpx;
+  flex: 1;
 }

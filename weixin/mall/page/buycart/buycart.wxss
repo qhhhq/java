@@ -1,1 +1,39 @@
-/* page/buycart/buycart.wxss */
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.shop-name{
+  flex:1;
+}
+.message-icon{
+  width: 60rpx;
+  height:60rpx;
+  border-radius: 60rpx;
+}
+.product-img{
+  width: 160rpx;
+  border-radius: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
+
+.product-name{
+  font-size: 35rpx;
+}
+.product-title{
+  color: #999;
+}
+.product-price-box{
+  padding-top: 30rpx;
+  display: flex;
+}
+.product-price{
+  color: #ff0000;
+  font-size: 40rpx;
+  flex: 1;
+}
+.kind-list-item-hd{
+  border-bottom: solid 1px #ECECEC;
+}

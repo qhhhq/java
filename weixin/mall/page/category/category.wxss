@@ -1,1 +1,52 @@
-/* page/category/category.wxss */
+
+.head-box{
+  border-bottom: solid 1px #ECECEC;
+}
+.search{
+  display: flex;
+  padding: 15rpx 15rpx;
+}
+.search-input{
+  flex: 1;
+  padding: 0 25rpx;
+}
+.search-input input{
+  height: 70rpx;
+  border: solid 1px #ECECEC;
+}
+ .category{
+   width: 100%;
+   margin: 110rpx 0;
+   display: flex;
+   height: 100%;
+ }
+ .left{
+   display: inline-block;  
+  width: 25%;  
+  height: 100%;  
+  text-align: center;
+  border-right: solid 1px #ECECEC;
+ }
+ 
+.tab-h{
+    height: 100%;
+    overflow: hidden;
+  }
+.tab-item{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: solid 1px #ECECEC;
+}
+.tab-item.active{
+  color: #4675F9;
+  position: relative;
+}
+.tab-item.active:after{ content: "";
+display: block;
+width: 52rpx;
+background: #4675F9;
+ }
+ .right{
+   width: 75%;
+   margin: 20rpx;
+ }
