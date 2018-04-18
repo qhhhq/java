@@ -19,8 +19,11 @@ page {
   margin-top: 30rpx;
 }
 
+.product-info{
+  width: 100%;
+}
 .product-name{
-  font-size: 35rpx;
+  font-size: 32rpx;
 }
 .product-title{
   color: #999;
@@ -34,6 +37,28 @@ page {
   font-size: 40rpx;
   flex: 1;
 }
+.kind-list{
+  margin-bottom: 120rpx;
+}
 .kind-list-item-hd{
   border-bottom: solid 1px #ECECEC;
+}
+.buy-box{
+  display: flex;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: solid 1px #ECECEC;
+}
+.choose-all{
+  padding: 15rpx;
+}
+.buycart-price{
+  flex: 1;
+  padding: 15rpx;
+}
+.buy{
+  padding: 15rpx;
 }

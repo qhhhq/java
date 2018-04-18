@@ -1,0 +1,154 @@
+<view class="container">
+  <view class='input-deliver item-margin'>
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        类型
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        收货人
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        手机号码
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        所在城市
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        收货地址
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        位置
+      </view>
+      <view>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row'>
+      保存地址
+    </view>
+
+  </view>
+  <view class='user-deliver item-margin'>
+  
+  </view>
+  <view class='order-item item-margin'>
+    <view class="kind-list">
+    
+      <view class="kind-list-item">
+        <view class="kind-list-item-hd border-bottom">
+          <view class='shop-name'>
+            标签里设置
+          </view>
+        </view>
+
+        <view class="kind-list-item-bd ">
+          <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+            <view class='product-info'>
+              <view class="">
+                <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                <view class="product-price-box">
+                  <view class='product-price'>￥100.00</view>
+                  <view>1</view>
+                </view>
+              </view>
+            </view>
+        </view>
+
+        <view class="kind-list-item-bd ">
+          <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+            <view class='product-info'>
+              <view class="">
+                <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                <view class="product-price-box">
+                  <view class='product-price'>￥100.00</view>
+                  <view>10</view>
+                </view>
+              </view>
+            </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class='order-price item-margin'>
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        商品总价
+      </view>
+      <view class='price-text'>
+        ￥500.00
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        配送费
+      </view>
+      <view class='price-text'>
+        免费
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='price-text'>
+        合计：￥500.00
+      </view>
+    </view>
+  </view>
+  <view class='payment item-margin'>
+    <view class='input-row border-bottom'>
+      <image mode='widthFix' class="pay-icon" src="/image/wechat_pay.png"></image>
+      <view class='pay-name'>
+        微信支付
+      </view>
+      <radio value="radio1"/>
+    </view>
+    <view class='input-row border-bottom'>
+      <image mode='widthFix' class="pay-icon" src="/image/deliver_pay.png"></image>
+      <view class='pay-name'>
+        货到付款
+      </view>
+      <radio value="radio1"/>
+    </view>
+    <view class='input-row'>
+      <image mode='widthFix' class="pay-icon" src="/image/month_pay.png"></image>
+      <view class='pay-name'>
+        会员月结
+      </view>
+      <radio value="radio1"/>
+    </view>
+  </view>
+  <view class='subment-order'>
+  </view>
+</view>

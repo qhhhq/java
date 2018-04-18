@@ -1,4 +1,6 @@
-
+.container{
+  overflow: hidden;
+}
 .head-box{
   border-bottom: solid 1px #ECECEC;
 }

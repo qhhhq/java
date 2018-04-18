@@ -3,7 +3,8 @@
     "page/home/home",
     "page/mine/mine",
     "page/category/category",
-    "page/buycart/buycart"
+    "page/buycart/buycart",
+    "page/buycart/pages/submit-order/submit-order"
   ],
   "window": {
     "backgroundTextStyle": "light",

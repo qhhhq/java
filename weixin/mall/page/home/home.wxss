@@ -108,7 +108,7 @@ background: #4675F9;
   height: 150px;
 }
 .product-name{
-  font-size: 35rpx;
+  font-size: 32rpx;
 }
 .product-title{
   color: #999;
