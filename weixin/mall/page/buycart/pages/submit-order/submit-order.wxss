@@ -20,11 +20,14 @@ page {
   display: flex;
   padding: 30rpx 0;
   align-items: center;
+  width: 100%;
 }
 .input-label{
-  width: 160rpx;
+  width: 180rpx;
 }
-
+.input-text{
+  width: 100%;
+}
 .product-img{
   width: 100rpx;
   border-radius: 100rpx;

@@ -1,0 +1,145 @@
+<view class="container">
+  <scroll-view scroll-y="true" class="tab-h">
+    <view class='chat'>
+      <view class='chat-time'>
+        2018-4-19 14:41:30
+      </view>
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+
+
+      <view class='chat-msg-area fromme'>
+        <image class="char-head-img" src="/image/icon_component_HL.png"/>
+        <view class="chat-msg">.........</view>
+        <view class="clearfix"/>
+      </view>
+
+      <view class='chat-msg-area other'>
+        <image class="char-head-img" src="/image/icon_component.png"/>
+        <view class="chat-msg">111111111</view>
+        <view class="clearfix"/>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='send-box'>
+    <input class="msg-input" name="name" value="{{name}}" />
+    <button class='msg-send' type="primary" >发送</button>
+  </view>
+</view>

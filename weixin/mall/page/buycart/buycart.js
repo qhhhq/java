@@ -36,5 +36,11 @@ Page({
     wx.navigateTo({
       url: '/page/buycart/pages/submit-order/submit-order',
     })
+  },
+
+  openChat: function () {
+    wx.navigateTo({
+      url: '/page/common/pages/chat/chat',
+    })
   }
 })

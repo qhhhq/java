@@ -1,4 +1,4 @@
-// page/buycart/pages/submit-order/submit-order.js
+// page/common/pages/chat/chat.js
 Page({
 
   /**
@@ -62,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  chooseLocation: function () {
-    var that = this
-    wx.chooseLocation({
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          locationAddress: res.address
-        })
-      }
-    })
   }
 })

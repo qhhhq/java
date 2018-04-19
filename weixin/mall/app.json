@@ -4,7 +4,8 @@
     "page/mine/mine",
     "page/category/category",
     "page/buycart/buycart",
-    "page/buycart/pages/submit-order/submit-order"
+    "page/buycart/pages/submit-order/submit-order",
+    "page/common/pages/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",

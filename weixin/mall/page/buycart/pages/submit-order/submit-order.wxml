@@ -4,7 +4,7 @@
       <view class='input-label'>
         类型
       </view>
-      <view>
+      <view class='input-text'>
         <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
       </view>
     </view>
@@ -13,7 +13,7 @@
       <view class='input-label'>
         收货人
       </view>
-      <view>
+      <view class='input-text'>
         <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
       </view>
     </view>
@@ -22,16 +22,7 @@
       <view class='input-label'>
         手机号码
       </view>
-      <view>
-        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
-      </view>
-    </view>
-
-    <view class='input-row border-bottom'>
-      <view class='input-label'>
-        所在城市
-      </view>
-      <view>
+      <view class='input-text'>
         <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
       </view>
     </view>
@@ -40,16 +31,16 @@
       <view class='input-label'>
         收货地址
       </view>
-      <view>
-        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      <view class='input-text'>
+        <input class="weui-input" name="locationAddress" value="{{locationAddress}}" disabled='true' bindtap='chooseLocation' placeholder="选择地址" />
       </view>
     </view>
 
     <view class='input-row border-bottom'>
       <view class='input-label'>
-        位置
+        详细地址
       </view>
-      <view>
+      <view class='input-text'>
         <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
       </view>
     </view>

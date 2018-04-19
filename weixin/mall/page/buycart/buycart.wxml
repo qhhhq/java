@@ -8,7 +8,7 @@
         <view class='shop-name'>
           标签里设置
         </view>
-        <image mode='widthFix' class="message-icon" src="/image/dialogue.png"></image>
+        <image mode='widthFix' class="message-icon" src="/image/dialogue.png" bindtap='openChat'></image>
       </view>
 
       <view class="kind-list-item-bd ">
