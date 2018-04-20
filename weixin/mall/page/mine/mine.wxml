@@ -1,2 +1,107 @@
-<!--page/mine/mine.wxml-->
-<text>page/mine/mine.wxml</text>
+<view class="container">
+  <view class="kind-list">
+    <view class="kind-list-item">
+      <view class="kind-list-item-bd ">
+        <image class="user-img" src="/image/icon_component_HL.png"></image>
+        <view class='user-name-box'>
+          <view class='user-name'>...</view>
+          <view class='user-leave'>普通用户</view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_member.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          会员权益
+        </view>
+      </view>
+      <view class="kind-list-item-bd ">
+        <navigator url="/page/mine/pages/free-net-shop/free-net-shop" class="kind-list-item-hd">
+          <view class='order-status'>
+            <image class="order-img" src="/image/icon_mianfei.png"></image>
+            <view>免费开网店</view>
+          </view>
+        </navigator>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_youhui.png"></image>
+          <view>会员专享价</view>
+        </view>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_youxian.png"></image>
+          <view>会员优先送</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_order.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          我的订单
+        </view>
+      </view>
+      <view class="kind-list-item-bd ">
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_fukuan.png"></image>
+          <view>待付款</view>
+        </view>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_fahuo.png"></image>
+          <view>待发货</view>
+        </view>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_peisong.png"></image>
+          <view>配送中</view>
+        </view>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_pingjia.png"></image>
+          <view>待评价</view>
+        </view>
+        <view class='order-status'>
+          <image class="order-img" src="/image/icon_tuihuo.png"></image>
+          <view>退换货</view>
+        </view>
+      </view>
+    </view>
+  
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_location.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          我的地址
+        </view>
+      </view>      
+    </view>
+  
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_cs.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          客服与帮助
+        </view>
+      </view>      
+    </view>
+  
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_sujject.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          意见反馈
+        </view>
+      </view>      
+    </view>
+  
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/icon_clear.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          清除缓存
+        </view>
+      </view>      
+    </view>
+
+
+  </view>
+</view>

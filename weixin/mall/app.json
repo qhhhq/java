@@ -5,7 +5,8 @@
     "page/category/category",
     "page/buycart/buycart",
     "page/buycart/pages/submit-order/submit-order",
-    "page/common/pages/chat/chat"
+    "page/common/pages/chat/chat",
+    "page/mine/pages/free-net-shop/free-net-shop"
   ],
   "window": {
     "backgroundTextStyle": "light",

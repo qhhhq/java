@@ -1,1 +1,32 @@
-/* page/mine/mine.wxss */
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.user-img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 30rpx;
+}
+.user-name{
+  font-size: 40rpx;
+}
+.user-leave{
+  font-size: 20rpx;
+  border-radius: 20rpx;
+  background: #ECECEC;
+  padding: 5rpx 20rpx;
+}
+.item-label{
+  margin-left: 20rpx;
+}
+.order-img{
+  width: 70rpx;
+  height: 70rpx;
+}
+.order-status{
+  flex: 1;
+  text-align: center;
+}

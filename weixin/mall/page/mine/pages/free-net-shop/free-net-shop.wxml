@@ -1,0 +1,13 @@
+<view class='member'>
+  <view class='content'>
+    <view class='img'>
+      <image src="/image/1.jpg"></image>
+    </view>
+    <view class='title'>
+      <view>免费开启网上超市（便利店）</view>
+      <view>免费开启网上超市（便利店）</view>
+    </view>
+    <view class='text'></view>
+    <view class='desc'></view>
+  </view>
+</view>

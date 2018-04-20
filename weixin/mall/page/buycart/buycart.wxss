@@ -7,11 +7,6 @@ page {
 .shop-name{
   flex:1;
 }
-.message-icon{
-  width: 60rpx;
-  height:60rpx;
-  border-radius: 60rpx;
-}
 .product-img{
   width: 160rpx;
   border-radius: 20rpx;

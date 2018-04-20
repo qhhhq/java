@@ -1,0 +1,19 @@
+page{
+  
+  background-color: #F8F8F8;
+}
+.member{
+  padding: 30rpx;
+}
+.content{
+  border-radius: 30rpx;
+  background-color: #fff;
+}
+.img{
+  width: 100%;
+}
+.img image{
+  width: 100%;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
