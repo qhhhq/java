@@ -57,3 +57,6 @@ page {
 .buy{
   padding: 15rpx;
 }
+.buycart-num{
+  display: flex;
+}

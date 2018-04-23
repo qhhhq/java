@@ -1,0 +1,126 @@
+<view class="container">
+  <view class="kind-list">
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd ">
+        <image mode='widthFix' class="message-icon" src="/image/nomal_question.png" bindtap='openChat'></image>
+        <view class='item-label'>
+          常见问题
+        </view>
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="1" bindtap='openQuestion'>
+        <view class='item-label'>
+          1.常见问题1
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 1 ? 'kind-list-item-bd-show' : ''}}">
+          11111111111111111111111
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="2" bindtap='openQuestion'>
+        <view class='item-label'>
+          2.常见问题2
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 2 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="3" bindtap='openQuestion'>
+        <view class='item-label'>
+          3.常见问题3
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 3 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="4" bindtap='openQuestion'>
+        <view class='item-label'>
+          4.常见问题4
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 4 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="5" bindtap='openQuestion'>
+        <view class='item-label'>
+          5.常见问题5
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 5 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="6" bindtap='openQuestion'>
+        <view class='item-label'>
+          6.常见问题6
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 6 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="7" bindtap='openQuestion'>
+        <view class='item-label'>
+          7.常见问题7
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 7 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="8" bindtap='openQuestion'>
+        <view class='item-label'>
+          8.常见问题8
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 8 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="9" bindtap='openQuestion'>
+        <view class='item-label'>
+          9.常见问题9
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 9 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+
+    <view class="kind-list-item">
+      <view class="kind-list-item-hd " id="10" bindtap='openQuestion'>
+        <view class='item-label'>
+          10.常见问题10
+        </view>
+      </view>
+      <view class="kind-list-item-bd {{question == 10 ? 'kind-list-item-bd-show' : ''}}">
+          22222222222222
+      </view>
+    </view>
+  </view>
+
+  <view class='online-service'>
+    <button type="primary" bindtap='openOnlineService'>在线客服</button>
+  </view>
+</view>

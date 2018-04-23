@@ -1,0 +1,53 @@
+<view class="container">
+<view class='input-deliver item-margin'>
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        类型
+      </view>
+      <view class='input-text'>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        收货人
+      </view>
+      <view class='input-text'>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        手机号码
+      </view>
+      <view class='input-text'>
+        <input class="weui-input" type="number" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        收货地址
+      </view>
+      <view class='input-text'>
+        <input class="weui-input" name="locationAddress" value="{{locationAddress}}" disabled='true' bindtap='chooseLocation' placeholder="选择地址" />
+      </view>
+    </view>
+
+    <view class='input-row border-bottom'>
+      <view class='input-label'>
+        详细地址
+      </view>
+      <view class='input-text'>
+        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+      </view>
+    </view>
+
+    <view class='input-row'>
+      保存地址
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,27 @@
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+
+.border-bottom{
+  border-bottom: solid 1px #ECECEC;
+}
+
+.input-deliver{
+  padding: 0 30rpx;
+  background: #ffffff;
+}
+.input-row{
+  display: flex;
+  padding: 30rpx 0;
+  align-items: center;
+  width: 100%;
+}
+.input-label{
+  width: 180rpx;
+}
+.input-text{
+  width: 100%;
+}

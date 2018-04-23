@@ -1,0 +1,29 @@
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.no-deliver{
+  height: 100%;
+  text-align: center;
+  padding-top: 200rpx;
+}
+.no-img image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.no-title{
+  padding: 30rpx 0;
+  font-size: 32rpx;
+}
+.name, .defalut{
+  flex: 1;
+}
+.ctrl{
+  padding: 10rpx 30rpx;
+}
+.ctrl image{
+  width: 35rpx;
+  height: 35rpx;
+}

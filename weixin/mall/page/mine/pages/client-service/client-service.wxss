@@ -1,0 +1,18 @@
+
+.kind-list-item-bd {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.kind-list-item-bd-show {
+  height: auto;
+  padding: 30rpx;
+}
+.online-service{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40rpx;
+  background: #fff;
+}

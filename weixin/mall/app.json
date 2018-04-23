@@ -6,7 +6,12 @@
     "page/buycart/buycart",
     "page/buycart/pages/submit-order/submit-order",
     "page/common/pages/chat/chat",
-    "page/mine/pages/free-net-shop/free-net-shop"
+    "page/mine/pages/free-net-shop/free-net-shop",
+    "page/mine/pages/list-order/list-order",
+    "page/mine/pages/user-deliver/user-deliver",
+    "page/mine/pages/add-deliver/add-deliver",
+    "page/mine/pages/user-suggestion/user-suggestion",
+    "page/mine/pages/client-service/client-service"
   ],
   "window": {
     "backgroundTextStyle": "light",

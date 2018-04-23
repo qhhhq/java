@@ -1,0 +1,9 @@
+<view class="container">
+  <view class='content'>
+    <textarea class='content-text' />
+  </view>
+
+  <view class='submit-box'>
+    <button type="primary">提交</button>
+  </view>
+</view>

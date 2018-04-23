@@ -1,0 +1,46 @@
+<view class="container">
+  <view class='no-deliver'>
+    <view class='no-img'>
+      <image src="/image/icon_location.png"></image>
+    </view>
+    <view class='no-title'>
+      您还没有收货地址~
+    </view>
+    <view>
+      <button class="mini-btn" type="primary" size="mini" bindtap='addDeliver'>新增收货地址</button>
+    </view>
+  </view>
+
+  <!--list-->
+  <view class='deliver'>
+    <view class="kind-list">
+
+      <view class="kind-list-item">
+        <view class="kind-list-item-hd ">
+          <view class='name'>test</view>
+          <view class='phone'>11111111111</view>
+        </view>
+        <view class="kind-list-item-bd ">
+          <view class='address'>
+            测试测试测试测试测试测试测试测试测试
+          </view>
+        </view>
+        <view class="kind-list-item-hd">
+          <view class='defalut'>
+          <label><checkbox value="checkbox1"/>设为默认地址</label>
+          </view>
+          <view class='ctrl'>
+            <image src="/image/icon_d_edit.png"></image>
+            编辑
+          </view>
+          <view class='ctrl'>
+            <image src="/image/icon_d_delete.png"></image>
+            删除
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

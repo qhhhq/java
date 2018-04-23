@@ -1,0 +1,98 @@
+<view class='container'>
+  <view class='header'>
+    <view class='category'>
+      <scroll-view scroll-x="true" class="tab-h">
+        <view class="tab-item {{currentTab==0?'active':''}}"  data-current="0" bindtap="swichNav">全部</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">待付款</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">待发货</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">配送中</view>
+        <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">待评价</view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class='body'>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+     style="height:{{winHeight}}rpx">
+        <swiper-item wx:for="{{[0,1,2,3,4]}}">
+            <scroll-view scroll-y="true" class="scoll-h" >
+              <!--item1-->
+              <view class="kind-list">
+                <view class="kind-list-item">
+                  <view class="kind-list-item-bd ">
+                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+                    <view>
+                      <view class="">
+                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                        <view class="product-title">宽度不变，高度自动变化</view>
+                        <view class="product-price-box">
+                          <view class='product-price'>￥100.00</view>
+                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="kind-list-item-bd ">
+                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+                    <view>
+                      <view class="">
+                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                        <view class="product-title">宽度不变，高度自动变化</view>
+                        <view class="product-price-box">
+                          <view class='product-price'>￥100.00</view>
+                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="kind-list-item-bd ">
+                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+                    <view>
+                      <view class="">
+                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                        <view class="product-title">宽度不变，高度自动变化</view>
+                        <view class="product-price-box">
+                          <view class='product-price'>￥100.00</view>
+                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="kind-list-item-bd ">
+                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+                    <view>
+                      <view class="">
+                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                        <view class="product-title">宽度不变，高度自动变化</view>
+                        <view class="product-price-box">
+                          <view class='product-price'>￥100.00</view>
+                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+
+                  <view class="kind-list-item-bd ">
+                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+                    <view>
+                      <view class="">
+                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
+                        <view class="product-title">宽度不变，高度自动变化</view>
+                        <view class="product-price-box">
+                          <view class='product-price'>￥100.00</view>
+                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+
+                  
+                </view>
+              </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>

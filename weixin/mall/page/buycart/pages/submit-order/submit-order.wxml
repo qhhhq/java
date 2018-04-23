@@ -23,7 +23,7 @@
         手机号码
       </view>
       <view class='input-text'>
-        <input class="weui-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+        <input class="weui-input" type="number" name="name" value="{{name}}" placeholder="这是一个输入框" />
       </view>
     </view>
 

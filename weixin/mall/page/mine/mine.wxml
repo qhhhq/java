@@ -36,12 +36,14 @@
     </view>
 
     <view class="kind-list-item">
+      <navigator url='pages/list-order/list-order'>
       <view class="kind-list-item-hd ">
         <image mode='widthFix' class="message-icon" src="/image/icon_order.png" bindtap='openChat'></image>
         <view class='item-label'>
           我的订单
         </view>
       </view>
+      </navigator>
       <view class="kind-list-item-bd ">
         <view class='order-status'>
           <image class="order-img" src="/image/icon_fukuan.png"></image>
@@ -67,30 +69,36 @@
     </view>
   
     <view class="kind-list-item">
+      <navigator url='pages/user-deliver/user-deliver'>
       <view class="kind-list-item-hd ">
         <image mode='widthFix' class="message-icon" src="/image/icon_location.png" bindtap='openChat'></image>
         <view class='item-label'>
           我的地址
         </view>
-      </view>      
+      </view>
+      </navigator>
     </view>
   
     <view class="kind-list-item">
+      <navigator url='pages/client-service/client-service'>
       <view class="kind-list-item-hd ">
         <image mode='widthFix' class="message-icon" src="/image/icon_cs.png" bindtap='openChat'></image>
         <view class='item-label'>
           客服与帮助
         </view>
-      </view>      
+      </view>
+      </navigator>   
     </view>
   
     <view class="kind-list-item">
+      <navigator url='pages/user-suggestion/user-suggestion'>
       <view class="kind-list-item-hd ">
         <image mode='widthFix' class="message-icon" src="/image/icon_sujject.png" bindtap='openChat'></image>
         <view class='item-label'>
           意见反馈
         </view>
-      </view>      
+      </view>
+      </navigator>    
     </view>
   
     <view class="kind-list-item">

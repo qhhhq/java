@@ -20,7 +20,11 @@
               <view class="product-title">宽度不变，高度自动变化</view>
               <view class="product-price-box">
                 <view class='product-price'>￥100.00</view>
-                <image mode='widthFix' class="buycart-img" src="/image/icon_component_HL.png"></image>
+                <view class='buycart-num'>
+                  <image mode='widthFix' class="buycart-img" src="/image/buycart_rm.png"></image>
+                  ----
+                  <image mode='widthFix' class="buycart-img" src="/image/buycart_add.png"></image>
+                </view>                
               </view>
             </view>
           </view>
@@ -60,7 +64,11 @@
               <view class="product-title">宽度不变，高度自动变化</view>
               <view class="product-price-box">
                 <view class='product-price'>￥100.00</view>
-                <image mode='widthFix' class="buycart-img" src="/image/icon_component_HL.png"></image>
+                <view class='buycart-num'>
+                  <image mode='widthFix' class="buycart-img" src="/image/buycart_rm.png"></image>
+                  ----
+                  <image mode='widthFix' class="buycart-img" src="/image/buycart_add.png"></image>
+                </view> 
               </view>
             </view>
           </view>
