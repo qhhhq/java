@@ -38,6 +38,9 @@ page {
 .kind-list-item-hd{
   border-bottom: solid 1px #ECECEC;
 }
+.kind-list-item-bd{
+  align-items: center;
+}
 .buy-box{
   display: flex;
   position:fixed;
@@ -46,6 +49,7 @@ page {
   width: 100%;
   background: #ffffff;
   border-top: solid 1px #ECECEC;
+  align-items: center;
 }
 .choose-all{
   padding: 15rpx;
@@ -59,4 +63,7 @@ page {
 }
 .buycart-num{
   display: flex;
+}
+.num{
+  padding: 0 20rpx;
 }
