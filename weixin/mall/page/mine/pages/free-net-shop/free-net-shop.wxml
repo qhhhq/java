@@ -1,3 +1,11 @@
+<!-- 引入组件 -->
+<import src="/welCropper/welCropper" />
+
+<!-- 调用组件 -->
+ <template is="welCropper" data="{{cropperData:cropperData, cropperMovableItems:cropperMovableItems, cropperChangableData:cropperChangableData}}"></template> 
+
+
+
 <view class='member'>
   <view class='content'>
     <view class='img'>
@@ -9,5 +17,7 @@
     </view>
     <view class='text'></view>
     <view class='desc'></view>
+<button bindtap='selectTap' data-mode='rectangle'>select image (mode=rectangle)</button>
+<button bindtap='selectTap' data-mode='quadrectangle'>select image (mode=quadrectangle)</button>
   </view>
 </view>
