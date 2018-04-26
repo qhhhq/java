@@ -19,10 +19,10 @@
               <view class="kind-list">
                 <view class="kind-list-item">
                   <view class="kind-list-item-hd ">
+                    <image mode='widthFix' class="message-icon" src="/image/dialogue.png"></image>
                     <view class='shop-name'>
                       标签里设置
                     </view>
-                    <image mode='widthFix' class="message-icon" src="/image/dialogue.png"></image>
                   </view>
                   <view class="kind-list-item-bd ">
                     <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
@@ -32,11 +32,13 @@
                         <view class="product-title">宽度不变，高度自动变化</view>
                         <view class="product-price-box"> 
                           <view class='product-price'>￥100.00</view>
-                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                          <view>数量：1</view>
                         </view>
                       </view>
                     </view>
                   </view>
+
+                 
 
                   <view class="kind-list-item-bd ">
                     <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
@@ -46,52 +48,16 @@
                         <view class="product-title">宽度不变，高度自动变化</view>
                         <view class="product-price-box">
                           <view class='product-price'>￥100.00</view>
-                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
+                          <view>数量：1</view>
                         </view>
                       </view>
                     </view>
                   </view>
 
-                  <view class="kind-list-item-bd ">
-                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
-                    <view>
-                      <view class="">
-                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
-                        <view class="product-title">宽度不变，高度自动变化</view>
-                        <view class="product-price-box">
-                          <view class='product-price'>￥100.00</view>
-                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-
-                  <view class="kind-list-item-bd ">
-                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
-                    <view>
-                      <view class="">
-                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
-                        <view class="product-title">宽度不变，高度自动变化</view>
-                        <view class="product-price-box">
-                          <view class='product-price'>￥100.00</view>
-                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
-                        </view>
-                      </view>
-                    </view>
-                  </view>
-
-                  <view class="kind-list-item-bd ">
-                    <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
-                    <view>
-                      <view class="">
-                        <view class='product-name'>使用bindload绑定函数动态自适应</view>
-                        <view class="product-title">宽度不变，高度自动变化</view>
-                        <view class="product-price-box">
-                          <view class='product-price'>￥100.00</view>
-                          <image mode='widthFix' class="buycart-img" src="/image/buy_cart.png"></image>
-                        </view>
-                      </view>
-                    </view>
+                  <view class="order-ctrl-list ">
+                    <button class="mini-btn" type="default" size="mini">按钮</button>
+                    <button class="mini-btn" type="default" size="mini">按钮</button>
+                    <button class="mini-btn" type="default" size="mini">按钮</button>
                   </view>
                   
                 </view>
