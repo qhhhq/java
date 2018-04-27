@@ -19,6 +19,12 @@ page {
   align-items: center;
   width: 100%;
 }
+.save-deliver{
+  text-align: center;
+}
+.save-deliver button{
+  width: 100%;
+}
 .input-label{
   width: 180rpx;
 }

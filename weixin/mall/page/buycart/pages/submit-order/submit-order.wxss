@@ -1,7 +1,7 @@
 page {
   background-color: #F8F8F8;
   height: 100%;
-  font-size: 32rpx;
+  font-size: 30rpx;
   line-height: 1.6;
 }
 
@@ -20,6 +20,12 @@ page {
   display: flex;
   padding: 30rpx 0;
   align-items: center;
+  width: 100%;
+}
+.save-deliver{
+  text-align: center;
+}
+.save-deliver button{
   width: 100%;
 }
 .input-label{

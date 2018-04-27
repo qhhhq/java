@@ -2,23 +2,23 @@
 <scroll-view scroll-y="true" class="scoll-h" >
   <view class="kind-list">
 
-    <block wx:for="{{carts}}" wx:for-item="cart">
+    <block wx:for="{{carts}}" wx:for-item="cart" wx:for-index="index">
       <view class="kind-list-item">
         <view class="kind-list-item-hd ">
           <!-- wx:if 是否选择显示不同图标 -->
-          <icon wx:if="{{cart.selected}}" type="success" bindtap="selectShopList" data-index="{{index}}" />
-          <icon wx:else type="circle" bindtap="selectShopList" data-index="{{index}}"/>
+          <icon wx:if="{{cart.selected}}" type="success" bindtap="selectShopList" data-index="{{index}}"  size='18'/>
+          <icon wx:else type="circle" bindtap="selectShopList" data-index="{{index}}" size='18'/>
           <view class='shop-name'>
             {{cart.title}}
           </view>
           <image mode='widthFix' class="message-icon" src="/image/dialogue.png" bindtap='openChat'></image>
         </view>
-        <block wx:for="{{cart.items}}" wx:for-item="item">
+        <block wx:for="{{cart.items}}" wx:for-item="item" wx:for-index="indexItem">
           <view class="kind-list-item-bd ">
             <!-- wx:if 是否选择显示不同图标 -->
-            <icon wx:if="{{item.selected}}" type="success" bindtap="selectList" data-index="{{indexItem}}" />
-            <icon wx:else type="circle" bindtap="selectList" data-index="{{indexItem}}"/>
-            <image mode='widthFix' class="product-img" src="/image/icon_component_HL.png"></image>
+            <icon wx:if="{{item.selected}}" type="success" bindtap="selectList" data-id="{{index}}"  data-index="{{indexItem}}"  size='18'/>
+            <icon wx:else type="circle" bindtap="selectList" data-id="{{index}}" data-index="{{indexItem}}"  size='18'/>
+            <image mode='widthFix' class="product-img" src="/image/shuiguo.jpg"></image>
               <view class='product-info'>
                 <view class="">
                   <view class='product-name'>{{item.name}}</view>
@@ -26,9 +26,9 @@
                   <view class="product-price-box">
                     <view class='product-price'>￥{{item.price}}</view>
                     <view class='buycart-num'>
-                      <image mode='widthFix' class="buycart-img" src="/image/buycart_rm.png"></image>
+                      <image mode='widthFix' class="buycart-img" data-id="{{index}}"  data-index="{{indexItem}}" bindtap="minusCount" src="/image/buycart_rm.png"></image>
                       <view class='num'>{{item.num}}</view>
-                      <image mode='widthFix' class="buycart-img" src="/image/buycart_add.png"></image>
+                      <image mode='widthFix' class="buycart-img" data-id="{{index}}"  data-index="{{indexItem}}"  bindtap="addCount" src="/image/buycart_add.png"></image>
                     </view>               
                   </view>
                 </view>
@@ -42,13 +42,12 @@
 </scroll-view >
   <view class='buy-box'>
     <view class='choose-all'>
-      <icon wx:if="{{selectAllStatus}}" type="success_circle" bindtap="selectAll"/>
-      <icon wx:else type="circle" bindtap="selectAll"/>
-      <text>全选</text>
+      <icon wx:if="{{selectAllStatus}}" type="success_circle" bindtap="selectAll"  size='20'/>
+      <icon wx:else type="circle" bindtap="selectAll" size='20'/>
     </view>
     <view class='buycart-price'>
-      <view class='total-price'>￥100</view>
-      <view class='deliver-fee'>0</view>
+      <view class='total-price'>合计：<text class='product-price'>￥{{totalPrice}}</text></view>
+      <view class='deliver-fee'>配送费￥0.00</view>
     </view>
     <view class='buy' bindtap='submitOrder'>去结算</view>
   </view>

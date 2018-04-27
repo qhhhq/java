@@ -6,6 +6,7 @@ page {
 }
 .shop-name{
   flex:1;
+  margin-left: 20rpx;
 }
 .product-img{
   width: 160rpx;
@@ -56,14 +57,25 @@ page {
 }
 .buycart-price{
   flex: 1;
-  padding: 15rpx;
+  font-size: 30rpx;
 }
 .buy{
-  padding: 15rpx;
+  height: 100%;
+  padding: 28rpx 40rpx;
+  background: #3cc51f;
+  color: #fff;
+}
+.buycart-img{
+  width: 50rpx;
+  height: 50rpx;
 }
 .buycart-num{
   display: flex;
 }
 .num{
   padding: 0 20rpx;
+}
+.deliver-fee{
+  font-size: 25rpx;
+  color: #999;
 }

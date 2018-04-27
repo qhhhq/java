@@ -45,8 +45,8 @@
       </view>
     </view>
 
-    <view class='input-row'>
-      保存地址
+    <view class='input-row save-deliver'>
+        <button type="primary" plain="true">保存地址</button>
     </view>
 
   </view>

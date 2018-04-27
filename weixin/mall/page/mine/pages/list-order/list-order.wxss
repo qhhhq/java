@@ -9,6 +9,9 @@ button {
   border-radius: 60rpx;
   border: solid 1px #3cc51f;
 }
+button[type=default]{
+  color: #3cc51f;
+}
 .category, .kind-list-item-hd{
   border-bottom: solid 1px #ECECEC;
 }

@@ -78,7 +78,7 @@ page {
     overflow: hidden;
 }
 .message-icon{
-  width: 60rpx;
-  height:60rpx;
+  width: 50rpx;
+  height:50rpx;
   border-radius: 60rpx;
 }

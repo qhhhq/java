@@ -3,8 +3,8 @@
 // 获取显示区域长宽
 const device = wx.getSystemInfoSync()
 const W = device.windowWidth
-//const H = device.windowHeight - 50
-const H = device.windowWidth
+const H = device.windowHeight - 50
+//const H = device.windowWidth
 
 let cropper = require('../../../../welCropper/welCropper.js');
 
