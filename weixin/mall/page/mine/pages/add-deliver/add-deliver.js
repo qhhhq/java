@@ -1,4 +1,6 @@
 // page/mine/pages/add-deliver/add-deliver.js
+const utils = require('../../../../utils/util')
+
 Page({
 
   /**
@@ -65,14 +67,15 @@ Page({
   },
 
   chooseLocation: function () {
-    var that = this
-    wx.chooseLocation({
-      success: function (res) {
-        console.log(res)
-        that.setData({
-          locationAddress: res.address
-        })
-      }
+    var self = this
+    utils.chooseLocation(function (res) {
+      console.log(res)
+      self.setData({
+        locationAddress: res.address
+      })
+
     })
-  }
+  },
+
+  
 })

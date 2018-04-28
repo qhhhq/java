@@ -14,6 +14,52 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+function openLocationSetting(successCallback) {
+  wx.openSetting({
+    success: (res) => {
+      if (!res.authSetting['scope.userLocation']) {
+        showLocationRemind(successCallback);
+      }
+    }, fail: (res) => {
+      if (!res.authSetting['scope.userLocation']) {
+        showLocationRemind(successCallback);
+      }
+    }
+  })
+}
+
+function showLocationRemind(successCallback) {
+  wx.showModal({
+    title: '温馨提醒',
+    content: '需要获取您的地理位置才能使用小程序',
+    showCancel: false,
+    confirmText: '获取位置',
+    success: function (res) {
+      if (res.confirm) {
+        chooseLocation(successCallback);
+      }
+    }, fail: (res) => {
+      chooseLocation(successCallback);
+    }
+  })
+}
+
+function chooseLocation(successCallback) {
+  wx.chooseLocation({
+    success: function (res) {
+      typeof successCallback == "function" && successCallback(res)
+    }
+  })
+  wx.getSetting({
+    success(res) {
+      if (!res.authSetting['scope.userLocation']) {
+        openLocationSetting(successCallback)
+      }
+    }
+  })
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  chooseLocation: chooseLocation
 }
