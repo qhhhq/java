@@ -7,6 +7,9 @@
           <view class='user-name'>...</view>
           <view class='user-leave'>普通用户</view>
         </view>
+        <view>
+          <navigator url='../../page/shop/shop'>wode</navigator>
+        </view>
       </view>
     </view>
     

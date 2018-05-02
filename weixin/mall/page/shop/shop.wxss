@@ -1,0 +1,35 @@
+/* page/shop/shop.wxss */
+.shop{
+}
+.head{
+  background: #5AC4B6;
+  color: #fff;
+}
+.top{
+  display: flex;
+  padding: 30rpx;
+}
+.shop-name{
+  flex: 1;
+}
+.menus{
+  display: flex;
+}
+.menu{
+  flex: 1;
+  padding: 30rpx;
+  text-align: center;
+}
+.menu-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.setting-icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+.shop-index{
+  margin-top: 30rpx;
+  color: #5AC4B6;
+  
+}

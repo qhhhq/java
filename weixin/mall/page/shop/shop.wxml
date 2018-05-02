@@ -1,0 +1,51 @@
+<!--page/shop/shop.wxml-->
+<view class='shop'>
+  <view class='head'>
+    <view class='top'>
+    <view class='shop-name'>aa</view>
+    <image class="setting-icon" src="/image/shop/setting.png"></image>
+    </view>
+    <view class='menus'>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/shoudan.png"></image>
+        <view>点单收银</view>
+      </view>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/shoudan.png"></image>
+        <view>在线订单</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='shop-index'>
+    <view class='menus'>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>商品录入</view>
+      </view>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>商品管理</view>
+      </view>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>在线订单</view>
+      </view>
+    </view>
+
+    <view class='menus'>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>退货管理</view>
+      </view>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>库存管理</view>
+      </view>
+      <view class='menu'>
+        <image class="menu-img" src="/image/shop/add_product.png"></image>
+        <view>财务报表</view>
+      </view>
+    </view>
+  </view>
+</view>
