@@ -1,0 +1,17 @@
+.head{
+  padding: 30rpx;
+  border-bottom: dotted 1px #5AC4B6;
+  display: flex;
+}
+.prodict-img{
+  width: 160rpx;
+  height: 160rpx;
+}
+.img-view{
+  padding: 5rpx;
+  border: solid 1px #5AC4B6;
+}
+.code-view{
+  flex: 1;
+  margin-left: 20rpx;
+}

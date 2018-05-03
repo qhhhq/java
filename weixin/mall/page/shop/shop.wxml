@@ -6,10 +6,10 @@
     <image class="setting-icon" src="/image/shop/setting.png"></image>
     </view>
     <view class='menus'>
-      <view class='menu'>
+      <navigator url="/page/shop/pages/cash-register/cash-register" class='menu'>
         <image class="menu-img" src="/image/shop/shoudan.png"></image>
         <view>点单收银</view>
-      </view>
+      </navigator>
       <view class='menu'>
         <image class="menu-img" src="/image/shop/shoudan.png"></image>
         <view>在线订单</view>
@@ -19,10 +19,10 @@
 
   <view class='shop-index'>
     <view class='menus'>
-      <view class='menu'>
+      <navigator url="/page/shop/pages/add-product/add-product" class='menu'>
         <image class="menu-img" src="/image/shop/add_product.png"></image>
         <view>商品录入</view>
-      </view>
+      </navigator>
       <view class='menu'>
         <image class="menu-img" src="/image/shop/add_product.png"></image>
         <view>商品管理</view>

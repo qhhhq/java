@@ -1,0 +1,89 @@
+/* page/shop/pages/cash-register/cash-register.wxss */
+.head{
+  display: flex;
+  padding: 30rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: solid 1px #5AC4B6;
+  background: #fff;
+  z-index: 100;
+}
+.head-icon{
+  width: 50rpx;
+  height: 50rpx;
+}
+.search-input{
+  flex: 1;
+  margin: 0 30rpx;
+}
+.content{
+  margin-top: 120rpx;
+}
+.list-item{
+  display: flex;
+  padding: 20rpx 0;
+  text-align: center;
+  border-bottom: dotted 1px #5AC4B6;
+}
+.iten-index{
+  width: 50rpx;
+}
+.item-img{
+   width: 90rpx;
+}
+.prodict-img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}
+.item-name{
+   flex: 1;
+   text-align: left;
+}
+.item-model{
+  width: 100rpx;
+}
+.item-price{
+  width: 100rpx;
+  text-align: right;
+}
+.item-num{
+  width: 80rpx;
+  text-align: right;
+}
+.item-total{
+  width: 120rpx;
+  display:block;
+  white-space: pre-wrap;
+}
+.bottom{
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #5AC4B6;
+  color: #fff;
+}
+.ctrl-box{
+  display: flex;
+  padding: 20rpx;
+}
+.price{
+  flex: 1;
+}
+button{
+  line-height: 50rpx;
+  padding: 20rpx 30rpx;
+  font-size: 35rpx;
+}
+.price-input{
+  border: solid 1px #fff;
+  padding: 5rpx;
+  margin-right:20rpx;
+  border-radius: 10rpx;
+}
+.phcolor{
+  color: #fff;
+}

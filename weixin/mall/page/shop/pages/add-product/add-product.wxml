@@ -1,0 +1,19 @@
+<view>
+  <view class='head'>
+    <view class='img-view'>
+      <image class="prodict-img" src="/image/shuiguo.jpg"></image>
+    </view>    
+    <view class='code-view'>
+      <view class='code'>
+        <input class="price-input" type='digit' name="name" value="{{name}}" placeholder="输入实付金额" />
+      </view>
+      <view class='type'>
+        <input class="price-input" type='digit' name="name" value="{{name}}" placeholder="输入实付金额" />
+      </view>
+    </view>
+  </view>
+
+  <view class=''>
+  
+  </view>
+</view>

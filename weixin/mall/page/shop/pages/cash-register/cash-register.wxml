@@ -1,0 +1,44 @@
+<view class='shop'>
+  <view class='head'>
+    <image class="head-icon" src="/image/shop/scan_code.png"></image>
+    <input class="search-input" name="name" value="{{name}}" placeholder="这是一个输入框" />
+    <image class="head-icon" src="/image/shop/clear.png"></image>
+  </view>
+  <view class='content'>
+    <scroll-view scroll-y="true" class="scoll-h" >
+      <view class='product-list'>
+        <view class='list-item'>
+          <view class='iten-index'>序</view>
+          <view class='item-img'>图片</view>
+          <view class='item-name'>品名</view>
+          <view class='item-model'>规格</view>
+          <view class='item-price'>价格</view>
+          <view class='item-num'>数量</view>
+          <view class='item-total'>小计</view>
+        </view>
+
+        <view class='list-item'>
+          <view class='iten-index'>1</view>
+          <view class='item-img'><image class="prodict-img" src="/image/shuiguo.jpg"></image></view>
+          <view class='item-name'>规定应该从父元素继承边框样式</view>
+          <view class='item-model'>规格</view>
+          <view class='item-price'>100.00</view>
+          <view class='item-num'>10</view>
+          <view class='item-total'>1000.00</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='bottom'>
+    <view class='ctrl-box'>
+      <view class='price'>
+        <view>应付：￥100.00</view>
+        <view><input class="price-input" placeholder-class="phcolor" type='digit' name="name" value="{{name}}" placeholder="输入实付金额" /></view>
+      </view>
+      <view class='price'>找零：￥0.00</view>
+      <view class='butt'>
+        <button>确定</button>
+      </view>
+    </view>
+  </view>
+</view>
