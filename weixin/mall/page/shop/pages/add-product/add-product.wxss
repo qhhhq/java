@@ -3,6 +3,9 @@
   border-bottom: dotted 1px #5AC4B6;
   display: flex;
 }
+.border-bottom{
+  border-bottom: solid 1px #ECECEC;
+}
 .prodict-img{
   width: 160rpx;
   height: 160rpx;
@@ -14,4 +17,19 @@
 .code-view{
   flex: 1;
   margin-left: 20rpx;
+}
+.input-box{
+  padding: 0 30rpx;
+}
+.input-row{
+  display: flex;
+  padding: 30rpx 0;
+  align-items: center;
+  width: 100%;
+}
+.input-label{
+  width: 180rpx;
+}
+.input-text{
+  width: 100%;
 }
